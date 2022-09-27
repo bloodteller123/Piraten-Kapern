@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/PlayerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +16,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -44,6 +45,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -56,9 +59,15 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="pirate" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlayerTest.rollAllTest">
-    <configuration name="PlayerTest.InitializeSkulls" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.PlayerTest.skullCheckTest">
+    <configuration name="FortuneCardTest.InitializeFCTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
         <pattern>
@@ -67,24 +76,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="pirate.PlayerTest" />
-      <option name="METHOD_NAME" value="InitializeSkulls" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayerTest.addSkullsIndicesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="COMP5104A1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pirate.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="pirate.PlayerTest" />
-      <option name="METHOD_NAME" value="addSkullsIndicesTest" />
+      <option name="MAIN_CLASS_NAME" value="pirate.FortuneCardTest" />
+      <option name="METHOD_NAME" value="InitializeFCTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -138,13 +131,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PlayerTest.skullCheckTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COMP5104A1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pirate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pirate" />
+      <option name="MAIN_CLASS_NAME" value="pirate.PlayerTest" />
+      <option name="METHOD_NAME" value="skullCheckTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PlayerTest.skullCheckTest" />
+        <item itemvalue="JUnit.FortuneCardTest.InitializeFCTest" />
         <item itemvalue="JUnit.PlayerTest.rollAllTest" />
         <item itemvalue="JUnit.PlayerTest.rollSomeTest" />
         <item itemvalue="JUnit.PlayerTest.rollTest" />
-        <item itemvalue="JUnit.PlayerTest.addSkullsIndicesTest" />
-        <item itemvalue="JUnit.PlayerTest.InitializeSkulls" />
       </list>
     </recent_temporary>
   </component>

@@ -58,4 +58,18 @@ public class PlayerTest {
         assertTrue(p.getSkulls().size() >= 5);
 
     }
+
+    @Test
+    void skullCheckTest(){
+        Player p = new Player(0,0);
+        ArrayList<Die> dice = new ArrayList<>(Arrays.asList(new Die("coin   "),new Die("coin   "),
+                new Die("coin   "),new Die("skull  "),new Die("skull  "),new Die("skull  "),
+                new Die("coin   "), new Die("coin   ")));
+        p.setDice(dice);
+        p.addSkulls(dice);
+        p.skullCheck();
+        assertTrue(p.getSkulls().size()==3);
+        assertTrue(p.isEnd());
+    }
+
 }
