@@ -18,7 +18,7 @@ public class PlayerTest {
     }
 
     @Test
-    void InitializeSkulls(){
+    void InitializeSkullsTest(){
         Player p = new Player(0,0);
         assertNotNull(p.getSkulls());
     }
@@ -28,7 +28,7 @@ public class PlayerTest {
         ArrayList<Die> dice = new ArrayList<>(Arrays.asList(new Die("skull  "),new Die("skull  "),
                 new Die("skull  "),new Die("skull  "),new Die("skull  "),new Die("skull  "),
                 new Die("skull  "), new Die("skull  ")));
-        addSkulls(dice);
+        p.addSkulls(dice);
         assertEquals(8, p.getSkulls().size());
     }
 }

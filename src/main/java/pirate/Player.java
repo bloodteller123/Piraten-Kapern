@@ -15,12 +15,13 @@ public class Player implements Serializable {
     private final int id;
     private static List<Die> dice;;
     private boolean quit;
-
+    private Set<String> skulls_index;;
     public Player(int id, int score){
         this.id = id;
         this.score = score;
         this.quit = false;
         this.dice = initializeDice();
+        skulls_index = new HashSet<>();
     }
 
     public List<Die> initializeDice(){
@@ -29,6 +30,23 @@ public class Player implements Serializable {
             d.add(new Die(""));
         }
         return d;
+    }
+
+    public void addSkulls(List<Die> d){
+        //https://stackoverflow.com/questions/23674624/how-do-i-convert-a-java-8-intstream-to-a-list
+        List<Integer> ind = IntStream.range(0, d.size())
+                .filter(i -> Objects.equals("skull", d.get(i).getFace().trim()))
+                .boxed().collect(Collectors.toList()) ;
+//        System.out.println("Skull index");
+//        System.out.println("Skull size before add: "+this.skulls_index.size());
+        List<String> inds = ind.stream().map(Object::toString)
+                .collect(Collectors.toList());
+//        inds.forEach(System.out::print);
+        this.skulls_index.addAll(inds);
+    }
+
+    public Set<String> getSkulls(){
+        return this.skulls_index;
     }
 
     public List<Die> getDice(){
