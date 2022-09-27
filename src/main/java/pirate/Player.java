@@ -45,6 +45,23 @@ public class Player implements Serializable {
         this.skulls_index.addAll(inds);
     }
 
+    public void rerollSome(String[] index){
+        for(int i=0;i<index.length;i++){
+            this.dice.get(Integer.parseInt(index[i])).roll();
+        }
+        addSkulls(this.dice);
+    }
+
+    public void rerollAll(){
+        for(int i=0;i<this.dice.size();i++){
+            if(!this.skulls_index.contains(Integer.toString(i))) {
+//                System.out.println(i);
+                this.dice.get(i).roll();
+            }
+        }
+        addSkulls(this.dice);
+    }
+
     public Set<String> getSkulls(){
         return this.skulls_index;
     }
@@ -53,4 +70,7 @@ public class Player implements Serializable {
         return this.dice;
     }
 
+    public void setDice(List<Die> ld){
+        this.dice.addAll(ld);
+    }
 }
