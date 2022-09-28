@@ -32,6 +32,23 @@ public class Player implements Serializable {
         return d;
     }
 
+    public boolean isEnd(){
+        return this.quit;
+    }
+
+    public void endGame(){
+        quit=true;
+
+        System.out.println("Turn ends");
+    }
+
+    public void skullCheck(){
+        System.out.println("here");
+        if(this.skulls_index.size() == 3){
+            endGame();
+        }
+    }
+
     public void addSkulls(List<Die> d){
         //https://stackoverflow.com/questions/23674624/how-do-i-convert-a-java-8-intstream-to-a-list
         List<Integer> ind = IntStream.range(0, d.size())
