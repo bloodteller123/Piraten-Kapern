@@ -88,6 +88,11 @@ public class Player implements Serializable {
     }
 
     public void setDice(List<Die> ld){
+        this.dice = new ArrayList<>();
         this.dice.addAll(ld);
+    }
+
+    public int getScore(){
+        return this.score;
     }
 }
