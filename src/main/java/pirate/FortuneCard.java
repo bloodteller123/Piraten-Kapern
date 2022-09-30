@@ -24,4 +24,13 @@ public class FortuneCard {
     public List<String> getFC(){
         return this.cards;
     }
+
+    public String drawCard(){
+        if(index==cards.size()) index=0;
+        return cards.get(index++);
+    }
+
+    public int getIndex(){
+        return this.index;
+    }
 }
