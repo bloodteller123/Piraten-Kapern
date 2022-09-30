@@ -95,4 +95,10 @@ public class Player implements Serializable {
     public int getScore(){
         return this.score;
     }
+    public void reset(){
+        this.score = 0;
+        this.dice = new ArrayList<>();
+        this.quit = false;
+        this.skulls_index = new HashSet<>();
+    }
 }
