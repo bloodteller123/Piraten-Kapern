@@ -71,7 +71,4 @@ public class PlayerTest {
         assertTrue(p.getSkulls().size()==3);
         assertTrue(p.isEnd());
     }
-
-
-
 }

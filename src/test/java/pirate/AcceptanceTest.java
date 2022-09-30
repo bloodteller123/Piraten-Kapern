@@ -6,8 +6,8 @@ import org.junit.jupiter.api.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AcceptanceTest {
@@ -43,7 +43,32 @@ public class AcceptanceTest {
     @Test
     @Order(2)
     public void Test45(){
-        System.out.println("TEST 45");
+        Player p = new Player(0,0);
+        p.initializeDice();
+        // on first roll
+        p.getDice().forEach(d -> d.roll());
+
+        //1 skull, 4 parrots, 3 swords
+        p.setDice(new ArrayList<>(Arrays.asList(new Die("skull  "),new Die("parrot "),
+                new Die("parrot "),new Die("parrot "),new Die("parrot "),new Die("saber  "),
+                new Die("saber  "), new Die("saber  "))));
+
+        p.rerollSome(new String[]{"5", "6", "7"});
+        assertEquals("parrot ", p.getDice().get(1).getFace());
+        assertEquals("parrot ", p.getDice().get(2).getFace());
+        assertEquals("parrot ", p.getDice().get(3).getFace());
+        assertEquals("parrot ", p.getDice().get(4).getFace());
+        p.reset();
+        p.setDice(new ArrayList<>(Arrays.asList(new Die("skull  "),new Die("parrot "),
+                new Die("parrot "),new Die("parrot "),new Die("parrot "),new Die("skull  "),
+                new Die("skull  "), new Die("saber  "))));
+        // check # skulls after re roll
+        p.addSkulls(p.getDice());
+        p.skullCheck();
+        assertEquals(3, p.getSkulls().size());
+        assertTrue(p.isEnd());
+        assertEquals(0, p.getScore());
+        System.out.println("TEST 45 passed");
     }
 
     @Test
