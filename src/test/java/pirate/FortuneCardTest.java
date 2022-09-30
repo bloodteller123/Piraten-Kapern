@@ -9,9 +9,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class FortuneCardTest {
     @Test
-    void InitializeFC() {
+    void InitializeFCTest() {
         FortuneCard fc = new FortuneCard();
         assertNotNull(fc.getFC());
         assertEquals(35, fc.getFC().size());
+    }
+
+    @Test
+    void drawFCTest(){
+        FortuneCard fc = new FortuneCard();
+        assertNotEquals("", fc.drawCard());
+        assertEquals(1, fc.getIndex());
     }
 }
