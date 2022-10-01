@@ -92,6 +92,65 @@ public class Player implements Serializable {
         this.dice = new ArrayList<>();
         this.dice.addAll(ld);
     }
+    public void calculateScore(List<Die> ld){
+        int monkey=0;
+        for(DiceType i : DiceType.values()){
+            int occurrences = (int) ld.stream().filter(die -> die.getFace().equalsIgnoreCase(i.toString())).count();
+
+            if(i.toString().trim().equals("monkey")&& this.card.equals(("MP"))){
+                monkey = occurrences;
+                continue;
+            }
+            
+            if(i.toString().trim().equals("parrot") && this.card.equals(("MP"))) occurrences += monkey;
+            int XofAKind = 0;
+            switch(occurrences){
+                case 3:
+                    XofAKind = 100;
+                    break;
+                case 4:
+                    XofAKind = 200;
+                    break;
+                case 5:
+                    XofAKind = 500;
+                    break;
+                case 6:
+                    XofAKind = 1000;
+                    break;
+                case 7:
+                    XofAKind = 2000;
+                    break;
+                case 8:
+                    XofAKind = 4000;
+                    break;
+                    default: XofAKind=0;
+            }
+            switch(i.toString().trim()){
+                case "skull":
+                    setScore(0);
+                    break;
+                case "diamond":
+                    setScore(100 * occurrences + XofAKind);
+                    break;
+                case "monkey":
+                    setScore(XofAKind);
+                    break;
+                case "saber":
+                    setScore(XofAKind);
+                    break;
+                case "coin":
+                    setScore(100 * occurrences + XofAKind);
+                    break;
+                case "parrot":
+                    setScore(XofAKind);
+                    break;
+            }
+        }
+        // full chest
+        if(checkFullChest()){
+            setScore(500);
+        };
+    }
     public boolean checkFullChest(){
         if(this.skulls_index.size() >1) return false;
         final Map<String, Integer> counts = new HashMap<>();
