@@ -16,6 +16,7 @@ public class Player implements Serializable {
     private static List<Die> dice;;
     private boolean quit;
     private Set<String> skulls_index;;
+    private String card = "";
     public Player(int id, int score){
         this.id = id;
         this.score = score;
@@ -91,6 +92,22 @@ public class Player implements Serializable {
         this.dice = new ArrayList<>();
         this.dice.addAll(ld);
     }
+    public boolean checkFullChest(){
+        if(this.skulls_index.size() >1) return false;
+        final Map<String, Integer> counts = new HashMap<>();
+        for(Die i : this.dice){
+            if(!i.toString().equals("coin   ") && !i.toString().equals("diamond"))
+                counts.merge(i.toString(), 1, Integer::sum);
+        }
+        if(this.card.equals("MP")){
+            counts.put("parrot ",counts.getOrDefault("parrot ", 0) +counts.get("monkey "));
+            counts.remove("monkey ");
+        }
+        for(Map.Entry<String, Integer> entry : counts.entrySet()){
+            if(entry.getValue() <3) return false;
+        }
+        return true;
+    }
 
     public int getScore(){
         return this.score;
@@ -100,5 +117,6 @@ public class Player implements Serializable {
         this.dice = new ArrayList<>();
         this.quit = false;
         this.skulls_index = new HashSet<>();
+        this.card = "";
     }
 }
