@@ -95,4 +95,17 @@ public class PlayerTest {
         p.setCard(card);
         assertEquals(card, p.getCard());
     }
+
+    @Test
+    void setScoreTest(){
+        Player p = new Player(0,0);
+        p.setScore(200);
+        assertEquals(200, p.getScore());
+        p.setScore(300);
+        assertEquals(500, p.getScore());
+        p.setScore(-500);
+        assertEquals(0, p.getScore());
+        p.setScore(-100);
+        assertEquals(0, p.getScore());
+    }
 }
