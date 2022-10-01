@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +51,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.general"
+    "settings.editor.selected.configurable": "project.propCompiler"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -67,8 +68,8 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlayerTest.calculateScoreTest">
-    <configuration name="AcceptanceTest.Test47" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AcceptanceTest.Test49">
+    <configuration name="AcceptanceTest.Test49" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
         <pattern>
@@ -78,7 +79,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="pirate" />
       <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
-      <option name="METHOD_NAME" value="Test47" />
+      <option name="METHOD_NAME" value="Test49" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -150,11 +151,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AcceptanceTest.Test49" />
         <item itemvalue="JUnit.PlayerTest.calculateScoreTest" />
         <item itemvalue="JUnit.PlayerTest.setScoreTest" />
         <item itemvalue="JUnit.PlayerTest.getFCTest" />
         <item itemvalue="JUnit.PlayerTest.fullChestTest" />
-        <item itemvalue="JUnit.AcceptanceTest.Test47" />
       </list>
     </recent_temporary>
   </component>
@@ -179,16 +180,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/pirate/AcceptanceTest.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

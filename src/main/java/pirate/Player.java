@@ -95,14 +95,19 @@ public class Player implements Serializable {
     public void calculateScore(List<Die> ld){
         int monkey=0;
         for(DiceType i : DiceType.values()){
-            int occurrences = (int) ld.stream().filter(die -> die.getFace().equalsIgnoreCase(i.toString())).count();
 
+            int occurrences = (int) ld.stream().filter(die -> die.getFace().equalsIgnoreCase(i.toString())).count();
+            if((i.toString().trim().equals("coin") && this.card.equals("coin")) ||
+                    (i.toString().trim().equals("diamond") && this.card.equals("diamond"))){
+                occurrences ++;
+            }
             if(i.toString().trim().equals("monkey")&& this.card.equals(("MP"))){
                 monkey = occurrences;
                 continue;
             }
-            
+            //
             if(i.toString().trim().equals("parrot") && this.card.equals(("MP"))) occurrences += monkey;
+            System.out.println(occurrences);
             int XofAKind = 0;
             switch(occurrences){
                 case 3:
@@ -121,6 +126,7 @@ public class Player implements Serializable {
                     XofAKind = 2000;
                     break;
                 case 8:
+                case 9:
                     XofAKind = 4000;
                     break;
                     default: XofAKind=0;
