@@ -108,4 +108,30 @@ public class PlayerTest {
         p.setScore(-100);
         assertEquals(0, p.getScore());
     }
+
+    @Test
+    void calculateScoreTest(){
+        Player p = new Player(0,0);
+        ArrayList<Die> dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("monkey "),new Die("monkey "),new Die("monkey "),new Die("monkey "),
+                new Die("monkey "), new Die("monkey ")));
+        p.setDice(dice);
+        p.calculateScore(dice);
+        assertEquals(4500, p.getScore());
+        p.reset();
+        dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("parrot "),new Die("monkey "),new Die("monkey "),new Die("monkey "),
+                new Die("parrot "), new Die("monkey ")));
+        p.setCard("MP");
+        p.setDice(dice);
+        p.calculateScore(dice);
+        assertEquals(4500, p.getScore());
+        p.reset();
+        dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("monkey "),new Die("monkey "),new Die("monkey "),new Die("monkey "),
+                new Die("diamond"), new Die("monkey ")));
+        p.setDice(dice);
+        p.calculateScore(dice);
+        assertEquals(2600, p.getScore());
+    }
 }
