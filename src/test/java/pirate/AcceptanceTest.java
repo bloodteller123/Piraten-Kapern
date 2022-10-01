@@ -5,6 +5,7 @@ import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -145,5 +146,31 @@ public class AcceptanceTest {
         assertTrue(p.isEnd());
         assertEquals(0, p.getScore());
         System.out.println("TEST 47 passed");
+    }
+
+    @Test
+    public void Test49(){
+        Player p = new Player(0,0);
+        p.initializeDice();
+        // on first roll
+        p.getDice().forEach(d -> d.roll());
+        //1 skull, 2 parrots, 3 swords 2 coins
+        List<Die> dice = new ArrayList<>(Arrays.asList(new Die("skull  "),new Die("parrot "),
+                new Die("parrot "),new Die("coin   "),new Die("coin   "),new Die("saber  "),
+                new Die("saber  "), new Die("saber  ")));
+        p.setDice(dice);
+        p.setCard("coin");
+        p.rerollSome(new String[]{"1", "2"});
+        dice = new ArrayList<>(Arrays.asList(new Die("skull  "),new Die("coin   "),
+                new Die("coin   "),new Die("coin   "),new Die("coin   "),new Die("saber  "),
+                new Die("saber  "), new Die("saber  ")));
+        p.setDice(dice);
+        p.rerollSome(new String[]{"5", "6","7"});
+        dice = new ArrayList<>(Arrays.asList(new Die("skull  "),new Die("coin   "),
+                new Die("coin   "),new Die("coin   "),new Die("coin   "),new Die("coin   "),
+                new Die("coin   "), new Die("coin   ")));
+        p.setDice(dice);
+        p.calculateScore(dice);
+        assertEquals(4800, p.getScore());
     }
 }
