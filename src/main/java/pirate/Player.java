@@ -116,6 +116,10 @@ public class Player implements Serializable {
     public String getCard(){
         return this.card;
     }
+    public void setScore(int val) {
+        this.score += val;
+        this.score = this.score<0? 0 : this.score;
+    }
     public int getScore(){
         return this.score;
     }
