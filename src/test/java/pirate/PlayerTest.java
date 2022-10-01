@@ -86,4 +86,13 @@ public class PlayerTest {
         p.setDice(dice);
         assertTrue(p.checkFullChest());
     }
+
+    @Test
+    void getFCTest(){
+        Player p = new Player(0,0);
+        FortuneCard fc = new FortuneCard();
+        String card = fc.drawCard();
+        p.setCard(card);
+        assertEquals(card, p.getCard());
+    }
 }
