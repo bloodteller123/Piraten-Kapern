@@ -71,4 +71,19 @@ public class PlayerTest {
         assertTrue(p.getSkulls().size()==3);
         assertTrue(p.isEnd());
     }
+    @Test
+    void fullChestTest(){
+        Player p = new Player(0,0);
+        ArrayList<Die> dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("monkey "),new Die("monkey "),new Die("monkey "),new Die("skull  "),
+                new Die("monkey "), new Die("monkey ")));
+        p.setDice(dice);
+        assertFalse(p.checkFullChest());
+
+        dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("monkey "),new Die("monkey "),new Die("monkey "),new Die("monkey "),
+                new Die("monkey "), new Die("monkey ")));
+        p.setDice(dice);
+        assertTrue(p.checkFullChest());
+    }
 }
