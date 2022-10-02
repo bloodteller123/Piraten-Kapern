@@ -64,7 +64,9 @@ public class Player implements Serializable {
 //        inds.forEach(System.out::print);
         this.skulls_index.addAll(inds);
     }
-
+    public void removeSkull(String index){
+        this.skulls_index.remove(index);
+    }
     public void rerollSome(String[] index){
         for(int i=0;i<index.length;i++){
             this.dice.get(Integer.parseInt(index[i])).roll();
