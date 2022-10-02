@@ -1213,4 +1213,33 @@ public class AcceptanceTest {
         p.calculateScore(p.getDice());
         assertEquals(1300, p.getInfo()[0]);
     }
+    @Test
+    public void Test125(){
+        Player p = new Player(0, 0);
+        p.initializeDice();
+        p.setCard("4-sword");
+        // on first roll
+        p.getDice().forEach(d -> d.roll());
+        //1 skull, 2 parrots, 1 swords 0 coins 1 diamonds 3 monkeys
+        p.setDice(new ArrayList<>(Arrays.asList(new Die("saber  "), new Die("diamond"),
+                new Die("skull  "), new Die("monkey "), new Die("monkey "), new Die("monkey "),
+                new Die("parrot "), new Die("parrot "))));
+        p.activateSeaBattles(4);
+        p.addSkulls(p.getDice());
+        p.skullCheck();
+        p.rerollSome(new String[]{"6","7"});
+        //1 skull, 0 parrots, 3 swords 0 coins 1 diamonds 3 monkeys
+        p.setDice(new ArrayList<>(Arrays.asList(new Die("saber  "), new Die("diamond"),
+                new Die("skull  "), new Die("monkey "), new Die("monkey "), new Die("monkey "),
+                new Die("saber  "), new Die("saber  "))));
+        p.addSkulls(p.getDice());
+        p.skullCheck();
+        p.rerollSome(new String[]{"3","4","5"});
+        p.setDice(new ArrayList<>(Arrays.asList(new Die("saber  "), new Die("diamond"),
+                new Die("skull  "), new Die("saber  "), new Die("parrot "), new Die("parrot "),
+                new Die("saber  "), new Die("saber  "))));
+        p.calculateScore(p.getDice());
+        assertEquals(1300, p.getInfo()[0]);
+        assertEquals(0, p.getInfo()[1]);
+    }
 }
