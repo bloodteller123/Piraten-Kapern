@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -187,5 +188,18 @@ public class PlayerTest {
         Player p = new Player(0,0);
         p.activateSeaBattles(4);
         assertEquals(4, p.getSeabattleNum());
+    }
+    @Test
+    public void checkRollSelectionTest(){
+        Player p = new Player(0,0);
+        ArrayList<Die> dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("coin  "),new Die("monkey "),new Die("diamond"),new Die("monkey "),
+                new Die("skull  "), new Die("skull  ")));
+        p.setDice(dice);
+        p.addSkulls(dice);
+        p.addToTreasures(new String[]{"3"});
+        assertFalse(p.checkRollSelection(new String[]{"6","7"}));
+        assertFalse(p.checkRollSelection(new String[]{"3"}));
+        assertTrue(p.checkRollSelection(new String[]{"1", "2"}));
     }
 }
