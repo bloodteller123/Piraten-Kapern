@@ -134,4 +134,13 @@ public class PlayerTest {
         p.calculateScore(dice);
         assertEquals(2600, p.getScore());
     }
+
+    @Test
+    public void getInfoTest(){
+        Player p = new Player(0,0);
+        int[] info = p.getInfo();
+        assertEquals(2, info.length);
+        assertEquals(0, info[0]);
+        assertEquals(0, info[1]);
+    }
 }
