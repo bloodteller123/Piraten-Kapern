@@ -143,4 +143,17 @@ public class PlayerTest {
         assertEquals(0, info[0]);
         assertEquals(0, info[1]);
     }
+
+    @Test
+    public void removeSkullTest(){
+        Player p = new Player(0,0);
+        ArrayList<Die> dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("monkey "),new Die("monkey "),new Die("monkey "),new Die("monkey "),
+                new Die("skull  "), new Die("skull  ")));
+        p.setDice(dice);
+        p.addSkulls(dice);
+        assertTrue(p.getSkulls().size()==2);
+        p.removeSkull("6");
+        assertTrue(p.getSkulls().size()==1);
+    }
 }
