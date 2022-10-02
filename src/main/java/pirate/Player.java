@@ -26,6 +26,7 @@ public class Player implements Serializable {
         put(4, 1000);
     }};
     private boolean isIOS=false;
+    private ArrayList<String> values = new ArrayList<>(Arrays.asList("1","2","3"));
     public Player(int id, int score){
         this.id = id;
         this.score = score;
@@ -102,11 +103,12 @@ public class Player implements Serializable {
         }
         addSkulls(this.dice);
     }
-
     public void rerollAll(){
         for(int i=0;i<this.dice.size();i++){
             if(!this.skulls_index.contains(Integer.toString(i))) {
-//                System.out.println(i);
+                if(this.treaures!=null && this.treaures.contains(Integer.toString(i))){
+                    continue;
+                }
                 this.dice.get(i).roll();
             }
         }
