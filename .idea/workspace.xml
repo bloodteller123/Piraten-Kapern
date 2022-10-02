@@ -73,7 +73,7 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AcceptanceTest.Test81">
+  <component name="RunManager" selected="JUnit.AcceptanceTest.Test82">
     <configuration name="AcceptanceTest.Test76" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
@@ -138,7 +138,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest.removeSkullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AcceptanceTest.Test82" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
         <pattern>
@@ -147,8 +147,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="pirate.PlayerTest" />
-      <option name="METHOD_NAME" value="removeSkullTest" />
+      <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
+      <option name="METHOD_NAME" value="Test82" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -156,11 +156,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AcceptanceTest.Test82" />
         <item itemvalue="JUnit.AcceptanceTest.Test81" />
         <item itemvalue="JUnit.AcceptanceTest.Test78" />
         <item itemvalue="JUnit.AcceptanceTest.Test77" />
         <item itemvalue="JUnit.AcceptanceTest.Test76" />
-        <item itemvalue="JUnit.PlayerTest.removeSkullTest" />
       </list>
     </recent_temporary>
   </component>
