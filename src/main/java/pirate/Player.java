@@ -19,6 +19,12 @@ public class Player implements Serializable {
     private String card = "";
     private int deductedPoints;
     private Set<String> treaures=null;
+    private int seabattles = 0;
+    private Map<Integer, Integer> seabattles_score = new HashMap(){{
+        put(2, 300);
+        put(3, 500);
+        put(4, 1000);
+    }};
     public Player(int id, int score){
         this.id = id;
         this.score = score;
@@ -27,6 +33,7 @@ public class Player implements Serializable {
         skulls_index = new HashSet<>();
         this.deductedPoints = 0;
         this.treaures = new HashSet<>();
+        this.seabattles=0;
     }
 
     public List<Die> initializeDice(){
@@ -104,6 +111,12 @@ public class Player implements Serializable {
             tres.add(this.dice.get(Integer.parseInt(i)));
         }
         return tres;
+    }
+    public void activateSeaBattles(int num){
+        this.seabattles=num;
+    }
+    public int getSeabattleNum(){
+        return this.seabattles;
     }
     public void calculateScore(List<Die> ld){
         int monkey=0;
