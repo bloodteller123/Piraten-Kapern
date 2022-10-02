@@ -23,7 +23,7 @@ public class AcceptanceTest {
 
     @Test
     @Order(1)
-    public void Test44(){
+    public void Test45(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -43,7 +43,7 @@ public class AcceptanceTest {
 
     @Test
     @Order(2)
-    public void Test45(){
+    public void Test46(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -74,7 +74,7 @@ public class AcceptanceTest {
 
     @Test
     @Order(3)
-    public void Test46(){
+    public void Test47(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -105,7 +105,7 @@ public class AcceptanceTest {
 
     @Test
     @Order(4)
-    public void Test47(){
+    public void Test48(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -145,11 +145,11 @@ public class AcceptanceTest {
         assertEquals(3, p.getSkulls().size());
         assertTrue(p.isEnd());
         assertEquals(0, p.getScore());
-        System.out.println("TEST 47 passed");
+        System.out.println("TEST 48 passed");
     }
 
     @Test
-    public void Test49(){
+    public void Test50(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -175,7 +175,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test51(){
+    public void Test52(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -191,7 +191,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test52(){
+    public void Test53(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -213,7 +213,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test53(){
+    public void Test54(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -229,7 +229,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test54(){
+    public void Test55(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -251,7 +251,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test55(){
+    public void Test56(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -267,7 +267,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test56(){
+    public void Test57(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -283,7 +283,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test57(){
+    public void Test58(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -299,7 +299,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test58(){
+    public void Test59(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -321,7 +321,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test59(){
+    public void Test60(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -343,7 +343,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test60(){
+    public void Test61(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -370,7 +370,7 @@ public class AcceptanceTest {
         assertEquals(600, p.getInfo()[0]);
     }
     @Test
-    public void Test61(){
+    public void Test62(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -385,7 +385,7 @@ public class AcceptanceTest {
         assertEquals(1100, p.getInfo()[0]);
     }
     @Test
-    public void Test62(){
+    public void Test63(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -400,7 +400,7 @@ public class AcceptanceTest {
         assertEquals(2100, p.getInfo()[0]);
     }
     @Test
-    public void Test63(){
+    public void Test64(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -415,7 +415,7 @@ public class AcceptanceTest {
         assertEquals(5400, p.getInfo()[0]);
     }
     @Test
-    public void Test64(){
+    public void Test65(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -430,7 +430,7 @@ public class AcceptanceTest {
         assertEquals(5400, p.getInfo()[0]);
     }
     @Test
-    public void Test65(){
+    public void Test66(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -445,7 +445,7 @@ public class AcceptanceTest {
         assertEquals(9000, p.getInfo()[0]);
     }
     @Test
-    public void Test66(){
+    public void Test67(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -472,7 +472,7 @@ public class AcceptanceTest {
         assertEquals(4600, p.getInfo()[0]);
     }
     @Test
-    public void Test67(){
+    public void Test68(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -493,7 +493,7 @@ public class AcceptanceTest {
         assertEquals(400, p.getInfo()[0]);
     }
     @Test
-    public void Test68(){
+    public void Test69(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -514,7 +514,7 @@ public class AcceptanceTest {
         assertEquals(500, p.getInfo()[0]);
     }
     @Test
-    public void Test69(){
+    public void Test70(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -535,7 +535,7 @@ public class AcceptanceTest {
         assertEquals(600, p.getInfo()[0]);
     }
     @Test
-    public void Test70(){
+    public void Test71(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -556,7 +556,7 @@ public class AcceptanceTest {
         assertEquals(500, p.getInfo()[0]);
     }
     @Test
-    public void Test71(){
+    public void Test72(){
         Player p = new Player(0,0);
         p.initializeDice();
         // on first roll
@@ -573,7 +573,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test76(){
+    public void Test77(){
         Player p = new Player(0,0);
         p.initializeDice();
         p.setCard("sorceress");
@@ -589,37 +589,6 @@ public class AcceptanceTest {
         p.removeSkull("1");
         assertEquals(1, p.getSkulls().size());
         p.rerollSome(new String[]{"1"});
-    }
-    @Test
-    public void Test77(){
-        Player p = new Player(0,0);
-        p.initializeDice();
-        p.setCard("sorceress");
-        // on first roll
-        p.getDice().forEach(d -> d.roll());
-        //0 skull, 0 parrots, 1 swords 2 coins 0 diamonds 5 monkeys
-        List<Die> dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
-                new Die("saber  "),new Die("coin   "),new Die("coin   "),new Die("monkey "),
-                new Die("monkey "), new Die("monkey ")));
-        p.setDice(dice);
-        p.addSkulls(dice);
-        assertEquals(0, p.getSkulls().size());
-        p.rerollSome(new String[]{"3"});
-        dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
-                new Die("saber  "),new Die("skull  "),new Die("coin   "),new Die("monkey "),
-                new Die("monkey "), new Die("monkey ")));
-        p.setDice(dice);
-        p.addSkulls(dice);
-        assertEquals(1, p.getSkulls().size());
-        p.removeSkull("3");
-        assertEquals(0, p.getSkulls().size());
-        p.rerollSome(new String[]{"1"});
-        dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
-                new Die("saber  "),new Die("skull  "),new Die("coin   "),new Die("monkey "),
-                new Die("monkey "), new Die("monkey ")));
-        p.setDice(dice);
-        p.calculateScore(dice);
-        assertEquals(600, p.getInfo()[0]);
     }
     @Test
     public void Test78(){
@@ -649,10 +618,41 @@ public class AcceptanceTest {
                 new Die("saber  "),new Die("skull  "),new Die("coin   "),new Die("monkey "),
                 new Die("monkey "), new Die("monkey ")));
         p.setDice(dice);
+        p.calculateScore(dice);
+        assertEquals(600, p.getInfo()[0]);
+    }
+    @Test
+    public void Test79(){
+        Player p = new Player(0,0);
+        p.initializeDice();
+        p.setCard("sorceress");
+        // on first roll
+        p.getDice().forEach(d -> d.roll());
+        //0 skull, 0 parrots, 1 swords 2 coins 0 diamonds 5 monkeys
+        List<Die> dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("saber  "),new Die("coin   "),new Die("coin   "),new Die("monkey "),
+                new Die("monkey "), new Die("monkey ")));
+        p.setDice(dice);
+        p.addSkulls(dice);
+        assertEquals(0, p.getSkulls().size());
+        p.rerollSome(new String[]{"3"});
+        dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("saber  "),new Die("skull  "),new Die("coin   "),new Die("monkey "),
+                new Die("monkey "), new Die("monkey ")));
+        p.setDice(dice);
+        p.addSkulls(dice);
+        assertEquals(1, p.getSkulls().size());
+        p.removeSkull("3");
+        assertEquals(0, p.getSkulls().size());
+        p.rerollSome(new String[]{"1"});
+        dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("saber  "),new Die("skull  "),new Die("coin   "),new Die("monkey "),
+                new Die("monkey "), new Die("monkey ")));
+        p.setDice(dice);
     }
 
     @Test
-    public void Test81(){
+    public void Test82(){
         Player p = new Player(0,0);
         p.initializeDice();
         p.setCard("MP");
@@ -667,7 +667,7 @@ public class AcceptanceTest {
         assertEquals(1100, p.getInfo()[0]);
     }
     @Test
-    public void Test82(){
+    public void Test83(){
         Player p = new Player(0,0);
         p.initializeDice();
         p.setCard("MP");
@@ -693,7 +693,7 @@ public class AcceptanceTest {
         assertEquals(400, p.getInfo()[0]);
     }
     @Test
-    public void Test83(){
+    public void Test84(){
         Player p = new Player(0,0);
         p.initializeDice();
         p.setCard("MP");
@@ -719,7 +719,7 @@ public class AcceptanceTest {
         assertEquals(2000, p.getInfo()[0]);
     }
     @Test
-    public void Test86(){
+    public void Test87(){
         Player p = new Player(0,0);
         p.initializeDice();
         p.setCard("chest");
@@ -750,7 +750,7 @@ public class AcceptanceTest {
         assertEquals(1100, p.getInfo()[0]);
     }
     @Test
-    public void Test91(){
+    public void Test92(){
         Player p = new Player(0,0);
         p.initializeDice();
         p.setCard("chest");
@@ -787,7 +787,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test97(){
+    public void Test98(){
         Player p = new Player(0,0);
         p.initializeDice();
         p.setCard("coin");
@@ -802,7 +802,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void Test98(){
+    public void Test99(){
         Player p = new Player(0,0);
         p.initializeDice();
         p.setCard("captain");
@@ -816,7 +816,7 @@ public class AcceptanceTest {
         assertEquals(1800, p.getInfo()[0]);
     }
     @Test
-    public void Test99(){
+    public void Test100(){
         Player p = new Player(0,0);
         p.initializeDice();
         p.setCard("coin");

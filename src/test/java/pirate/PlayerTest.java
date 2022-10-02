@@ -181,4 +181,11 @@ public class PlayerTest {
         assertTrue(p.removeFromTreasures(new String[]{"2"}));
         assertEquals(0, p.getTreasures().size());
     }
+
+    @Test
+    public void activateSeaBattlesTest(){
+        Player p = new Player(0,0);
+        p.activateSeaBattles(4);
+        assertEquals(4, p.getSeabattleNum());
+    }
 }
