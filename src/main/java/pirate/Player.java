@@ -25,6 +25,7 @@ public class Player implements Serializable {
         put(3, 500);
         put(4, 1000);
     }};
+    private boolean isIOS=false;
     public Player(int id, int score){
         this.id = id;
         this.score = score;
@@ -58,7 +59,12 @@ public class Player implements Serializable {
         System.out.println("here");
         if(this.skulls_index.size() == 3){
             endGame();
+        } else if (this.skulls_index.size() >3 && this.seabattles==0) {
+            isIOS = true;
         }
+    }
+    public boolean getIsIOS(){
+        return this.isIOS;
     }
 
     public void addSkulls(List<Die> d){

@@ -211,6 +211,7 @@ public class PlayerTest {
                 new Die("skull  "), new Die("skull  ")));
         p.setDice(dice);
         p.addSkulls(dice);
+        p.skullCheck();
         assertTrue(p.getSkulls().size() >3);
         assertTrue(p.getIsIOS());
     }
