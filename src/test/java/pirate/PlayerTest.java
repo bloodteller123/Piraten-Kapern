@@ -156,4 +156,29 @@ public class PlayerTest {
         p.removeSkull("6");
         assertTrue(p.getSkulls().size()==1);
     }
+
+    @Test
+    public void addToTreasureTest(){
+        Player p = new Player(0,0);
+        ArrayList<Die> dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("coin  "),new Die("monkey "),new Die("diamond"),new Die("monkey "),
+                new Die("skull  "), new Die("skull  ")));
+        p.setDice(dice);
+        p.addToTreasures(new String[]{"2"});
+        assertEquals(1, p.getTreasures().size());
+    }
+
+    @Test
+    public void removeFromTreasureTest(){
+        Player p = new Player(0,0);
+        ArrayList<Die> dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("coin  "),new Die("monkey "),new Die("diamond"),new Die("monkey "),
+                new Die("skull  "), new Die("skull  ")));
+        p.setDice(dice);
+        p.addToTreasures(new String[]{"2"});
+        assertEquals(1, p.getTreasures().size());
+        assertFalse(p.removeFromTreasures(new String[]{"3"}));
+        assertTrue(p.removeFromTreasures(new String[]{"2"}));
+        assertEquals(0, p.getTreasures().size());
+    }
 }
