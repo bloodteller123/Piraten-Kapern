@@ -215,4 +215,10 @@ public class PlayerTest {
         assertTrue(p.getSkulls().size() >3);
         assertTrue(p.getIsIOS());
     }
+    @Test
+    public void deductPointTest(){
+        Player p = new Player(0,0);
+        p.deductPoints(2);
+        assertEquals(-200, p.getInfo()[1]);
+    }
 }
