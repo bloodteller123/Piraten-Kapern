@@ -202,4 +202,16 @@ public class PlayerTest {
         assertFalse(p.checkRollSelection(new String[]{"3"}));
         assertTrue(p.checkRollSelection(new String[]{"1", "2"}));
     }
+
+    @Test
+    public void islandOfSkullTest(){
+        Player p = new Player(0,0);
+        ArrayList<Die> dice = new ArrayList<>(Arrays.asList(new Die("monkey "),new Die("monkey "),
+                new Die("skull  "),new Die("monkey "),new Die("skull  "),new Die("monkey "),
+                new Die("skull  "), new Die("skull  ")));
+        p.setDice(dice);
+        p.addSkulls(dice);
+        assertTrue(p.getSkulls().size() >3);
+        assertTrue(p.getIsIOS());
+    }
 }
