@@ -13,14 +13,14 @@ public class Player implements Serializable {
     private static final long serialVersionUID = 1L;
     private int score;
     private final int id;
-    private static List<Die> dice;;
+    private static List<Die> dice;
     private boolean quit;
-    private Set<String> skulls_index;;
+    private Set<String> skulls_index;
     private String card = "";
     private int deductedPoints;
-    private Set<String> treaures=null;
+    private Set<String> treasures;
     private int seabattles = 0;
-    private Map<Integer, Integer> seabattles_score = new HashMap(){{
+    private final Map<Integer, Integer> seabattles_score = new HashMap(){{
         put(2, 300);
         put(3, 500);
         put(4, 1000);
@@ -35,7 +35,7 @@ public class Player implements Serializable {
         this.dice = initializeDice();
         skulls_index = new HashSet<>();
         this.deductedPoints = 0;
-        this.treaures = new HashSet<>();
+        this.treasures = new HashSet<>();
         this.seabattles=0;
     }
 
@@ -92,7 +92,7 @@ public class Player implements Serializable {
     }
     public boolean checkRollSelection(String[] selections){
         return selections.length >= 2 && Collections.disjoint(new ArrayList<>(skulls_index), Arrays.asList(selections))
-                && (this.treaures==null?true:Collections.disjoint(this.treaures, Arrays.asList(selections)));
+                && (this.treasures==null?true:Collections.disjoint(this.treasures, Arrays.asList(selections)));
     }
     public void rerollSome(String[] index){
         for(int i=0;i<index.length;i++){
@@ -109,11 +109,11 @@ public class Player implements Serializable {
             boolean openTreasure = false;
             while(!checkRollSelection(rolls_indices)){
                 System.out.println("Must have at least 2 dice AND not SKULLS AND not ON chest card: ");
-                if(this.treaures!=null && !openTreasure) System.out.println("type treasure to view the dice on treasure chest card");
+                if(this.treasures!=null && !openTreasure) System.out.println("type treasure to view the dice on treasure chest card");
                 lines = br.readLine();
-                if(this.treaures!=null) {
+                if(this.treasures!=null) {
                     if (lines.equals("treasure")) {
-                        printFortuneDice(this.treaures);
+                        printFortuneDice(this.treasures);
                         openTreasure=true;
                     }
                 }
@@ -129,7 +129,7 @@ public class Player implements Serializable {
     public void rerollAll(){
         for(int i=0;i<this.dice.size();i++){
             if(!this.skulls_index.contains(Integer.toString(i))) {
-                if(this.treaures!=null && this.treaures.contains(Integer.toString(i))){
+                if(this.treasures!=null && this.treasures.contains(Integer.toString(i))){
                     continue;
                 }
                 this.dice.get(i).roll();
@@ -152,7 +152,7 @@ public class Player implements Serializable {
     }
     public List<Die> buildTreasureList(){
         List<Die> tres = new ArrayList<>();
-        for(String i : this.treaures){
+        for(String i : this.treasures){
             tres.add(this.dice.get(Integer.parseInt(i)));
         }
         return tres;
@@ -281,7 +281,7 @@ public class Player implements Serializable {
     public void addToTreasures(String[] indices){
         try{
             for(int i=0;i<indices.length;i++){
-                this.treaures.add(indices[i]);
+                this.treasures.add(indices[i]);
             }
         }catch(RuntimeException exp){
             System.out.println("Ops.. Try it in the next roll");
@@ -290,8 +290,8 @@ public class Player implements Serializable {
     public boolean removeFromTreasures(String[] indices){
         try{
             for(int i=0;i<indices.length;i++){
-                if(!this.treaures.contains((indices[i]))) return false;
-                this.treaures.remove(indices[i]);
+                if(!this.treasures.contains((indices[i]))) return false;
+                this.treasures.remove(indices[i]);
             }
         }catch(RuntimeException exp){
             System.out.println("Ops.. Try it in the next roll");
@@ -299,7 +299,7 @@ public class Player implements Serializable {
         return true;
     }
     public Set<String> getTreasures(){
-        return this.treaures;
+        return this.treasures;
     }
     public void reset(){
         this.score = 0;
@@ -362,7 +362,7 @@ public class Player implements Serializable {
             }else{
                 if(this.card.equals("chest")) {
                     this.values.add("4");
-                    this.treaures = new HashSet<>();
+                    this.treasures = new HashSet<>();
                 }else if(this.card.equals("sorceress")){
                     this.sorceress = true;
                 }
@@ -376,7 +376,7 @@ public class Player implements Serializable {
                 System.out.println("(1) Choose dice number to roll again");
                 System.out.println("(2) Roll all again (except skulls)");
                 System.out.println("(3) Score this round");
-                if(this.treaures!=null){
+                if(this.treasures!=null){
                     System.out.println("(4) Modify treasures");
                 }
                 if(this.sorceress){
@@ -393,7 +393,7 @@ public class Player implements Serializable {
                     System.out.println("(1) Choose dice number to roll again");
                     System.out.println("(2) Roll all again (except skulls/chests)");
                     System.out.println("(3) Score this round");
-                    if(this.treaures!=null){
+                    if(this.treasures!=null){
                         System.out.println("(4) Modify treasures");
                     }
                     if(this.sorceress){
@@ -421,7 +421,7 @@ public class Player implements Serializable {
                     calculateScore(this.dice);
                 } else if(ans.equals("4")){
                     System.out.println("Enter 4");
-                    if(this.treaures!=null) modifyTreasures(br);
+                    if(this.treasures!=null) modifyTreasures(br);
                     if(this.sorceress) rollSkulls(br);
                     printDice();
                 }
