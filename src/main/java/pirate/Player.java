@@ -98,6 +98,13 @@ public class Player implements Serializable {
         this.dice = new ArrayList<>();
         this.dice.addAll(ld);
     }
+    public List<Die> buildTreasureList(){
+        List<Die> tres = new ArrayList<>();
+        for(String i : this.treaures){
+            tres.add(this.dice.get(Integer.parseInt(i)));
+        }
+        return tres;
+    }
     public void calculateScore(List<Die> ld){
         int monkey=0;
         for(DiceType i : DiceType.values()){
