@@ -718,4 +718,36 @@ public class AcceptanceTest {
         p.calculateScore(dice);
         assertEquals(2000, p.getInfo()[0]);
     }
+    @Test
+    public void Test86(){
+        Player p = new Player(0,0);
+        p.initializeDice();
+        p.setCard("chest");
+        // on first roll
+        p.getDice().forEach(d -> d.roll());
+        //0 skull, 3 parrots, 2 swords 1 coins 2 diamonds 0 monkeys
+        List<Die> dice = new ArrayList<>(Arrays.asList(new Die("diamond"),new Die("diamond"),
+                new Die("coin   "),new Die("parrot "),new Die("parrot "),new Die("parrot "),
+                new Die("saber  "), new Die("saber  ")));
+        p.setDice(dice);
+        p.addToTreasures(new String[]{"0", "1", "2"});
+        assertEquals(3, p.getTreasures().size());
+        p.rerollSome(new String[]{"6", "7"});
+        dice = new ArrayList<>(Arrays.asList(new Die("diamond"),new Die("diamond"),
+                new Die("coin   "),new Die("parrot "),new Die("parrot "),new Die("parrot "),
+                new Die("parrot "), new Die("parrot ")));
+        p.setDice(dice);
+        p.addToTreasures(new String[]{"3", "4", "5", "6", "7"});
+        assertEquals(8, p.getTreasures().size());
+        p.removeFromTreasures(new String[]{"0", "1","2"});
+        assertEquals(5, p.getTreasures().size());
+        p.rerollSome(new String[]{"0", "1","2"});
+        dice = new ArrayList<>(Arrays.asList(new Die("skull  "),new Die("parrot "),
+                new Die("coin   "),new Die("parrot "),new Die("parrot "),new Die("parrot "),
+                new Die("parrot "), new Die("parrot ")));
+        p.setDice(dice);
+        p.calculateScore(dice);
+        assertEquals(1100, p.getInfo()[0]);
+
+    }
 }
