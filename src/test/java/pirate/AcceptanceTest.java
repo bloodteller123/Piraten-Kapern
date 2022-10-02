@@ -785,4 +785,19 @@ public class AcceptanceTest {
         p.calculateScore(treasures);
         assertEquals(600, p.getInfo()[0]);
     }
+
+    @Test
+    public void Test97(){
+        Player p = new Player(0,0);
+        p.initializeDice();
+        p.setCard("coin");
+        // on first roll
+        p.getDice().forEach(d -> d.roll());
+        //0 skull, 1 parrots, 3 swords 0 coins 1 diamonds 3 monkeys
+        p.setDice(new ArrayList<>(Arrays.asList(new Die("saber  "),new Die("saber  "),
+                new Die("saber  "),new Die("parrot "),new Die("monkey "),new Die("monkey "),
+                new Die("monkey "), new Die("diamond"))));
+        p.calculateScore(p.getDice());
+        assertEquals(400, p.getScore());
+    }
 }
