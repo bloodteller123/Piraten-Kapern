@@ -27,6 +27,7 @@ public class Player implements Serializable {
     }};
     private boolean isIOS=false;
     private ArrayList<String> values = new ArrayList<>(Arrays.asList("1","2","3"));
+    private boolean sorceress=false;
     public Player(int id, int score){
         this.id = id;
         this.score = score;
@@ -52,12 +53,10 @@ public class Player implements Serializable {
 
     public void endGame(){
         quit=true;
-
         System.out.println("Turn ends");
     }
 
     public void skullCheck(){
-        System.out.println("here");
         if(this.skulls_index.size() == 3 || (this.skulls_index.size() >=3 && this.seabattles >0)){
             endGame();
         } else if (this.skulls_index.size() >3 && this.seabattles==0) {
@@ -73,11 +72,9 @@ public class Player implements Serializable {
         List<Integer> ind = IntStream.range(0, d.size())
                 .filter(i -> Objects.equals("skull", d.get(i).getFace().trim()))
                 .boxed().collect(Collectors.toList()) ;
-//        System.out.println("Skull index");
-//        System.out.println("Skull size before add: "+this.skulls_index.size());
+
         List<String> inds = ind.stream().map(Object::toString)
                 .collect(Collectors.toList());
-//        inds.forEach(System.out::print);
         this.skulls_index.addAll(inds);
     }
     public String[] setSkulls(String[] cs){
@@ -252,7 +249,6 @@ public class Player implements Serializable {
         }
         for(Map.Entry<String, Integer> entry : counts.entrySet()){
             if(entry.getValue() <3) {
-                System.out.println(this.seabattles);
                 if(this.seabattles >0 && !entry.getKey().equals("saber  ")) return false;
                 else if(this.seabattles==0) return false;
             }
@@ -349,5 +345,89 @@ public class Player implements Serializable {
     }
     public int getId(){
         return this.id;
+    }
+    public void play(String c){
+        try{
+            this.setCard(c);
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            this.dice = initializeDice();
+            if(this.card.split("-").length > 1){
+                String[] cs = this.card.split("-");
+                if(cs[1].equals("skull")){
+                    rerollSome(setSkulls(cs));
+                }else if(cs[1].equals("sword")){
+                    activateSeaBattles(Integer.parseInt(cs[0]));
+                    this.dice.forEach(d -> d.roll());
+                }
+            }else{
+                if(this.card.equals("chest")) {
+                    this.values.add("4");
+                    this.treaures = new HashSet<>();
+                }else if(this.card.equals("sorceress")){
+                    this.sorceress = true;
+                }
+                this.dice.forEach(d -> d.roll());
+            }
+            printDice();
+            addSkulls(this.dice);
+            skullCheck();
+            while(!quit){
+                System.out.println("Select an action: ");
+                System.out.println("(1) Choose dice number to roll again");
+                System.out.println("(2) Roll all again (except skulls)");
+                System.out.println("(3) Score this round");
+                if(this.treaures!=null){
+                    System.out.println("(4) Modify treasures");
+                }
+                if(this.sorceress){
+                    System.out.println("(4) re-roll one skull");
+                }
+                if(this.seabattles >0){
+                    System.out.println("If you choose to score in the sea battle, " +
+                            "you might lose or win points from your saber results "+ "(You need at least "+this.seabattles+
+                            " sabers to win the score");
+                }
+                String ans = br.readLine();
+                while(!values.stream().anyMatch(ans::equals)){
+                    System.out.println("Select an action: ");
+                    System.out.println("(1) Choose dice number to roll again");
+                    System.out.println("(2) Roll all again (except skulls/chests)");
+                    System.out.println("(3) Score this round");
+                    if(this.treaures!=null){
+                        System.out.println("(4) Modify treasures");
+                    }
+                    if(this.sorceress){
+                        System.out.println("(4) re-roll one skull");
+                    }
+                    if(this.seabattles >0){
+                        System.out.println("If you choose to score in the sea battle, " +
+                                "you might lose or win points from your saber results");
+                    }
+                    ans = br.readLine();
+                }
+                if(ans.equals("1")){
+                    System.out.println("Enter 1");
+                    rollSome(br);
+                    printDice();
+                    skullCheck();
+                }else if(ans.equals("2")){
+                    System.out.println("Enter 2");
+                    rerollAll();
+                    printDice();
+                    skullCheck();
+                }else if(ans.equals("3")){
+                    System.out.println("Enter 3");
+                    quit = true;
+                    calculateScore(this.dice);
+                } else if(ans.equals("4")){
+                    System.out.println("Enter 4");
+                    if(this.treaures!=null) modifyTreasures(br);
+                    if(this.sorceress) rollSkulls(br);
+                    printDice();
+                }
+            }
+        }catch(IOException exp){
+            System.out.println("player error");
+        }
     }
 }
