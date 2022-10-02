@@ -346,6 +346,38 @@ public class Player implements Serializable {
     public int getId(){
         return this.id;
     }
+    public void modifyTreasures(BufferedReader br) throws IOException {
+        String treasure=null;
+        while(treasure==null || !(treasure.equals("no") || treasure.equals("yes"))){
+            System.out.println("Do you want to modify treasure chest (yes, no)? ");
+            treasure = br.readLine();
+        }
+        System.out.println("press 'end' to exit");
+        if(treasure.equals("yes")) {
+            while(!treasure.equals("end")){
+                System.out.println("Select dice to be put on treasure chest (0 1 2 etc, press enter to exit add treasure): ");
+                treasure = br.readLine();
+                if(!treasure.equals("")){
+                    String[] ind = treasure.trim().split("\\s+");
+                    addToTreasures(ind);
+                    System.out.println("Treasure chests: ");
+                    printFortuneDice(this.treasures);
+                }
+
+                System.out.println("Select dice to be taken back from treasure chest (0 1 2 etc, press enter to exit remove treasure): ");
+                treasure = br.readLine();
+                if(!treasure.equals("")){
+                    String[] ind = treasure.trim().split("\\s+");
+                    if(!removeFromTreasures(ind)){
+                        System.out.println("Please Only remove dice on treasure chest");
+                    };
+                    System.out.println("Treasure chests: ");
+                    printFortuneDice(this.treasures);
+                }
+                System.out.println("press 'end' to exit");
+            }
+        }
+    }
     public void play(String c){
         try{
             this.setCard(c);
