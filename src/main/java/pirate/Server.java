@@ -98,10 +98,35 @@ public class Server {
                     players.add(this.player);
                     System.out.println(this.player.getDice());
                     System.out.println(player_id);
+
+                    if(player_id == 1){
+                        out.writeObject("true");
+                        out.flush();
+                        System.out.println("sent true");
+                        String ans = (String)in.readObject();;
+                        while(ans == null || !ans.equals("s")){
+                            ans = (String)in.readObject();;
+                        }
+                        System.out.println("start");
+                        this.server.toggleStart();
+                        this.server.broadcast("Player 1 has started the game. ");
+                    }else{
+                        out.writeObject("false");
+                        out.flush();
+                        System.out.println("sent false"+ " from thread" +Thread.currentThread().getId());
+                        while(!this.server.gameStart()){
+                            Thread.sleep(100);
+                        }
+                        System.out.println("Exit game start wait"+ " from thread" +Thread.currentThread().getId());
+                    }
                 }
                 System.out.println("Enter game loop"+ " from thread" +Thread.currentThread().getId());
             }catch(IOException exp){
                 exp.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
