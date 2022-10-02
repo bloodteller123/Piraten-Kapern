@@ -103,6 +103,32 @@ public class Player implements Serializable {
         }
         addSkulls(this.dice);
     }
+    public int rollSome(BufferedReader br){
+        System.out.println("Enter dice # to re-roll (0 1 2 etc, the rest will be set aside): ");
+        String lines = null;
+        try {
+            lines = br.readLine();
+            String[] rolls_indices = lines.trim().split("\\s+");
+            boolean openTreasure = false;
+            while(!checkRollSelection(rolls_indices)){
+                System.out.println("Must have at least 2 dice AND not SKULLS AND not ON chest card: ");
+                if(this.treaures!=null && !openTreasure) System.out.println("type treasure to view the dice on treasure chest card");
+                lines = br.readLine();
+                if(this.treaures!=null) {
+                    if (lines.equals("treasure")) {
+                        printFortuneDice(this.treaures);
+                        openTreasure=true;
+                    }
+                }
+                rolls_indices = lines.trim().split("\\s+");
+            }
+            rerollSome(rolls_indices);
+            printDice();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return this.skulls_index.size();
+    }
     public void rerollAll(){
         for(int i=0;i<this.dice.size();i++){
             if(!this.skulls_index.contains(Integer.toString(i))) {
