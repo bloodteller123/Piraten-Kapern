@@ -73,6 +73,16 @@ public class Player implements Serializable {
 //        inds.forEach(System.out::print);
         this.skulls_index.addAll(inds);
     }
+    public String[] setSkulls(String[] cs){
+        this.dice.get(0).setFace("skull  ");
+        String[] ds;
+        if(cs[0].equals("1")) ds = new String[]{"1","2","3","4","5","6","7"};
+        else{
+            dice.get(1).setFace("skull  ");
+            ds = new String[]{"2","3","4","5","6","7"};
+        }
+        return ds;
+    }
     public void removeSkull(String index){
         this.skulls_index.remove(index);
     }
@@ -199,7 +209,9 @@ public class Player implements Serializable {
         }
         for(Map.Entry<String, Integer> entry : counts.entrySet()){
             if(entry.getValue() <3) {
+                System.out.println(this.seabattles);
                 if(this.seabattles >0 && !entry.getKey().equals("saber  ")) return false;
+                else if(this.seabattles==0) return false;
             }
         }
         return true;
@@ -252,5 +264,6 @@ public class Player implements Serializable {
         this.quit = false;
         this.skulls_index = new HashSet<>();
         this.card = "";
+        this.seabattles =0;
     }
 }

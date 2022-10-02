@@ -898,6 +898,7 @@ public class AcceptanceTest {
         List<Die> dice = new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("skull  "),
                 new Die("skull  "), new Die("coin   "), new Die("parrot "), new Die("diamond"),
                 new Die("diamond"), new Die("diamond")));
+        p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
         p.skullCheck();

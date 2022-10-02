@@ -124,7 +124,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AcceptanceTest.Test99" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AcceptanceTest.Test92" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
         <pattern>
@@ -134,13 +134,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="pirate" />
       <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
-      <option name="METHOD_NAME" value="Test99" />
+      <option name="METHOD_NAME" value="Test92" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest.activateSeaBattlesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AcceptanceTest.Test98" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
         <pattern>
@@ -149,8 +149,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="pirate.PlayerTest" />
-      <option name="METHOD_NAME" value="activateSeaBattlesTest" />
+      <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
+      <option name="METHOD_NAME" value="Test98" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,10 +159,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.AcceptanceTest.Test107" />
+        <item itemvalue="JUnit.AcceptanceTest.Test92" />
+        <item itemvalue="JUnit.AcceptanceTest.Test98" />
         <item itemvalue="JUnit.AcceptanceTest.Test104" />
         <item itemvalue="JUnit.AcceptanceTest.Test101" />
-        <item itemvalue="JUnit.PlayerTest.activateSeaBattlesTest" />
-        <item itemvalue="JUnit.AcceptanceTest.Test99" />
       </list>
     </recent_temporary>
   </component>
