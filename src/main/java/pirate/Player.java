@@ -133,71 +133,75 @@ public class Player implements Serializable {
         return this.seabattles;
     }
     public void calculateScore(List<Die> ld){
-        int monkey=0;
-        for(DiceType i : DiceType.values()){
+        if(this.seabattles > (int) ld.stream().filter(die -> die.getFace().equalsIgnoreCase("saber  ")).count()){
+            this.deductedPoints = seabattles_score.get(this.seabattles) * (-1);
+        }else {
+            int monkey=0;
+            for(DiceType i : DiceType.values()){
 
-            int occurrences = (int) ld.stream().filter(die -> die.getFace().equalsIgnoreCase(i.toString())).count();
-            if((i.toString().trim().equals("coin") && this.card.equals("coin")) ||
-                    (i.toString().trim().equals("diamond") && this.card.equals("diamond"))){
-                occurrences ++;
+                int occurrences = (int) ld.stream().filter(die -> die.getFace().equalsIgnoreCase(i.toString())).count();
+                if((i.toString().trim().equals("coin") && this.card.equals("coin")) ||
+                        (i.toString().trim().equals("diamond") && this.card.equals("diamond"))){
+                    occurrences ++;
+                }
+                if(i.toString().trim().equals("monkey")&& this.card.equals(("MP"))){
+                    monkey = occurrences;
+                    continue;
+                }
+                //
+                if(i.toString().trim().equals("parrot") && this.card.equals(("MP"))) occurrences += monkey;
+//                System.out.println(occurrences);
+                int XofAKind = 0;
+                switch(occurrences){
+                    case 3:
+                        XofAKind = 100;
+                        break;
+                    case 4:
+                        XofAKind = 200;
+                        break;
+                    case 5:
+                        XofAKind = 500;
+                        break;
+                    case 6:
+                        XofAKind = 1000;
+                        break;
+                    case 7:
+                        XofAKind = 2000;
+                        break;
+                    case 8:
+                    case 9:
+                        XofAKind = 4000;
+                        break;
+                        default: XofAKind=0;
+                }
+                switch(i.toString().trim()){
+                    case "skull":
+                        setScore(0);
+                        break;
+                    case "diamond":
+                        setScore(100 * occurrences + XofAKind);
+                        break;
+                    case "monkey":
+                        setScore(XofAKind);
+                        break;
+                    case "saber":
+                        setScore(XofAKind);
+                        break;
+                    case "coin":
+                        setScore(100 * occurrences + XofAKind);
+                        break;
+                    case "parrot":
+                        setScore(XofAKind);
+                        break;
+                }
             }
-            if(i.toString().trim().equals("monkey")&& this.card.equals(("MP"))){
-                monkey = occurrences;
-                continue;
+            // full chest
+            if(checkFullChest()){
+                setScore(500);
+            };
+            if(this.seabattles!=0){
+                setScore(this.seabattles_score.get(this.seabattles));
             }
-            //
-            if(i.toString().trim().equals("parrot") && this.card.equals(("MP"))) occurrences += monkey;
-            System.out.println(occurrences);
-            int XofAKind = 0;
-            switch(occurrences){
-                case 3:
-                    XofAKind = 100;
-                    break;
-                case 4:
-                    XofAKind = 200;
-                    break;
-                case 5:
-                    XofAKind = 500;
-                    break;
-                case 6:
-                    XofAKind = 1000;
-                    break;
-                case 7:
-                    XofAKind = 2000;
-                    break;
-                case 8:
-                case 9:
-                    XofAKind = 4000;
-                    break;
-                    default: XofAKind=0;
-            }
-            switch(i.toString().trim()){
-                case "skull":
-                    setScore(0);
-                    break;
-                case "diamond":
-                    setScore(100 * occurrences + XofAKind);
-                    break;
-                case "monkey":
-                    setScore(XofAKind);
-                    break;
-                case "saber":
-                    setScore(XofAKind);
-                    break;
-                case "coin":
-                    setScore(100 * occurrences + XofAKind);
-                    break;
-                case "parrot":
-                    setScore(XofAKind);
-                    break;
-            }
-        }
-        // full chest
-        if(checkFullChest()){
-            setScore(500);
-        };
-        if(this.seabattles!=0){
-            setScore(this.seabattles_score.get(this.seabattles));
         }
     }
     public boolean checkFullChest(){
