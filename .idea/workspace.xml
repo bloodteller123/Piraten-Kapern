@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/AcceptanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/AcceptanceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +74,7 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlayerTest.removeSkullTest">
+  <component name="RunManager" selected="JUnit.AcceptanceTest.Test76">
     <configuration name="AcceptanceTest.Test66" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
@@ -85,22 +86,6 @@
       <option name="PACKAGE_NAME" value="pirate" />
       <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
       <option name="METHOD_NAME" value="Test66" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AcceptanceTest.Test69" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="COMP5104A1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pirate.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
-      <option name="METHOD_NAME" value="Test69" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -138,6 +123,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AcceptanceTest.Test76" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COMP5104A1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pirate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pirate" />
+      <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
+      <option name="METHOD_NAME" value="Test76" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PlayerTest.removeSkullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
@@ -156,11 +157,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AcceptanceTest.Test76" />
         <item itemvalue="JUnit.PlayerTest.removeSkullTest" />
         <item itemvalue="JUnit.AcceptanceTest.Test66" />
         <item itemvalue="JUnit.AcceptanceTest.Test71" />
         <item itemvalue="JUnit.AcceptanceTest.Test70" />
-        <item itemvalue="JUnit.AcceptanceTest.Test69" />
       </list>
     </recent_temporary>
   </component>
