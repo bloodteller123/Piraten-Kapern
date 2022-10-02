@@ -18,6 +18,7 @@ public class Player implements Serializable {
     private Set<String> skulls_index;;
     private String card = "";
     private int deductedPoints;
+    private Set<String> treaures=null;
     public Player(int id, int score){
         this.id = id;
         this.score = score;
@@ -25,6 +26,7 @@ public class Player implements Serializable {
         this.dice = initializeDice();
         skulls_index = new HashSet<>();
         this.deductedPoints = 0;
+        this.treaures = new HashSet<>();
     }
 
     public List<Die> initializeDice(){
@@ -195,6 +197,29 @@ public class Player implements Serializable {
     public int[] getInfo() {
         if(this.card.equals("captain")) return new int[]{this.score*2, this.deductedPoints*2};
         return new int[]{this.score, this.deductedPoints};
+    }
+    public void addToTreasures(String[] indices){
+        try{
+            for(int i=0;i<indices.length;i++){
+                this.treaures.add(indices[i]);
+            }
+        }catch(RuntimeException exp){
+            System.out.println("Ops.. Try it in the next roll");
+        }
+    }
+    public boolean removeFromTreasures(String[] indices){
+        try{
+            for(int i=0;i<indices.length;i++){
+                if(!this.treaures.contains((indices[i]))) return false;
+                this.treaures.remove(indices[i]);
+            }
+        }catch(RuntimeException exp){
+            System.out.println("Ops.. Try it in the next roll");
+        }
+        return true;
+    }
+    public Set<String> getTreasures(){
+        return this.treaures;
     }
     public void reset(){
         this.score = 0;
