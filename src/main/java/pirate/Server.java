@@ -120,7 +120,28 @@ public class Server {
                         System.out.println("Exit game start wait"+ " from thread" +Thread.currentThread().getId());
                     }
                 }
+
                 System.out.println("Enter game loop"+ " from thread" +Thread.currentThread().getId());
+
+                while(!maxScoreReached){
+                    if(players.peek().getId() != this.player_id)  {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        continue;
+                    };
+                    System.out.println("gameplay by: "+this.player_id+ " from thread" +Thread.currentThread().getId());
+
+                    out.writeObject("turn");
+                    out.flush();
+                    out.writeObject(fc.drawCard());
+                    out.flush();
+                    int[] info = (int[])in.readObject();
+                    System.out.println(info[0]+ " from thread" +Thread.currentThread().getId());
+                    scores.put(this.player_id, scores.getOrDefault(this.player_id, 0)+info[0]);
+                }
             }catch(IOException exp){
                 exp.printStackTrace();
             } catch (ClassNotFoundException e) {

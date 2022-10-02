@@ -71,6 +71,25 @@ public class Client {
                     break;
                 }
             }
+
+            while(true){
+                System.out.println("waiting to start your turn");
+                String s = (String) dIn.readObject();
+                System.out.println("received");
+                System.out.println(s);
+                if(s.equals("turn")){
+                    System.out.println("before play()");
+                    player.play((String)dIn.readObject());
+                    System.out.println("after play()");
+                    System.out.println("You obtained "+player.getInfo()[0] + " scores in this turn");
+                    System.out.println("Now wait for other players");
+                    dOut.writeObject(player.getInfo());
+                    dOut.flush();
+                    player.reset();
+                }else{
+//                    System.out.println(s);
+                }
+            }
         }catch(IOException exp){
             System.err.println("IOE exp found");
             exp.printStackTrace();
