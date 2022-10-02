@@ -245,6 +245,10 @@ public class Player implements Serializable {
     public int getScore(){
         return this.score;
     }
+    public void deductPoints(int num){
+        System.out.println("deduct points for other players");
+        this.deductedPoints += num*100*(-1);
+    }
     public int[] getInfo() {
         if(this.card.equals("captain")) return new int[]{this.score*2, this.deductedPoints*2};
         return new int[]{this.score, this.deductedPoints};
