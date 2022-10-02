@@ -123,7 +123,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest.addToTreasureTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AcceptanceTest.Test98" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
         <pattern>
@@ -132,8 +132,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="pirate.PlayerTest" />
-      <option name="METHOD_NAME" value="addToTreasureTest" />
+      <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
+      <option name="METHOD_NAME" value="Test98" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -158,10 +158,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.AcceptanceTest.Test97" />
+        <item itemvalue="JUnit.AcceptanceTest.Test98" />
         <item itemvalue="JUnit.AcceptanceTest.Test91" />
         <item itemvalue="JUnit.AcceptanceTest.Test86" />
         <item itemvalue="JUnit.PlayerTest.removeFromTreasureTest" />
-        <item itemvalue="JUnit.PlayerTest.addToTreasureTest" />
       </list>
     </recent_temporary>
   </component>
