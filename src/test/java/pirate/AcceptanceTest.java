@@ -1114,5 +1114,7 @@ public class AcceptanceTest {
         assertTrue(p.isEnd());
         p.calculateScore(p.getDice());
         assertEquals(-1000, p.getInfo()[1]);
+        p.setScore(-1000);
+        assertEquals(0,p.getScore());
     }
 }
