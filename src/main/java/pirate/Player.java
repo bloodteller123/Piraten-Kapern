@@ -274,4 +274,38 @@ public class Player implements Serializable {
         this.card = "";
         this.seabattles =0;
     }
+    public void printDice() {
+        System.out.println(" _Dice0_    _Dice1_    _Dice2_    _Dice3_    _Dice4_    _Dice5_    _Dice6_    _Dice7_");
+        System.out.println("_________  _________  _________  _________  _________  _________  _________  _________  ");
+        System.out.println("|" + this.dice.get(0).toString()
+                + "|  |" + this.dice.get(1).toString()
+                + "|  |" +this.dice.get(2).toString()
+                + "|  |" + this.dice.get(3).toString()
+                + "|  |" + this.dice.get(4).toString()
+                + "|  |" + this.dice.get(5).toString()
+                + "|  |" + this.dice.get(6).toString()
+                + "|  |" + this.dice.get(7).toString() + "|");
+        System.out.println("_________  _________  _________  _________  _________  _________  _________  _________  ");
+    }
+    public void printFortuneDice(Set<String> set) {
+        StringBuilder sb = new StringBuilder();
+        for(String i: set){
+            sb.append(" _Dice"+i+"_") ;
+            sb.append("   ");
+        }
+        sb.append("\n");
+        for(String i: set){
+            sb.append("_________  ");
+        }
+        sb.append("\n");
+
+        for(String i: set){
+            sb.append("|" + this.dice.get(Integer.parseInt(i)).toString()+ "|  ");
+        }
+        sb.append("\n");
+        for(String i: set){
+            sb.append("_________  ");
+        }
+        System.out.println(sb.toString());
+    }
 }
