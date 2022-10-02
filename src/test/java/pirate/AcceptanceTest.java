@@ -905,4 +905,25 @@ public class AcceptanceTest {
         assertEquals(3, p.getSkulls().size());
         assertTrue(p.isEnd());
     }
+
+    @Test
+    public void Test108(){
+        Player p = new Player(0, 0);
+        p.initializeDice();
+        p.setCard("1-skull");
+        String[] ss = p.setSkulls(new String[]{"1", "skull"});
+        p.addSkulls(p.getDice());
+        assertEquals(1, p.getSkulls().size());
+        p.rerollSome(ss);
+        //3 skull
+        List<Die> dice = new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("skull  "),
+                new Die("skull  "), new Die("coin   "), new Die("parrot "), new Die("diamond"),
+                new Die("diamond"), new Die("diamond")));
+        p.reset();
+        p.setDice(dice);
+        p.addSkulls(dice);
+        p.skullCheck();
+        assertEquals(3, p.getSkulls().size());
+        assertTrue(p.isEnd());
+    }
 }
