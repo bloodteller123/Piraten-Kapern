@@ -57,7 +57,7 @@ public class Player implements Serializable {
 
     public void skullCheck(){
         System.out.println("here");
-        if(this.skulls_index.size() == 3){
+        if(this.skulls_index.size() == 3 || (this.skulls_index.size() >=3 && this.seabattles >0)){
             endGame();
         } else if (this.skulls_index.size() >3 && this.seabattles==0) {
             isIOS = true;
@@ -139,7 +139,8 @@ public class Player implements Serializable {
         return this.seabattles;
     }
     public void calculateScore(List<Die> ld){
-        if(this.seabattles > (int) ld.stream().filter(die -> die.getFace().equalsIgnoreCase("saber  ")).count()){
+        if(this.seabattles > (int) ld.stream().filter(die -> die.getFace().equalsIgnoreCase("saber  ")).count()
+        || (this.seabattles >0 && this.skulls_index.size() >=3 )){
             this.deductedPoints = seabattles_score.get(this.seabattles) * (-1);
         }else {
             int monkey=0;
