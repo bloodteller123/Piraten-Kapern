@@ -182,6 +182,9 @@ public class Player implements Serializable {
         if(checkFullChest()){
             setScore(500);
         };
+        if(this.seabattles!=0){
+            setScore(this.seabattles_score.get(this.seabattles));
+        }
     }
     public boolean checkFullChest(){
         if(this.skulls_index.size() >1) return false;
@@ -195,7 +198,9 @@ public class Player implements Serializable {
             counts.remove("monkey ");
         }
         for(Map.Entry<String, Integer> entry : counts.entrySet()){
-            if(entry.getValue() <3) return false;
+            if(entry.getValue() <3) {
+                if(this.seabattles >0 && !entry.getKey().equals("saber  ")) return false;
+            }
         }
         return true;
     }
