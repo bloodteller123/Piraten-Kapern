@@ -347,4 +347,7 @@ public class Player implements Serializable {
         }
         System.out.println(sb.toString());
     }
+    public int getId(){
+        return this.id;
+    }
 }
