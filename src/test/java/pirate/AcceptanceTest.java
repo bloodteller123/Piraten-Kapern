@@ -1007,5 +1007,49 @@ public class AcceptanceTest {
         p.deductPoints(p.getSkulls().size());
         assertEquals(-500, p.getInfo()[1]);
     }
+    @Test
+    public void Test111(){
+        Player p = new Player(0, 0);
+        p.initializeDice();
+        p.setCard("1-skull");
+        String[] ss = p.setSkulls(new String[]{"1", "skull"});
+        p.addSkulls(p.getDice());
+        assertEquals(1, p.getSkulls().size());
+        p.rerollSome(ss);
+        // 4 skulls
+        List<Die> dice = new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("skull  "),
+                new Die("skull  "), new Die("skull  "), new Die("parrot "), new Die("diamond"),
+                new Die("diamond"), new Die("diamond")));
+        p.reset();
+        p.setDice(dice);
+        p.addSkulls(dice);
+        p.skullCheck();
+        assertEquals(4, p.getSkulls().size());
+        assertTrue(p.getIsIOS());
 
+        p.rerollSome(new String[]{"6"});
+        // 5 skulls
+        dice = new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("skull  "),
+                new Die("skull  "), new Die("skull  "), new Die("parrot "), new Die("diamond"),
+                new Die("skull  "), new Die("diamond")));
+
+        p.reset();
+        p.setDice(dice);
+        p.addSkulls(dice);
+        p.skullCheck();
+        assertEquals(5, p.getSkulls().size());
+        p.rerollSome(new String[]{"5"});
+        // 5 skulls
+        dice = new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("skull  "),
+                new Die("skull  "), new Die("skull  "), new Die("parrot "), new Die("coin   "),
+                new Die("skull  "), new Die("diamond")));
+
+        p.reset();
+        p.setDice(dice);
+        p.addSkulls(dice);
+        p.skullCheck();
+        assertEquals(5, p.getSkulls().size());
+        p.deductPoints(p.getSkulls().size());
+        assertEquals(-500, p.getInfo()[1]);
+    }
 }
