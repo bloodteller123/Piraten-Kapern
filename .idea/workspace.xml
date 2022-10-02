@@ -67,23 +67,7 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AcceptanceTest.Test68">
-    <configuration name="AcceptanceTest.Test64" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="COMP5104A1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pirate.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
-      <option name="METHOD_NAME" value="Test64" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.AcceptanceTest.Test69">
     <configuration name="AcceptanceTest.Test65" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
@@ -148,13 +132,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AcceptanceTest.Test69" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COMP5104A1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pirate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pirate" />
+      <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
+      <option name="METHOD_NAME" value="Test69" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AcceptanceTest.Test69" />
         <item itemvalue="JUnit.AcceptanceTest.Test68" />
         <item itemvalue="JUnit.AcceptanceTest.Test67" />
         <item itemvalue="JUnit.AcceptanceTest.Test66" />
         <item itemvalue="JUnit.AcceptanceTest.Test65" />
-        <item itemvalue="JUnit.AcceptanceTest.Test64" />
       </list>
     </recent_temporary>
   </component>
