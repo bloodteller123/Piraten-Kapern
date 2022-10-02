@@ -86,6 +86,10 @@ public class Player implements Serializable {
     public void removeSkull(String index){
         this.skulls_index.remove(index);
     }
+    public boolean checkRollSelection(String[] selections){
+        return selections.length >= 2 && Collections.disjoint(new ArrayList<>(skulls_index), Arrays.asList(selections))
+                && (this.treaures==null?true:Collections.disjoint(this.treaures, Arrays.asList(selections)));
+    }
     public void rerollSome(String[] index){
         for(int i=0;i<index.length;i++){
             this.dice.get(Integer.parseInt(index[i])).roll();
