@@ -17,12 +17,14 @@ public class Player implements Serializable {
     private boolean quit;
     private Set<String> skulls_index;;
     private String card = "";
+    private int deductedPoints;
     public Player(int id, int score){
         this.id = id;
         this.score = score;
         this.quit = false;
         this.dice = initializeDice();
         skulls_index = new HashSet<>();
+        this.deductedPoints = 0;
     }
 
     public List<Die> initializeDice(){
@@ -187,6 +189,10 @@ public class Player implements Serializable {
     }
     public int getScore(){
         return this.score;
+    }
+    public int[] getInfo() {
+        if(this.card.equals("captain")) return new int[]{this.score*2, this.deductedPoints*2};
+        return new int[]{this.score, this.deductedPoints};
     }
     public void reset(){
         this.score = 0;
