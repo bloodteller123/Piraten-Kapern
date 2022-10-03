@@ -35,7 +35,7 @@ public class Player implements Serializable {
         this.dice = initializeDice();
         skulls_index = new HashSet<>();
         this.deductedPoints = 0;
-        this.treasures = new HashSet<>();
+        this.treasures = null;
         this.seabattles=0;
     }
 
