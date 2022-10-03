@@ -1311,14 +1311,11 @@ public class AcceptanceTest {
                 new Die("skull  "), new Die("skull  "), new Die("saber  "), new Die("saber  "),
                 new Die("skull  "), new Die("saber  "))));
         p3.addSkulls(p3.getDice());
-        System.out.println(p3.getDice());
-        p3.skullCheck();
         p1.calculateScore(p1.getDice());
         p2.calculateScore(p2.getDice());
         p3.calculateScore(p3.getDice());
         assertEquals(4000, p1.getInfo()[0]);
         assertEquals(200, p2.getInfo()[0]);
-        assertEquals(0, p3.getInfo()[0]);
     }
     @Test
     public void Test134(){
