@@ -17,6 +17,7 @@ public class Server {
     private Map<Integer, Integer> scores = new HashMap<>();
     private FortuneCard fc;
     private boolean maxScoreReached = false;
+    private boolean loop=true;
     public static void main(String[] args) {
         if (args.length != 1) {
             System.err.println("Specify a port number");
@@ -36,6 +37,7 @@ public class Server {
             exp.printStackTrace();
         }
     }
+
     public void runServer(){
         int id = 1;
         System.out.println("runServer");
@@ -43,13 +45,10 @@ public class Server {
             try{
                 Socket clientSocket = serverSocket.accept();
                 ClientHandler clientSock = new ClientHandler(clientSocket, id, this);
-
-                System.out.println(this);
                 clients.put(id, clientSock);
                 writers.put(id, clientSock.out);
                 id++;
                 new Thread(clientSock).start();
-
             }catch(IOException exp){
                 System.out.println("Accepting error" + exp.toString());
             }
@@ -57,7 +56,6 @@ public class Server {
     }
     public void broadcast(String msg) throws IOException {
         for (Integer key : writers.keySet()) {
-            System.out.println(key);
             writers.get(key).writeObject(msg);
         }
     }
@@ -74,6 +72,7 @@ public class Server {
         ObjectInputStream in;
         ObjectOutputStream out;
         Player player;
+        int potential_winner_id;
         public ClientHandler(Socket socket, int id, Server server) {
 
             clientSocket = socket;
@@ -86,7 +85,6 @@ public class Server {
                 exp.printStackTrace();
             }
         }
-
         @Override
         public void run(){
             try{
@@ -96,24 +94,20 @@ public class Server {
                     out.flush();
                     out.reset();
                     players.add(this.player);
-                    System.out.println(this.player.getDice());
-                    System.out.println(player_id);
 
                     if(player_id == 1){
                         out.writeObject("true");
                         out.flush();
-                        System.out.println("sent true");
                         String ans = (String)in.readObject();;
                         while(ans == null || !ans.equals("s")){
                             ans = (String)in.readObject();;
                         }
-                        System.out.println("start");
                         this.server.toggleStart();
                         this.server.broadcast("Player 1 has started the game. ");
                     }else{
                         out.writeObject("false");
                         out.flush();
-                        System.out.println("sent false"+ " from thread" +Thread.currentThread().getId());
+//                        System.out.println("sent false"+ " from thread" +Thread.currentThread().getId());
                         while(!this.server.gameStart()){
                             Thread.sleep(100);
                         }
@@ -123,7 +117,7 @@ public class Server {
 
                 System.out.println("Enter game loop"+ " from thread" +Thread.currentThread().getId());
 
-                while(!maxScoreReached){
+                while(!maxScoreReached || loop){
                     if(players.peek().getId() != this.player_id)  {
                         try {
                             Thread.sleep(1000);
@@ -132,7 +126,7 @@ public class Server {
                         }
                         continue;
                     };
-                    System.out.println("gameplay by: "+this.player_id+ " from thread" +Thread.currentThread().getId());
+                    System.out.println("Gameplay by "+this.player_id+ " from thread" +Thread.currentThread().getId());
 
                     out.writeObject("turn");
                     out.flush();
@@ -141,7 +135,24 @@ public class Server {
                     int[] info = (int[])in.readObject();
                     System.out.println(info[0]+ " from thread" +Thread.currentThread().getId());
                     scores.put(this.player_id, scores.getOrDefault(this.player_id, 0)+info[0]);
+                    deduct(info[1], info[2]);
+                    checkWin();
+
+                    players.add(players.poll());
+                    System.out.println("Next player Id: "+players.peek().getId() + " from thread" +Thread.currentThread().getId());
+                    out.writeObject("next");
+                    System.out.println("-----------------------------------------");
+                    for(Map.Entry<Integer, Integer> entry : scores.entrySet()){
+                        System.out.println("Player"+entry.getKey() + " has scores: " + entry.getValue());
+                    }
+                    System.out.println("-----------------------------------------");
                 }
+
+                for(Map.Entry<Integer, Integer> entry : scores.entrySet()){
+                    System.out.println("Player"+entry.getKey() + " has scores: " + entry.getValue());
+                }
+                this.server.broadcast("Player"+potential_winner_id+" has won the game");
+                this.server.broadcast("END");
             }catch(IOException exp){
                 exp.printStackTrace();
             } catch (ClassNotFoundException e) {
@@ -149,6 +160,31 @@ public class Server {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+
+        public void deduct(int deducted, int isSeaBattles){
+            System.out.println("Enter deduct: " +deducted);
+            for (Player p : players){
+                System.out.println(p.getId());
+                if(p.getId() != this.player_id && isSeaBattles > 0) continue;
+                if(p.getId() == this.player_id && isSeaBattles == 0) continue;
+
+                if(scores.getOrDefault(p.getId(), 0)+deducted <0) scores.put(p.getId(),0);
+                else scores.put(p.getId(), scores.getOrDefault(p.getId(), 0)+deducted);
+
+                if(p.getId() == this.potential_winner_id && scores.getOrDefault(p.getId(),0) < 3000){
+                    maxScoreReached = false;
+                }
+            }
+        }
+        public void checkWin(){
+            if(scores.get(this.player_id) >= 1000){
+                maxScoreReached = true;
+                System.out.println(this.player_id);
+                if(this.player_id==potential_winner_id) loop=false;
+                potential_winner_id = this.player_id;
+            }
+            System.out.println("finish checkWin");
         }
     }
 }

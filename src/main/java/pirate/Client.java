@@ -38,21 +38,21 @@ public class Client {
             String input = "qsx cxc";
             while(true){
                 if(!initializePlayer){
-                    System.out.println("xxx");
+//                    System.out.println("xxx");
                     player = (Player) dIn.readObject();
                     System.out.println(player);
                     initializePlayer = true;
-                    System.out.println(player.getDice());
+//                    System.out.println(player.getDice());
 //                    dOut.writeObject("received");
 //                    dOut.flush();
-                    System.out.println("sent");
+//                    System.out.println("sent");
                 }else{
-                    System.out.println("second");
+//                    System.out.println("second");
 //                    System.out.println(dIn.readObject());
                     input = (String)dIn.readObject();
                 }
 
-                System.out.println(input);
+//                System.out.println(input);
                 String res;
                 if(input!=null && input.equals("true")){
                     System.out.println("PLayer 1 please start the game (Enter s): ");
@@ -63,11 +63,11 @@ public class Client {
                     }
                     dOut.writeObject(res);
                     dOut.flush();
-                    System.out.println("CHECK true");
+//                    System.out.println("CHECK true");
                     break;
                 }else if(input.equals("false")){
                     System.out.println("wait for player 1 to start the game");
-                    System.out.println("CHECK false");
+//                    System.out.println("CHECK false");
                     break;
                 }
             }
@@ -75,8 +75,8 @@ public class Client {
             while(true){
                 System.out.println("waiting to start your turn");
                 String s = (String) dIn.readObject();
-                System.out.println("received");
-                System.out.println(s);
+//                System.out.println("received");
+//                System.out.println(s);
                 if(s.equals("turn")){
                     System.out.println("before play()");
                     player.play((String)dIn.readObject());

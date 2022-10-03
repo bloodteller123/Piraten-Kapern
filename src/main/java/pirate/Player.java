@@ -326,8 +326,8 @@ public class Player implements Serializable {
         this.deductedPoints += num*100*(-1);
     }
     public int[] getInfo() {
-        if(this.card.equals("captain")) return new int[]{this.score*2, this.deductedPoints*2};
-        return new int[]{this.score, this.deductedPoints};
+        if(this.card.equals("captain")) return new int[]{this.score*2, this.deductedPoints*2,0};
+        return new int[]{this.score, this.deductedPoints, this.seabattles};
     }
     public void addToTreasures(String[] indices){
         try{
@@ -407,8 +407,8 @@ public class Player implements Serializable {
             System.out.println("Do you want to modify treasure chest (yes, no)? ");
             treasure = br.readLine();
         }
-        System.out.println("press 'end' to exit");
         if(treasure.equals("yes")) {
+            System.out.println("press 'end' to exit");
             while(!treasure.equals("end")){
                 System.out.println("Select dice to be put on treasure chest (0 1 2 etc, press enter to exit add treasure): ");
                 treasure = br.readLine();
@@ -436,6 +436,7 @@ public class Player implements Serializable {
     public void play(String c){
         try{
             this.setCard(c);
+            System.out.println("Your FC is: " +this.card);
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             this.dice = initializeDice();
             if(this.card.split("-").length > 1){
