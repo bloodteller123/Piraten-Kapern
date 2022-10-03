@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/AcceptanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/AcceptanceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +76,7 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="JUnit.AcceptanceTest.Test131">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pirate.Client" />
       <module name="COMP5104A1" />
@@ -103,7 +104,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AcceptanceTest.Test110" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AcceptanceTest.Test131" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
         <pattern>
@@ -113,7 +114,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="pirate" />
       <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
-      <option name="METHOD_NAME" value="Test110" />
+      <option name="METHOD_NAME" value="Test131" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -151,13 +152,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="COMP5104A1 [clean install]" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AcceptanceTest.Test131" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.PlayerTest.getInfoTest" />
         <item itemvalue="JUnit.PlayerTest.islandOfSkullTest" />
-        <item itemvalue="JUnit.AcceptanceTest.Test110" />
       </list>
     </recent_temporary>
   </component>

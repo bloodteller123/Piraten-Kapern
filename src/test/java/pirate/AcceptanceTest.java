@@ -1280,4 +1280,46 @@ public class AcceptanceTest {
         assertEquals(0, p.getInfo()[1]);
         System.out.println("TEST 125 passed");
     }
+    @Test
+    public void Test131(){
+        Player p1 = new Player(1,0);
+        Player p2 = new Player(2,0);
+        Player p3 = new Player(3,0);
+
+        p1.initializeDice();
+        p1.setCard("captain");
+        // on first roll
+        p1.getDice().forEach(d -> d.roll());
+        //1 skull, 0 parrots, 7 swords 0 coins 0 diamonds 0 monkeys
+        p1.setDice(new ArrayList<>(Arrays.asList(new Die("saber  "), new Die("saber  "),
+                new Die("skull  "), new Die("saber  "), new Die("saber  "), new Die("saber  "),
+                new Die("saber  "), new Die("saber  "))));
+        System.out.println(p1.getDice());
+        p2.initializeDice();
+        p2.setCard("coin");
+        // on first roll
+        p2.getDice().forEach(d -> d.roll());
+        //2 skull, 2 parrots, 3 swords 0 coins 0 diamonds 1 monkeys
+        p2.setDice(new ArrayList<>(Arrays.asList(new Die("parrot "), new Die("parrot "),
+                new Die("skull  "), new Die("saber  "), new Die("saber  "), new Die("saber  "),
+                new Die("skull  "), new Die("monkey "))));
+        p3.initializeDice();
+        p3.setCard("coin");
+        // on first roll
+        p3.getDice().forEach(d -> d.roll());
+        System.out.println(p1.getDice());
+        //3 skull, 0 parrots, 7 swords 0 coins 0 diamonds 0 monkeys
+        p3.setDice(new ArrayList<>(Arrays.asList(new Die("saber  "), new Die("saber "),
+                new Die("skull  "), new Die("skull  "), new Die("saber  "), new Die("saber  "),
+                new Die("skull  "), new Die("saber  "))));
+        p3.addSkulls(p3.getDice());
+//        p3.skullCheck();
+        System.out.println(p1.getDice());
+        p1.calculateScore(p1.getDice());
+//        p2.calculateScore(p2.getDice());
+//        p3.calculateScore(p3.getDice());
+        assertEquals(4000, p1.getInfo()[0]);
+//        assertEquals(100, p2.getInfo()[0]);
+//        assertEquals(0, p3.getInfo()[0]);
+    }
 }
