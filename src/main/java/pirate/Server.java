@@ -165,6 +165,7 @@ public class Server {
 //                }
                 this.server.broadcast("Player"+potential_winner_id+" has won the game",-1);
                 this.server.broadcast("END",-1);
+                System.out.println("Player" +potential_winner_id+" has won the game");
             }catch(IOException exp){
                 exp.printStackTrace();
             } catch (ClassNotFoundException e) {

@@ -1307,19 +1307,17 @@ public class AcceptanceTest {
         p3.setCard("coin");
         // on first roll
         p3.getDice().forEach(d -> d.roll());
-        System.out.println(p1.getDice());
         //3 skull, 0 parrots, 7 swords 0 coins 0 diamonds 0 monkeys
         p3.setDice(new ArrayList<>(Arrays.asList(new Die("saber  "), new Die("saber "),
                 new Die("skull  "), new Die("skull  "), new Die("saber  "), new Die("saber  "),
                 new Die("skull  "), new Die("saber  "))));
         p3.addSkulls(p3.getDice());
-//        p3.skullCheck();
-        System.out.println(p1.getDice());
+        p3.skullCheck();
         p1.calculateScore(p1.getDice());
-//        p2.calculateScore(p2.getDice());
-//        p3.calculateScore(p3.getDice());
+        p2.calculateScore(p2.getDice());
+        p3.calculateScore(p3.getDice());
         assertEquals(4000, p1.getInfo()[0]);
-//        assertEquals(100, p2.getInfo()[0]);
-//        assertEquals(0, p3.getInfo()[0]);
+        assertEquals(100, p2.getInfo()[0]);
+        assertEquals(0, p3.getInfo()[0]);
     }
 }
