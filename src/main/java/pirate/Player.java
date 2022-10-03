@@ -90,6 +90,32 @@ public class Player implements Serializable {
     public void removeSkull(String index){
         this.skulls_index.remove(index);
     }
+    public void rollSkulls(BufferedReader br) throws IOException{
+        String sk=null;
+        while(sk==null || !(sk.equals("no") || sk.equals("yes"))){
+            System.out.println("Do you want to re-roll a skull (yes, no)? ");
+            sk = br.readLine();
+        }
+        if(sk.equals("yes")) {
+            this.sorceress = false;
+            System.out.println("YOu have used your sorceress power");
+            while(!sk.equals("end")){
+                while(sk.trim().split("\\s+").length>1 || (!sk.matches("-?\\d+(\\.\\d+)?") || Integer.parseInt(sk)>7)) {
+                    System.out.println("Select and remove/re-roll one skull (0 etc, press enter to exit): ");
+                    sk = br.readLine();
+                    if(sk.equals("")) break;
+                }
+                if(!sk.equals("")){
+                    String ind = sk.trim();
+                    removeSkull(ind);
+                    System.out.println("Skulls: ");
+                    printFortuneDice(this.skulls_index);
+                    rerollSome(new String[]{ind});
+                }
+                sk = "end";
+            }
+        }
+    }
     public boolean checkRollSelection(String[] selections){
         return selections.length >= 2 && Collections.disjoint(new ArrayList<>(skulls_index), Arrays.asList(selections))
                 && (this.treasures==null?true:Collections.disjoint(this.treasures, Arrays.asList(selections)));
