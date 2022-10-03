@@ -13,7 +13,7 @@ public class Player implements Serializable {
     private static final long serialVersionUID = 1L;
     private int score;
     private final int id;
-    private static List<Die> dice;
+    private List<Die> dice;
     private boolean quit;
     private Set<String> skulls_index;
     private String card = "";
