@@ -63,12 +63,29 @@ public class Player implements Serializable {
         }
         System.out.println("Turn ends");
     }
-
+    public void landIslandOfSkull(){
+        System.out.println("Enter Island of skulls");
+        int numskulls = this.skulls_index.size();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        while(true){
+            int nk = rollSome(br);
+            if(nk - numskulls >=1){
+                numskulls = nk;
+            }else{
+                break;
+            }
+            if(nk >6) break;
+        };
+        deductPoints(numskulls);
+        System.out.println("Exit Island of Skulls");
+        endGame();
+    }
     public void skullCheck(){
         if(this.skulls_index.size() == 3 || (this.skulls_index.size() >=3 && this.seabattles >0)){
             endGame();
         } else if (this.skulls_index.size() >3 && this.seabattles==0) {
             isIOS = true;
+            landIslandOfSkull();
         }
     }
     public boolean getIsIOS(){
