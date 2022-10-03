@@ -172,6 +172,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(4800, p.getScore());
+        System.out.println("TEST 50 passed");
     }
 
     @Test
@@ -188,6 +189,7 @@ public class AcceptanceTest {
         p.setCard("captain");
         p.calculateScore(dice);
         assertEquals(800, p.getInfo()[0]);
+        System.out.println("TEST 52 passed");
     }
 
     @Test
@@ -210,6 +212,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(200, p.getInfo()[0]);
+        System.out.println("TEST 53 passed");
     }
 
     @Test
@@ -226,6 +229,7 @@ public class AcceptanceTest {
         p.setCard("coin");
         p.calculateScore(dice);
         assertEquals(300, p.getInfo()[0]);
+        System.out.println("TEST 54 passed");
     }
 
     @Test
@@ -248,6 +252,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(300, p.getInfo()[0]);
+        System.out.println("TEST 55 passed");
     }
 
     @Test
@@ -264,6 +269,7 @@ public class AcceptanceTest {
         p.setCard("coin");
         p.calculateScore(dice);
         assertEquals(500, p.getInfo()[0]);
+        System.out.println("TEST 56 passed");
     }
 
     @Test
@@ -280,6 +286,7 @@ public class AcceptanceTest {
         p.setCard("diamond");
         p.calculateScore(dice);
         assertEquals(700, p.getInfo()[0]);
+        System.out.println("TEST 57 passed");
     }
 
     @Test
@@ -296,6 +303,7 @@ public class AcceptanceTest {
         p.setCard("coin");
         p.calculateScore(dice);
         assertEquals(400, p.getInfo()[0]);
+        System.out.println("TEST 58 passed");
     }
 
     @Test
@@ -318,6 +326,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(800, p.getInfo()[0]);
+        System.out.println("TEST 59 passed");
     }
 
     @Test
@@ -340,6 +349,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(1200, p.getInfo()[0]);
+        System.out.println("TEST 60 passed");
     }
 
     @Test
@@ -368,6 +378,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(600, p.getInfo()[0]);
+        System.out.println("TEST 61 passed");
     }
 
     @Test
@@ -384,6 +395,7 @@ public class AcceptanceTest {
         p.setCard("coin");
         p.calculateScore(dice);
         assertEquals(1100, p.getInfo()[0]);
+        System.out.println("TEST 62 passed");
     }
 
     @Test
@@ -400,6 +412,7 @@ public class AcceptanceTest {
         p.setCard("coin");
         p.calculateScore(dice);
         assertEquals(2100, p.getInfo()[0]);
+        System.out.println("TEST 63 passed");
     }
 
     @Test
@@ -416,6 +429,7 @@ public class AcceptanceTest {
         p.setCard("coin");
         p.calculateScore(dice);
         assertEquals(5400, p.getInfo()[0]);
+        System.out.println("TEST 64 passed");
     }
 
     @Test
@@ -432,6 +446,7 @@ public class AcceptanceTest {
         p.setCard("diamond");
         p.calculateScore(dice);
         assertEquals(5400, p.getInfo()[0]);
+        System.out.println("TEST 65 passed");
     }
 
     @Test
@@ -448,6 +463,7 @@ public class AcceptanceTest {
         p.setCard("captain");
         p.calculateScore(dice);
         assertEquals(9000, p.getInfo()[0]);
+        System.out.println("TEST 66 passed");
     }
 
     @Test
@@ -476,6 +492,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(4600, p.getInfo()[0]);
+        System.out.println("TEST 67 passed");
     }
 
     @Test
@@ -498,6 +515,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(400, p.getInfo()[0]);
+        System.out.println("TEST 68 passed");
     }
 
     @Test
@@ -520,6 +538,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(500, p.getInfo()[0]);
+        System.out.println("TEST 69 passed");
     }
 
     @Test
@@ -542,6 +561,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(600, p.getInfo()[0]);
+        System.out.println("TEST 70 passed");
     }
 
     @Test
@@ -564,6 +584,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(500, p.getInfo()[0]);
+        System.out.println("TEST 71 passed");
     }
 
     @Test
@@ -581,6 +602,7 @@ public class AcceptanceTest {
 
         p.calculateScore(dice);
         assertEquals(600, p.getInfo()[0]);
+        System.out.println("TEST 72 passed");
     }
 
     @Test
@@ -600,6 +622,7 @@ public class AcceptanceTest {
         p.removeSkull("1");
         assertEquals(1, p.getSkulls().size());
         p.rerollSome(new String[]{"1"});
+        System.out.println("TEST 77 passed");
     }
 
     @Test
@@ -632,6 +655,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(600, p.getInfo()[0]);
+        System.out.println("TEST 78 passed");
     }
 
     @Test
@@ -662,6 +686,7 @@ public class AcceptanceTest {
                 new Die("saber  "), new Die("skull  "), new Die("coin   "), new Die("monkey "),
                 new Die("monkey "), new Die("monkey ")));
         p.setDice(dice);
+        System.out.println("TEST 79 passed");
     }
 
     @Test
@@ -678,6 +703,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(1100, p.getInfo()[0]);
+        System.out.println("TEST 82 passed");
     }
 
     @Test
@@ -705,6 +731,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(400, p.getInfo()[0]);
+        System.out.println("TEST 83 passed");
     }
 
     @Test
@@ -732,6 +759,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(2000, p.getInfo()[0]);
+        System.out.println("TEST 84 passed");
     }
 
     @Test
@@ -764,6 +792,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(1100, p.getInfo()[0]);
+        System.out.println("TEST 87 passed");
     }
 
     @Test
@@ -801,6 +830,7 @@ public class AcceptanceTest {
         List<Die> treasures = p.buildTreasureList();
         p.calculateScore(treasures);
         assertEquals(600, p.getInfo()[0]);
+        System.out.println("TEST 92 passed");
     }
 
     @Test
@@ -816,6 +846,7 @@ public class AcceptanceTest {
                 new Die("monkey "), new Die("diamond"))));
         p.calculateScore(p.getDice());
         assertEquals(400, p.getInfo()[0]);
+        System.out.println("TEST 98 passed");
     }
 
     @Test
@@ -831,6 +862,7 @@ public class AcceptanceTest {
                 new Die("monkey "), new Die("coin   "))));
         p.calculateScore(p.getDice());
         assertEquals(1800, p.getInfo()[0]);
+        System.out.println("TEST 99 passed");
     }
 
     @Test
@@ -846,6 +878,7 @@ public class AcceptanceTest {
                 new Die("monkey "), new Die("diamond"))));
         p.calculateScore(p.getDice());
         assertEquals(1000, p.getInfo()[0]);
+        System.out.println("TEST 100 passed");
     }
 
     @Test
@@ -867,6 +900,7 @@ public class AcceptanceTest {
                 new Die("monkey "), new Die("coin   "))));
         p.calculateScore(p.getDice());
         assertEquals(1200, p.getInfo()[0]);
+        System.out.println("TEST 101 passed");
     }
 
     @Test
@@ -883,6 +917,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.calculateScore(dice);
         assertEquals(1200, p.getInfo()[0]);
+        System.out.println("TEST 104 passed");
     }
 
     @Test
@@ -904,6 +939,7 @@ public class AcceptanceTest {
         p.skullCheck();
         assertEquals(3, p.getSkulls().size());
         assertTrue(p.isEnd());
+        System.out.println("TEST 107 passed");
     }
 
     @Test
@@ -925,6 +961,7 @@ public class AcceptanceTest {
         p.skullCheck();
         assertEquals(3, p.getSkulls().size());
         assertTrue(p.isEnd());
+        System.out.println("TEST 108 passed");
     }
     @Test
     public void Test109(){
@@ -942,7 +979,6 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        p.skullCheck();
         assertEquals(4, p.getSkulls().size());
         assertTrue(p.getIsIOS());
 
@@ -955,7 +991,6 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        p.skullCheck();
         assertEquals(6, p.getSkulls().size());
         p.rerollSome(new String[]{"5"});
         // 7 skulls
@@ -966,10 +1001,10 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        p.skullCheck();
         assertEquals(7, p.getSkulls().size());
         p.deductPoints(p.getSkulls().size());
         assertEquals(-700, p.getInfo()[1]);
+        System.out.println("TEST 109 passed");
     }
     @Test
     public void Test110(){
@@ -987,7 +1022,6 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        p.skullCheck();
         assertEquals(5, p.getSkulls().size());
         assertTrue(p.getIsIOS());
 
@@ -1000,12 +1034,12 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        p.skullCheck();
         assertEquals(5, p.getSkulls().size());
         p.rerollSome(new String[]{"5"});
 
         p.deductPoints(p.getSkulls().size());
         assertEquals(-500, p.getInfo()[1]);
+        System.out.println("TEST 110 passed");
     }
     @Test
     public void Test111(){
@@ -1023,9 +1057,7 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        p.skullCheck();
         assertEquals(4, p.getSkulls().size());
-        assertTrue(p.getIsIOS());
 
         p.rerollSome(new String[]{"6"});
         // 5 skulls
@@ -1036,7 +1068,6 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        p.skullCheck();
         assertEquals(5, p.getSkulls().size());
         p.rerollSome(new String[]{"5"});
         // 5 skulls
@@ -1047,10 +1078,10 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        p.skullCheck();
         assertEquals(5, p.getSkulls().size());
         p.deductPoints(p.getSkulls().size());
         assertEquals(-500, p.getInfo()[1]);
+        System.out.println("TEST 111 passed");
     }
 
     @Test
@@ -1070,6 +1101,7 @@ public class AcceptanceTest {
         assertTrue(p.isEnd());
         p.calculateScore(p.getDice());
         assertEquals(-300, p.getInfo()[1]);
+        System.out.println("TEST 114 passed");
     }
     @Test
     public void Test115(){
@@ -1096,6 +1128,7 @@ public class AcceptanceTest {
         assertTrue(p.isEnd());
         p.calculateScore(p.getDice());
         assertEquals(-500, p.getInfo()[1]);
+        System.out.println("TEST 115 passed");
     }
     @Test
     public void Test116() {
@@ -1116,6 +1149,7 @@ public class AcceptanceTest {
         assertEquals(-1000, p.getInfo()[1]);
         p.setScore(-1000);
         assertEquals(0,p.getScore());
+        System.out.println("TEST 116 passed");
     }
     @Test
     public void Test118(){
@@ -1133,6 +1167,7 @@ public class AcceptanceTest {
         p.skullCheck();
         p.calculateScore(p.getDice());
         assertEquals(500, p.getInfo()[0]);
+        System.out.println("TEST 118 passed");
     }
     @Test
     public void Test119(){
@@ -1155,6 +1190,7 @@ public class AcceptanceTest {
                 new Die("skull  "), new Die("monkey "))));
         p.calculateScore(p.getDice());
         assertEquals(500, p.getInfo()[0]);
+        System.out.println("TEST 119 passed");
     }
     @Test
     public void Test121(){
@@ -1173,6 +1209,7 @@ public class AcceptanceTest {
 
         p.calculateScore(p.getDice());
         assertEquals(800, p.getInfo()[0]);
+        System.out.println("TEST 121 passed");
     }
     @Test
     public void Test122(){
@@ -1197,6 +1234,7 @@ public class AcceptanceTest {
         assertTrue(p.isEnd());
         p.calculateScore(p.getDice());
         assertEquals(-500, p.getInfo()[1]);
+        System.out.println("TEST 122 passed");
     }
     @Test
     public void Test124(){
@@ -1212,6 +1250,7 @@ public class AcceptanceTest {
         p.activateSeaBattles(4);
         p.calculateScore(p.getDice());
         assertEquals(1300, p.getInfo()[0]);
+        System.out.println("TEST 124 passed");
     }
     @Test
     public void Test125(){
@@ -1241,5 +1280,6 @@ public class AcceptanceTest {
         p.calculateScore(p.getDice());
         assertEquals(1300, p.getInfo()[0]);
         assertEquals(0, p.getInfo()[1]);
+        System.out.println("TEST 125 passed");
     }
 }
