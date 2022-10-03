@@ -38,21 +38,13 @@ public class Client {
             String input = "qsx cxc";
             while(true){
                 if(!initializePlayer){
-//                    System.out.println("xxx");
                     player = (Player) dIn.readObject();
-                    System.out.println(player);
+                    System.out.println("Welcome Player "+player.getId());
                     initializePlayer = true;
-//                    System.out.println(player.getDice());
-//                    dOut.writeObject("received");
-//                    dOut.flush();
-//                    System.out.println("sent");
                 }else{
-//                    System.out.println("second");
-//                    System.out.println(dIn.readObject());
                     input = (String)dIn.readObject();
                 }
 
-//                System.out.println(input);
                 String res;
                 if(input!=null && input.equals("true")){
                     System.out.println("PLayer 1 please start the game (Enter s): ");
@@ -86,8 +78,11 @@ public class Client {
                     dOut.writeObject(player.getInfo());
                     dOut.flush();
                     player.reset();
-                }else{
+                }else if(s.equals("END")){
 //                    System.out.println(s);
+                    break;
+                }else{
+                    System.out.println(s);
                 }
             }
         }catch(IOException exp){

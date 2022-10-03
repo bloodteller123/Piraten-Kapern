@@ -18,6 +18,7 @@ public class Server {
     private FortuneCard fc;
     private boolean maxScoreReached = false;
     private boolean loop=true;
+    private int turn_helper = 0;
     public static void main(String[] args) {
         if (args.length != 1) {
             System.err.println("Specify a port number");
@@ -59,6 +60,12 @@ public class Server {
             writers.get(key).writeObject(msg);
         }
     }
+    public void setTurn(){
+        this.turn_helper += 1;
+    }
+    public int getTurn(){
+        return this.turn_helper;
+    }
     public void toggleStart(){
         start = !start;
     }
@@ -72,7 +79,7 @@ public class Server {
         ObjectInputStream in;
         ObjectOutputStream out;
         Player player;
-        int potential_winner_id;
+        int potential_winner_id = Integer.MIN_VALUE;
         public ClientHandler(Socket socket, int id, Server server) {
 
             clientSocket = socket;
@@ -127,7 +134,7 @@ public class Server {
                         continue;
                     };
                     System.out.println("Gameplay by "+this.player_id+ " from thread" +Thread.currentThread().getId());
-
+                    if(this.player_id==1) this.server.setTurn();
                     out.writeObject("turn");
                     out.flush();
                     out.writeObject(fc.drawCard());
@@ -141,7 +148,7 @@ public class Server {
                     players.add(players.poll());
                     System.out.println("Next player Id: "+players.peek().getId() + " from thread" +Thread.currentThread().getId());
                     out.writeObject("next");
-                    System.out.println("-----------------------------------------");
+                    System.out.println("-----------------Turn "+this.server.getTurn()+ "------------------------");
                     for(Map.Entry<Integer, Integer> entry : scores.entrySet()){
                         System.out.println("Player"+entry.getKey() + " has scores: " + entry.getValue());
                     }

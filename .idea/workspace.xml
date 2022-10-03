@@ -7,7 +7,6 @@
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +75,7 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pirate.Client" />
       <module name="COMP5104A1" />
