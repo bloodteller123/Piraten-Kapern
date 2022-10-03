@@ -52,7 +52,15 @@ public class Player implements Serializable {
     }
 
     public void endGame(){
+        setScore(0);
         quit=true;
+        if(this.treasures!=null){
+            List<Die> tres = buildTreasureList();
+            calculateScore(tres);
+        }
+        if(this.seabattles !=0){
+            this.deductedPoints = seabattles_score.get(this.seabattles) * (-1);
+        }
         System.out.println("Turn ends");
     }
 
