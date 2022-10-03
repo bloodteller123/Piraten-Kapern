@@ -65,8 +65,9 @@ public class Client {
             }
 
             while(true){
-                System.out.println("waiting to start your turn");
-                String s = (String) dIn.readObject();
+                String s="";
+                if(!s.equals("END"))System.out.println("waiting to start your turn");
+                  s = (String) dIn.readObject();
 //                System.out.println("received");
 //                System.out.println(s);
                 if(s.equals("turn")){

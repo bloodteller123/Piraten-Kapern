@@ -19,6 +19,7 @@ public class Server {
     private boolean maxScoreReached = false;
     private boolean loop=true;
     private int turn_helper = 0;
+    private int potential_winner_id = Integer.MIN_VALUE;
     public static void main(String[] args) {
         if (args.length != 1) {
             System.err.println("Specify a port number");
@@ -79,7 +80,6 @@ public class Server {
         ObjectInputStream in;
         ObjectOutputStream out;
         Player player;
-        int potential_winner_id = Integer.MIN_VALUE;
         public ClientHandler(Socket socket, int id, Server server) {
 
             clientSocket = socket;
@@ -155,9 +155,9 @@ public class Server {
                     System.out.println("-----------------------------------------");
                 }
 
-                for(Map.Entry<Integer, Integer> entry : scores.entrySet()){
-                    System.out.println("Player"+entry.getKey() + " has scores: " + entry.getValue());
-                }
+//                for(Map.Entry<Integer, Integer> entry : scores.entrySet()){
+//                    System.out.println("Player"+entry.getKey() + " has scores: " + entry.getValue());
+//                }
                 this.server.broadcast("Player"+potential_winner_id+" has won the game");
                 this.server.broadcast("END");
             }catch(IOException exp){
@@ -179,17 +179,19 @@ public class Server {
                 if(scores.getOrDefault(p.getId(), 0)+deducted <0) scores.put(p.getId(),0);
                 else scores.put(p.getId(), scores.getOrDefault(p.getId(), 0)+deducted);
 
-                if(p.getId() == this.potential_winner_id && scores.getOrDefault(p.getId(),0) < 3000){
+                if(p.getId() == potential_winner_id && scores.getOrDefault(p.getId(),0) < 3000){
+                    System.out.println("below 3000");
                     maxScoreReached = false;
                 }
             }
         }
         public void checkWin(){
-            if(scores.get(this.player_id) >= 1000){
+            if(scores.get(this.player_id) >= 3000){
                 maxScoreReached = true;
-                System.out.println(this.player_id);
+//                System.out.println(this.player_id);
                 if(this.player_id==potential_winner_id) loop=false;
                 potential_winner_id = this.player_id;
+                System.out.println("potential_winner_id "+potential_winner_id);
             }
             System.out.println("finish checkWin");
         }
