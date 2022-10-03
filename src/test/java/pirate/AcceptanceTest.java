@@ -1294,7 +1294,6 @@ public class AcceptanceTest {
         p1.setDice(new ArrayList<>(Arrays.asList(new Die("saber  "), new Die("saber  "),
                 new Die("skull  "), new Die("saber  "), new Die("saber  "), new Die("saber  "),
                 new Die("saber  "), new Die("saber  "))));
-        System.out.println(p1.getDice());
         p2.initializeDice();
         p2.setCard("coin");
         // on first roll
@@ -1312,12 +1311,57 @@ public class AcceptanceTest {
                 new Die("skull  "), new Die("skull  "), new Die("saber  "), new Die("saber  "),
                 new Die("skull  "), new Die("saber  "))));
         p3.addSkulls(p3.getDice());
+        System.out.println(p3.getDice());
         p3.skullCheck();
         p1.calculateScore(p1.getDice());
         p2.calculateScore(p2.getDice());
         p3.calculateScore(p3.getDice());
         assertEquals(4000, p1.getInfo()[0]);
-        assertEquals(100, p2.getInfo()[0]);
+        assertEquals(200, p2.getInfo()[0]);
         assertEquals(0, p3.getInfo()[0]);
+    }
+    @Test
+    public void Test134(){
+        Player p1 = new Player(1,0);
+        Player p2 = new Player(2,0);
+        Player p3 = new Player(3,0);
+
+        p1.initializeDice();
+        p1.setCard("captain");
+        // on first roll
+        p1.getDice().forEach(d -> d.roll());
+        //2 skull, 0 parrots, 6 swords 0 coins 0 diamonds 0 monkeys
+        p1.setDice(new ArrayList<>(Arrays.asList(new Die("saber  "), new Die("saber "),
+                new Die("skull  "), new Die("saber  "), new Die("saber  "), new Die("saber  "),
+                new Die("skull  "), new Die("saber  "))));
+        assertEquals(0, p1.getInfo()[0]);
+        p2.initializeDice();
+        p2.setCard("coin");
+        // on first roll
+        p2.getDice().forEach(d -> d.roll());
+        //3 skull, 1 parrots, 3 swords 0 coins 0 diamonds 1 monkeys
+        p2.setDice(new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("parrot "),
+                new Die("skull  "), new Die("saber  "), new Die("saber  "), new Die("saber  "),
+                new Die("skull  "), new Die("monkey "))));
+        p2.addSkulls(p2.getDice());
+        p2.skullCheck();
+
+        p3.initializeDice();
+        p3.setCard("1-skull");
+        String[] ss = p3.setSkulls(new String[]{"1", "skull"});
+        p3.addSkulls(p3.getDice());
+        // on first roll
+        p3.getDice().forEach(d -> d.roll());
+        //4 skull, 0 parrots, 4 swords 0 coins 0 diamonds 0 monkeys
+        p3.setDice(new ArrayList<>(Arrays.asList(new Die("saber  "), new Die("saber "),
+                new Die("skull  "), new Die("skull  "), new Die("saber  "), new Die("saber  "),
+                new Die("skull  "), new Die("skull  "))));
+        p3.addSkulls(p3.getDice());
+        p3.deductPoints(p3.getSkulls().size());
+        p1.calculateScore(p1.getDice());
+        p2.calculateScore(p2.getDice());
+        p3.calculateScore(p3.getDice());
+
+        assertEquals(-500, p3.getInfo()[1]);
     }
 }
