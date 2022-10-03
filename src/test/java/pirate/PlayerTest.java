@@ -140,7 +140,7 @@ public class PlayerTest {
     public void getInfoTest(){
         Player p = new Player(0,0);
         int[] info = p.getInfo();
-        assertEquals(2, info.length);
+        assertEquals(3, info.length);
         assertEquals(0, info[0]);
         assertEquals(0, info[1]);
     }
@@ -211,9 +211,8 @@ public class PlayerTest {
                 new Die("skull  "), new Die("skull  ")));
         p.setDice(dice);
         p.addSkulls(dice);
-        p.skullCheck();
+        System.out.println("xxx");
         assertTrue(p.getSkulls().size() >3);
-        assertTrue(p.getIsIOS());
     }
     @Test
     public void deductPointTest(){

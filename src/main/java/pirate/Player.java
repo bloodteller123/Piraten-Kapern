@@ -35,7 +35,7 @@ public class Player implements Serializable {
         this.dice = initializeDice();
         skulls_index = new HashSet<>();
         this.deductedPoints = 0;
-        this.treasures = null;
+        this.treasures = new HashSet<>();
         this.seabattles=0;
     }
 
@@ -50,7 +50,7 @@ public class Player implements Serializable {
     public boolean isEnd(){
         return this.quit;
     }
-
+    public void setEnd(){this.quit=true;}
     public void endGame(){
         setScore(0);
         quit=true;
@@ -136,6 +136,7 @@ public class Player implements Serializable {
                     System.out.println("Skulls: ");
                     printFortuneDice(this.skulls_index);
                     rerollSome(new String[]{ind});
+                    addSkulls(this.dice);
                 }
                 sk = "end";
             }
@@ -149,7 +150,6 @@ public class Player implements Serializable {
         for(int i=0;i<index.length;i++){
             this.dice.get(Integer.parseInt(index[i])).roll();
         }
-        addSkulls(this.dice);
     }
     public int rollSome(BufferedReader br){
         System.out.println("Enter dice # to re-roll (0 1 2 etc, the rest will be set aside): ");
@@ -171,6 +171,7 @@ public class Player implements Serializable {
                 rolls_indices = lines.trim().split("\\s+");
             }
             rerollSome(rolls_indices);
+            addSkulls(this.dice);
             printDice();
         } catch (IOException e) {
             e.printStackTrace();
@@ -436,6 +437,7 @@ public class Player implements Serializable {
     public void play(String c){
         try{
             this.setCard(c);
+            this.treasures = null;
             System.out.println("Your FC is: " +this.card);
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             this.dice = initializeDice();
@@ -443,6 +445,7 @@ public class Player implements Serializable {
                 String[] cs = this.card.split("-");
                 if(cs[1].equals("skull")){
                     rerollSome(setSkulls(cs));
+                    addSkulls(this.dice);
                 }else if(cs[1].equals("sword")){
                     activateSeaBattles(Integer.parseInt(cs[0]));
                     this.dice.forEach(d -> d.roll());

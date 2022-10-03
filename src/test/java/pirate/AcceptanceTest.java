@@ -824,8 +824,8 @@ public class AcceptanceTest {
                 new Die("coin   "), new Die("coin   ")));
         p.setDice(dice);
         p.addSkulls(dice);
-        p.skullCheck();
         assertEquals(3, p.getSkulls().size());
+        p.setEnd();
         assertTrue(p.isEnd());
         List<Die> treasures = p.buildTreasureList();
         p.calculateScore(treasures);
@@ -980,7 +980,6 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.addSkulls(dice);
         assertEquals(4, p.getSkulls().size());
-        assertTrue(p.getIsIOS());
 
         p.rerollSome(new String[]{"6","7"});
         // 6 skulls
@@ -1023,7 +1022,6 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.addSkulls(dice);
         assertEquals(5, p.getSkulls().size());
-        assertTrue(p.getIsIOS());
 
         p.rerollSome(new String[]{"6","7"});
         // 5 skulls
