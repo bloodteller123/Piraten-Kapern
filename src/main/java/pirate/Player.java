@@ -359,6 +359,10 @@ public class Player implements Serializable {
         this.skulls_index = new HashSet<>();
         this.card = "";
         this.seabattles =0;
+        this.deductedPoints = 0;
+        this.treasures = null;
+        this.values = new ArrayList<>(Arrays.asList("1","2","3"));
+        this.sorceress = false;
     }
     public void printDice() {
         System.out.println(" _Dice0_    _Dice1_    _Dice2_    _Dice3_    _Dice4_    _Dice5_    _Dice6_    _Dice7_");
