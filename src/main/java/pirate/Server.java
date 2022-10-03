@@ -149,8 +149,9 @@ public class Server {
                     players.add(players.poll());
                     System.out.println("Next player Id: "+players.peek().getId() + " from thread" +Thread.currentThread().getId());
 //                    out.writeObject("next");
-                    String msg = "----------------------------------------- \n" +  "Player "+this.player_id +" has obtained "+ Integer.toString(scores.getOrDefault(this.player_id,0))+"\n"+
-                            "----------------------------------------- \n";
+//                    String msg = "----------------------------------------- \n" +  "Player "+this.player_id +" has obtained "+ Integer.toString(scores.getOrDefault(this.player_id,0))+"\n"+
+//                            "----------------------------------------- \n";
+                    String msg = buildMsg(scores);
                     this.server.broadcast(msg,this.player_id);
                     System.out.println("-----------------Turn "+this.server.getTurn()+ "------------------------");
                     for(Map.Entry<Integer, Integer> entry : scores.entrySet()){
@@ -173,6 +174,16 @@ public class Server {
             }
         }
 
+        public String buildMsg(Map<Integer, Integer> map){
+            StringBuilder sb = new StringBuilder();
+            sb.append("----------------------------------------- \n");
+            for(Map.Entry<Integer, Integer> entry : scores.entrySet()){
+                sb.append("Player"+entry.getKey() + " has scores: " + entry.getValue());
+                sb.append("\n");
+            }
+            sb.append("----------------------------------------- \n");
+            return sb.toString();
+        }
         public void deduct(int deducted, int isSeaBattles){
             System.out.println("Enter deduct: " +deducted);
             for (Player p : players){
