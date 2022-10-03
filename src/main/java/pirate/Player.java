@@ -456,6 +456,7 @@ public class Player implements Serializable {
                     this.treasures = new HashSet<>();
                 }else if(this.card.equals("sorceress")){
                     this.sorceress = true;
+                    this.values.add("4");
                 }
                 this.dice.forEach(d -> d.roll());
             }

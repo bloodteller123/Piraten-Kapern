@@ -56,8 +56,9 @@ public class Server {
             }
         }
     }
-    public void broadcast(String msg) throws IOException {
+    public void broadcast(String msg, int id) throws IOException {
         for (Integer key : writers.keySet()) {
+            if(key==id) continue;
             writers.get(key).writeObject(msg);
         }
     }
@@ -110,7 +111,7 @@ public class Server {
                             ans = (String)in.readObject();;
                         }
                         this.server.toggleStart();
-                        this.server.broadcast("Player 1 has started the game. ");
+                        this.server.broadcast("Player 1 has started the game. ",player_id);
                     }else{
                         out.writeObject("false");
                         out.flush();
@@ -147,7 +148,10 @@ public class Server {
 
                     players.add(players.poll());
                     System.out.println("Next player Id: "+players.peek().getId() + " from thread" +Thread.currentThread().getId());
-                    out.writeObject("next");
+//                    out.writeObject("next");
+                    String msg = "----------------------------------------- \n" +  "Player "+this.player_id +" has obtained "+ Integer.toString(scores.getOrDefault(this.player_id,0))+"\n"+
+                            "----------------------------------------- \n";
+                    this.server.broadcast(msg,this.player_id);
                     System.out.println("-----------------Turn "+this.server.getTurn()+ "------------------------");
                     for(Map.Entry<Integer, Integer> entry : scores.entrySet()){
                         System.out.println("Player"+entry.getKey() + " has scores: " + entry.getValue());
@@ -158,8 +162,8 @@ public class Server {
 //                for(Map.Entry<Integer, Integer> entry : scores.entrySet()){
 //                    System.out.println("Player"+entry.getKey() + " has scores: " + entry.getValue());
 //                }
-                this.server.broadcast("Player"+potential_winner_id+" has won the game");
-                this.server.broadcast("END");
+                this.server.broadcast("Player"+potential_winner_id+" has won the game",-1);
+                this.server.broadcast("END",-1);
             }catch(IOException exp){
                 exp.printStackTrace();
             } catch (ClassNotFoundException e) {
