@@ -144,7 +144,7 @@ Feature: Handle multiple single player scoring scenarios
       | monkey  | 1      |
     Then player gets 500 scores
 
-  Scenario: row 47 roll 4 coins 2 swords 2 skulls on first roll and player gets a score of 700
+  Scenario: row 48 roll 4 coins 2 swords 2 skulls on first roll and player gets a score of 700
     When fortunate card is "diamond"
     And player rolls
       | die     | values |
@@ -155,3 +155,15 @@ Feature: Handle multiple single player scoring scenarios
       | coin    | 4      |
       | monkey  | 0      |
     Then player gets 700 scores
+
+  Scenario: row 49 roll 4 parrots 3 swords 1 skulls on first roll and player gets a score of 400
+    When fortunate card is "diamond"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 1      |
+      | saber   | 3      |
+      | parrot  | 4      |
+      | coin    | 0      |
+      | monkey  | 0      |
+    Then player gets 400 scores
