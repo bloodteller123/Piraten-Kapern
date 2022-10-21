@@ -184,3 +184,20 @@ Feature: Handle multiple single player scoring scenarios
       | saber   | 1      |
       | coin    | 1      |
     Then player gets 800 scores
+
+  Scenario: row 51 roll 2 parrots, 2 coins 1 skulls, 3 sabers, reroll parrots, get 1 saber and
+  1 coin and get 1200 points
+    When fortunate card is "captain"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 1      |
+      | saber   | 3      |
+      | parrot  | 2      |
+      | coin    | 2      |
+      | monkey  | 0      |
+    And player rerolls "parrot" to get
+      | die     | values |
+      | saber   | 1      |
+      | coin    | 1      |
+    Then player gets 1200 scores
