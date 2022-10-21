@@ -102,3 +102,20 @@ Feature: Handle multiple single player scoring scenarios
       | coin    | 2      |
       | monkey  | 2      |
     Then player gets 800 scores
+
+  Scenario: row 45 roll 2 parrots, 2 skulls, 2 sabers, 2 monkeys, reroll parrots, get 1 saber and
+  1 monkey and get 300 points
+    When fortunate card is "coin"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 2      |
+      | saber   | 2      |
+      | parrot  | 2      |
+      | coin    | 0      |
+      | monkey  | 2      |
+    And player rerolls "parrot" to get
+      | die     | values |
+      | saber   | 1      |
+      | monkey  | 1      |
+    Then player gets 300 scores
