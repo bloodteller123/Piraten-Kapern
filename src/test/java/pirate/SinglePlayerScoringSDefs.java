@@ -23,10 +23,13 @@ public class SinglePlayerScoringSDefs {
         p.initializeDice();
         p.getDice().forEach(d -> d.roll());
     }
+    @When("fortunate card is {string}")
+    public void fortunateCardIs(String arg0) {
+        p.setCard(arg0);
+    }
     @When("player rolls")
     public void playerRolls(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        System.out.println(maps);
         List<Die> dies = new ArrayList<>();
         for(Map<String, String> m : maps){
             int occ = Integer.valueOf(m.get("values"));
@@ -37,25 +40,6 @@ public class SinglePlayerScoringSDefs {
         }
         p.setDice(dies);
     }
-    @Then("player gets {int} scores")
-    public void playerGetsScores(int scores) {
-        p.addSkulls(p.getDice());
-        p.skullCheck();
-        assertEquals(3, p.getSkulls().size());
-
-        assertEquals(scores, p.getScore());
-    }
-    @And("player dies")
-    public void playerDies() {
-        assertTrue(p.isEnd());
-    }
-//    @And("player rerolls {int} {string} to get {int} {string}, {int} {string}")
-//    public void playerRerollsToGet(int arg0, String arg1, int arg2, String arg3, int arg4, String arg5) {
-//        p.rerollSome(new String[]{"5", "6", "7"});
-//        p.setDice(new ArrayList<>(Arrays.asList(new Die("skull"), new Die("parrot "),
-//                new Die("parrot "), new Die("parrot "), new Die("parrot "), new Die(arg3),
-//                new Die(arg3), new Die(arg5))));
-//    }
     @And("player rerolls {string} to get")
     public void playerRerollsToGet(String arg0, DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
@@ -78,5 +62,21 @@ public class SinglePlayerScoringSDefs {
             }
         }
         p.setDice(list);
+    }
+    @And("player dies")
+    public void playerDies() {
+        assertTrue(p.getSkulls().size() >=3);
+        assertTrue(p.isEnd());
+    }
+    @Then("player gets {int} scores")
+    public void playerGetsScores(int scores) {
+        p.addSkulls(p.getDice());
+        p.skullCheck();
+        if(!(p.getSkulls().size() >=3)){
+            System.out.println(p.getCard());
+            p.calculateScore(p.getDice());
+            System.out.println(p.getDice());
+            assertEquals(scores, p.getInfo()[0]);
+        }
     }
 }

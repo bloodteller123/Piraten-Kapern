@@ -1,12 +1,12 @@
 package pirate;
 
 public enum DiceType {
-    SKULL("skull  "),
+    SKULL("skull"),
     DIAMOND("diamond"),
-    MONKEY("monkey "),
-    SABRE("saber  "),
-    COIN("coin   "),
-    PARROT("parrot ");
+    MONKEY("monkey"),
+    SABRE("saber"),
+    COIN("coin"),
+    PARROT("parrot");
 
     private String value;
 

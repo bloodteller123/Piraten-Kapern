@@ -216,13 +216,13 @@ public class Player implements Serializable {
         return this.seabattles;
     }
     public void calculateScore(List<Die> ld){
+        System.out.println("inside calculateScore: "+ld);
         if(this.seabattles > (int) ld.stream().filter(die -> die.getFace().equalsIgnoreCase("saber  ")).count()
         || (this.seabattles >0 && this.skulls_index.size() >=3 )){
             this.deductedPoints = seabattles_score.get(this.seabattles) * (-1);
         }else {
             int monkey=0;
             for(DiceType i : DiceType.values()){
-
                 int occurrences = (int) ld.stream().filter(die -> die.getFace().equalsIgnoreCase(i.toString())).count();
                 if((i.toString().trim().equals("coin") && this.card.equals("coin")) ||
                         (i.toString().trim().equals("diamond") && this.card.equals("diamond"))){
@@ -234,7 +234,7 @@ public class Player implements Serializable {
                 }
                 //
                 if(i.toString().trim().equals("parrot") && this.card.equals(("MP"))) occurrences += monkey;
-//                System.out.println(occurrences);
+//                System.out.println(i.toString()+": "+occurrences);
                 int XofAKind = 0;
                 switch(occurrences){
                     case 3:
