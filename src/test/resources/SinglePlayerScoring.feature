@@ -246,3 +246,27 @@ Feature: Handle multiple single player scoring scenarios
       | coin    | 0      |
       | monkey  | 0      |
     Then player gets 2100 scores
+
+  Scenario: row 56 roll 8 coins first roll and player gets a score of 5400
+    When fortunate card is "coin"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 0      |
+      | saber   | 0      |
+      | parrot  | 0      |
+      | coin    | 8      |
+      | monkey  | 0      |
+    Then player gets 5400 scores
+
+  Scenario: row 57 roll 8 coins first roll and player gets a score of 5400
+    When fortunate card is "diamond"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 0      |
+      | saber   | 0      |
+      | parrot  | 0      |
+      | coin    | 8      |
+      | monkey  | 0      |
+    Then player gets 5400 scores
