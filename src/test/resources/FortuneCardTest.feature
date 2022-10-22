@@ -41,3 +41,23 @@ Feature: Handle cases with different fortune cards
       | die     | values |
       | parrot  | 2      |
     Then player gets 1000 scores
+
+  Scenario: row 71 roll 1 skulls 3 monkeys 4 parrots, reroll 3 monkeys,
+  get 1 skull 2 parrot, reroll skull get parrots get 2000 points
+    When fortunate card is "sorceress"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 1      |
+      | saber   | 0      |
+      | parrot  | 4      |
+      | coin    | 0      |
+      | monkey  | 3      |
+    And player rerolls "monkey" to get
+      | die     | values |
+      | parrot  | 2      |
+      | skull   | 1      |
+    And player rerolls "skull" to get
+      | die     | values |
+      | parrot  | 1      |
+    Then player gets 2000 scores
