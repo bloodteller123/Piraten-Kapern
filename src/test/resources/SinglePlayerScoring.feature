@@ -270,3 +270,30 @@ Feature: Handle multiple single player scoring scenarios
       | coin    | 8      |
       | monkey  | 0      |
     Then player gets 5400 scores
+
+  Scenario: row 58 roll 8 swords first roll and player gets a score of 9000
+    When fortunate card is "captain"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 0      |
+      | saber   | 8      |
+      | parrot  | 0      |
+      | coin    | 0      |
+      | monkey  | 0      |
+    Then player gets 9000 scores
+
+  Scenario: row 59 roll 6 monkeys, 2 sabers, reroll sabers, get 2 monkey and get 4600 points
+    When fortunate card is "coin"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 0      |
+      | saber   | 2      |
+      | parrot  | 0      |
+      | coin    | 0      |
+      | monkey  | 6      |
+    And player rerolls "saber" to get
+      | die     | values |
+      | monkey  | 2      |
+    Then player gets 4600 scores
