@@ -297,3 +297,81 @@ Feature: Handle multiple single player scoring scenarios
       | die     | values |
       | monkey  | 2      |
     Then player gets 4600 scores
+
+  Scenario: row 60 roll 2 monkeys, 2 sabers 2 skulls 2 parrots, reroll parrots, get 2 diamonds and get 400 points
+    When fortunate card is "diamond"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 2      |
+      | saber   | 2      |
+      | parrot  | 2      |
+      | coin    | 0      |
+      | monkey  | 2      |
+    And player rerolls "parrot" to get
+      | die     | values |
+      | diamond | 2      |
+    Then player gets 400 scores
+
+  Scenario: row 61 roll 2 monkeys, 2 sabers 2 skulls 1 diamond 1 parrot, reroll monkeys, get 2 diamonds and get 500 points
+    When fortunate card is "coin"
+    And player rolls
+      | die     | values |
+      | diamond | 1      |
+      | skull   | 2      |
+      | saber   | 2      |
+      | parrot  | 1      |
+      | coin    | 0      |
+      | monkey  | 2      |
+    And player rerolls "monkey" to get
+      | die     | values |
+      | diamond | 2      |
+    Then player gets 500 scores
+
+  Scenario: row 62 roll 2 coins, 1 monkey 1 skulls 3 swords 1 parrot, reroll swords, get 1 coin
+  1 monkey 1 parrot and get 600 points
+    When fortunate card is "coin"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 1      |
+      | saber   | 3      |
+      | parrot  | 1      |
+      | coin    | 2      |
+      | monkey  | 1      |
+    And player rerolls "saber" to get
+      | die     | values |
+      | coin    | 1      |
+      | monkey  | 1      |
+      | parrot  | 1      |
+    Then player gets 600 scores
+
+  Scenario: row 63 roll 2 coins, 1 monkey 1 skulls 3 swords 1 parrot, reroll swords, get 1 coin
+  1 monkey 1 parrot and get 500 points
+    When fortunate card is "diamond"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 1      |
+      | saber   | 3      |
+      | parrot  | 1      |
+      | coin    | 2      |
+      | monkey  | 1      |
+    And player rerolls "saber" to get
+      | die     | values |
+      | coin    | 1      |
+      | monkey  | 1      |
+      | parrot  | 1      |
+    Then player gets 500 scores
+
+  Scenario: row 64 roll 4 monkeys 2 coins 2 skulls first roll and player gets a score of 600
+    When fortunate card is "coin"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 2      |
+      | saber   | 0      |
+      | parrot  | 0      |
+      | coin    | 2      |
+      | monkey  | 4      |
+    Then player gets 600 scores
