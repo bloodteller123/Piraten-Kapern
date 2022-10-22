@@ -73,3 +73,33 @@ Feature: Handle cases with different fortune cards
       | coin    | 1      |
       | monkey  | 3      |
     Then player gets 1100 scores
+
+  Scenario: row 75 roll 2 coins 2 swords 2 monkeys 2 parrots, reroll 2 swords,
+  get 1 monkey 1 parrot get 1700 points
+    When fortunate card is "MP"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 0      |
+      | saber   | 2      |
+      | parrot  | 2      |
+      | coin    | 2      |
+      | monkey  | 2      |
+    And player rerolls "saber" to get
+      | die     | values |
+      | parrot  | 1      |
+      | monkey  | 1      |
+    Then player gets 1700 scores
+
+  Scenario: row 76 roll 3 monkeys 2 parrots 3 skull,  player dies and gets 0 points
+    When fortunate card is "MP"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 3      |
+      | saber   | 0      |
+      | parrot  | 2      |
+      | coin    | 0      |
+      | monkey  | 3      |
+    Then player gets 0 scores
+    And player dies
