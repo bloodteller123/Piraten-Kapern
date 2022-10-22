@@ -103,11 +103,11 @@ public class Player implements Serializable {
         this.skulls_index.addAll(inds);
     }
     public String[] setSkulls(String[] cs){
-        this.dice.get(0).setFace("skull  ");
+        this.dice.get(0).setFace("skull");
         String[] ds;
         if(cs[0].equals("1")) ds = new String[]{"1","2","3","4","5","6","7"};
         else{
-            dice.get(1).setFace("skull  ");
+            dice.get(1).setFace("skull");
             ds = new String[]{"2","3","4","5","6","7"};
         }
         return ds;
@@ -292,16 +292,16 @@ public class Player implements Serializable {
         if(this.skulls_index.size() >1) return false;
         final Map<String, Integer> counts = new HashMap<>();
         for(Die i : this.dice){
-            if(!i.toString().equals("coin   ") && !i.toString().equals("diamond"))
+            if(!i.toString().equals("coin") && !i.toString().equals("diamond"))
                 counts.merge(i.toString(), 1, Integer::sum);
         }
         if(this.card.equals("MP")){
-            counts.put("parrot ",counts.getOrDefault("parrot ", 0) +counts.get("monkey "));
-            counts.remove("monkey ");
+            counts.put("parrot",counts.getOrDefault("parrot", 0) +counts.get("monkey"));
+            counts.remove("monke ");
         }
         for(Map.Entry<String, Integer> entry : counts.entrySet()){
             if(entry.getValue() <3) {
-                if(this.seabattles >0 && !entry.getKey().equals("saber  ")) return false;
+                if(this.seabattles >0 && !entry.getKey().equals("saber")) return false;
                 else if(this.seabattles==0) return false;
             }
         }
