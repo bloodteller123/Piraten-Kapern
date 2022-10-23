@@ -217,13 +217,13 @@ public class Player implements Serializable {
     }
     public void calculateScore(List<Die> ld){
         System.out.println("inside calculateScore: "+ld);
-        if(this.seabattles > (int) ld.stream().filter(die -> die.getFace().equalsIgnoreCase("saber  ")).count()
+        if(this.seabattles > (int) ld.stream().filter(die -> die.getFace().trim().equalsIgnoreCase("saber")).count()
         || (this.seabattles >0 && this.skulls_index.size() >=3 )){
             this.deductedPoints = seabattles_score.get(this.seabattles) * (-1);
         }else {
             int monkey=0;
             for(DiceType i : DiceType.values()){
-                int occurrences = (int) ld.stream().filter(die -> die.getFace().equalsIgnoreCase(i.toString())).count();
+                int occurrences = (int) ld.stream().filter(die -> die.getFace().trim().equalsIgnoreCase(i.toString().trim())).count();
                 if((i.toString().trim().equals("coin") && this.card.equals("coin")) ||
                         (i.toString().trim().equals("diamond") && this.card.equals("diamond"))){
                     occurrences ++;
@@ -292,12 +292,12 @@ public class Player implements Serializable {
         if(this.skulls_index.size() >1) return false;
         final Map<String, Integer> counts = new HashMap<>();
         for(Die i : this.dice){
-            if(!i.toString().equals("coin") && !i.toString().equals("diamond"))
-                counts.merge(i.toString(), 1, Integer::sum);
+            if(!i.toString().trim().equals("coin") && !i.toString().trim().equals("diamond"))
+                counts.merge(i.toString().trim(), 1, Integer::sum);
         }
         if(this.card.equals("MP")){
             counts.put("parrot",counts.getOrDefault("parrot", 0) +counts.get("monkey"));
-            counts.remove("monke ");
+            counts.remove("monkey");
         }
         for(Map.Entry<String, Integer> entry : counts.entrySet()){
             if(entry.getValue() <3) {

@@ -199,3 +199,19 @@ Feature: Handle cases with different fortune cards
       | monkey  | 3      |
     Then player gets 1000 scores
 
+  Scenario: row 92 roll 1 coins 1 swords 4 monkeys 2 parrots, reroll 2 parrots,
+  get 1 coin 1 sword get 1200 points
+    When fortunate card is "2-sword"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 0      |
+      | saber   | 1      |
+      | parrot  | 2      |
+      | coin    | 1      |
+      | monkey  | 4      |
+    And player rerolls "parrot" to get
+      | die     | values |
+      | saber   | 1      |
+      | coin    | 1      |
+    Then player gets 1200 scores

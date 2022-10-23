@@ -886,6 +886,7 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("2-sword");
+        p.activateSeaBattles(2);
         // on first roll
         p.getDice().forEach(d -> d.roll());
         //0 skull, 2 parrots, 1 swords 1 coins 0 diamonds 4 monkeys
@@ -1087,6 +1088,7 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("2-sword");
+        p.activateSeaBattles(2);
         // on first roll
         p.getDice().forEach(d -> d.roll());
         //3 skull, 2 parrots, 1 swords 1 coins 0 diamonds 1 monkeys
@@ -1106,6 +1108,7 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("3-sword");
+        p.activateSeaBattles(3);
         // on first roll
         p.getDice().forEach(d -> d.roll());
         //2 skull, 4 parrots, 2 swords 0 coins 0 diamonds 0 monkeys
@@ -1133,6 +1136,7 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("4-sword");
+        p.activateSeaBattles(4);
         // on first roll
         p.getDice().forEach(d -> d.roll());
         //3 skull, 2 parrots, 3 swords 0 coins 0 diamonds 0 monkeys
@@ -1154,6 +1158,7 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("2-sword");
+        p.activateSeaBattles(2);
         // on first roll
         p.getDice().forEach(d -> d.roll());
         //0 skull, 2 parrots, 2 swords 1 coins 0 diamonds 3 monkeys
@@ -1172,6 +1177,7 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("2-sword");
+        p.activateSeaBattles(2);
         // on first roll
         p.getDice().forEach(d -> d.roll());
         //1 skull, 2 parrots, 1 swords 0 coins 0 diamonds 4 monkeys
@@ -1195,6 +1201,7 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("3-sword");
+        p.activateSeaBattles(3);
         // on first roll
         p.getDice().forEach(d -> d.roll());
         //1 skull, 0 parrots, 4 swords 0 coins 0 diamonds 3 monkeys
@@ -1214,6 +1221,7 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("3-sword");
+        p.activateSeaBattles(3);
         // on first roll
         p.getDice().forEach(d -> d.roll());
         //2 skull, 0 parrots, 2 swords 0 coins 0 diamonds 4 monkeys
@@ -1239,6 +1247,7 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("4-sword");
+        p.activateSeaBattles(4);
         // on first roll
         p.getDice().forEach(d -> d.roll());
         //1 skull, 0 parrots, 4 swords 0 coins 0 diamonds 3 monkeys
@@ -1255,6 +1264,7 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("4-sword");
+        p.activateSeaBattles(4);
         // on first roll
         p.getDice().forEach(d -> d.roll());
         //1 skull, 2 parrots, 1 swords 0 coins 1 diamonds 3 monkeys

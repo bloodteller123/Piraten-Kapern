@@ -26,6 +26,10 @@ public class SinglePlayerScoringSDefs {
     @When("fortunate card is {string}")
     public void fortunateCardIs(String arg0) {
         p.setCard(arg0);
+        if(arg0.contains("sword")) {
+            System.out.println(arg0);
+            p.activateSeaBattles(Integer.parseInt(arg0.split("-")[0]));
+        }
     }
     @When("player rolls")
     public void playerRolls(DataTable dataTable) {
