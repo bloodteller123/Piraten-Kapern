@@ -67,6 +67,7 @@ public class SinglePlayerScoringSDefs {
             }
         }
         p.setDice(list);
+        System.out.println(p.getDice());
     }
     @And("player dies")
     public void playerDies() {
@@ -78,7 +79,6 @@ public class SinglePlayerScoringSDefs {
         if(!(p.getSkullSize() >=3)){
             System.out.println(p.getCard());
             p.calculateScore(p.getDice());
-            System.out.println(p.getDice());
             assertEquals(scores, p.getInfo()[0]);
         }else{
             System.out.println("ELSE");

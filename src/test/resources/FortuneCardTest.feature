@@ -426,3 +426,35 @@ Feature: Handle cases with different fortune cards
       | monkey  | 3      |
     Then player does skull check
     And player gets 800 scores
+
+  Scenario: row 113 roll 4 monkeys 2 sword 2 skull, reroll 4 monkeys,
+  get 2 skull 2 sword, lose 500 points and die
+    When fortunate card is "3-sword"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 2      |
+      | saber   | 2      |
+      | parrot  | 0      |
+      | coin    | 0      |
+      | monkey  | 4      |
+    And player rerolls "monkey" to get
+      | die     | values |
+      | skull   | 2      |
+      | saber   | 2      |
+    Then player does skull check
+    And player deducts -500 points
+    And player dies
+
+  Scenario: row 114 roll 1 skull 3 monkeys 4 sword,  get 1300 points
+    When fortunate card is "4-sword"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 1      |
+      | saber   | 4      |
+      | parrot  | 0      |
+      | coin    | 0      |
+      | monkey  | 3      |
+    Then player does skull check
+    And player gets 1300 scores
