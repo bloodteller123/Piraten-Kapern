@@ -187,3 +187,15 @@ Feature: Handle cases with different fortune cards
       | monkey  | 3      |
     Then player gets 1800 scores
 
+  Scenario: row 91 roll 3 monkeys 4 swords 1 diamond,  get 1000 points
+    When fortunate card is "coin"
+    And player rolls
+      | die     | values |
+      | diamond | 1      |
+      | skull   | 0      |
+      | saber   | 4      |
+      | parrot  | 0      |
+      | coin    | 0      |
+      | monkey  | 3      |
+    Then player gets 1000 scores
+
