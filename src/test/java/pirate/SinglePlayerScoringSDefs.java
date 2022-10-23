@@ -137,4 +137,10 @@ public class SinglePlayerScoringSDefs {
     public void gameEnds() {
         assertTrue(p.isEnd());
     }
+
+    @And("player deducts {int} points")
+    public void playerDeductsPoints(int deduction) {
+        p.calculateScore(p.getDice());
+        assertEquals(deduction, p.getInfo()[1]);
+    }
 }

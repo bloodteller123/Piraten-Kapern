@@ -61,6 +61,7 @@ public class Player implements Serializable {
             calculateScore(tres);
         }
         if(this.seabattles !=0){
+            System.out.println("xxx");
             this.deductedPoints = seabattles_score.get(this.seabattles) * (-1);
         }
         System.out.println("Turn ends");

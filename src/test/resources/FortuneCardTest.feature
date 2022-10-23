@@ -347,5 +347,24 @@ Feature: Handle cases with different fortune cards
       | coin    | 0      |
       | monkey  | 4      |
     Then player does skull check
-    And player gets -300 scores
+    And player deducts -300 points
+    And player dies
+
+  Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots,
+  get 4 skulls, lose 500 points and die
+    When fortunate card is "3-sword"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 2      |
+      | saber   | 2      |
+      | parrot  | 4      |
+      | coin    | 0      |
+      | monkey  | 0      |
+    And player rerolls "parrot" to get
+      | die     | values |
+      | skull   | 4      |
+    Then player does skull check
+    And game ends
+    And player deducts -500 points
     And player dies

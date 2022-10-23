@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pirate/SinglePlayerScoringSDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/SinglePlayerScoringSDefs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" afterDir="false" />
     </list>
@@ -79,7 +80,7 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: row 106 roll 3 skull 4 monkeys 1 sword,  lose 300 points and die">
+  <component name="RunManager">
     <configuration name="Scenario: row 106 roll 3 skull 4 monkeys 1 sword,  lose 300 points and die" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
@@ -100,18 +101,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AcceptanceTest.Test107" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
+      <option name="GLUE" value="pirate" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="COMP5104A1" />
+      <option name="NAME_FILTER" value="^row 107 roll 2 skulls 2 swords 4 parrots\, reroll 4 parrots\,$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^row 107 roll 2 skulls 2 swords 4 parrots\, reroll 4 parrots\,$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots," />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="pirate.*" />
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
-      <option name="METHOD_NAME" value="Test107" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -192,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots," />
         <item itemvalue="Cucumber Java.Scenario: row 106 roll 3 skull 4 monkeys 1 sword,  lose 300 points and die" />
         <item itemvalue="JUnit.AcceptanceTest.Test111" />
         <item itemvalue="JUnit.AcceptanceTest.Test110" />
         <item itemvalue="JUnit.AcceptanceTest.Test109" />
-        <item itemvalue="JUnit.AcceptanceTest.Test107" />
       </list>
     </recent_temporary>
   </component>
