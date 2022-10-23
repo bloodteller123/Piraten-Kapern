@@ -240,3 +240,16 @@ Feature: Handle cases with different fortune cards
       | monkey  | 0      |
     Then player gets 0 scores
     And player dies
+
+  Scenario: row 98 roll 2 skull 6 swords,  get 0 scores and die
+    When fortunate card is "1-skull"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 2      |
+      | saber   | 6      |
+      | parrot  | 0      |
+      | coin    | 0      |
+      | monkey  | 0      |
+    Then player gets 0 scores
+    And player dies
