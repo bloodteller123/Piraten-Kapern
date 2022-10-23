@@ -294,5 +294,25 @@ Feature: Handle cases with different fortune cards
       | die     | values |
       | skull   | 3      |
     Then player does skull check
-    And player gets 0 scores
     And deduction for other player is 900 points
+    And player gets 0 scores
+
+
+  Scenario: row 102 roll 5 skulls 3 monkeys, reroll 3 monkeys,
+  get 1 coin 2 skulls get 0 points, deduction for other players is 1400 points
+    When fortunate card is "captain"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 5      |
+      | saber   | 0      |
+      | parrot  | 0      |
+      | coin    | 0      |
+      | monkey  | 3      |
+    And player rerolls "monkey" to get
+      | die     | values |
+      | skull   | 2      |
+      | coin    | 1      |
+    Then player does skull check
+    And deduction for other player is 1400 points
+    And player gets 0 scores

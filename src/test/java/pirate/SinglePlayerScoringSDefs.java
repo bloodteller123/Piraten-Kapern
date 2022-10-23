@@ -27,10 +27,8 @@ public class SinglePlayerScoringSDefs {
     public void fortunateCardIs(String arg0) {
         p.setCard(arg0);
         if(arg0.contains("sword")) {
-            System.out.println(arg0);
             p.activateSeaBattles(Integer.parseInt(arg0.split("-")[0]));
         }else if(arg0.contains("skull")) {
-            System.out.println(arg0);
             p.setSkulls(arg0.split("-"));
         }
     }
@@ -77,12 +75,15 @@ public class SinglePlayerScoringSDefs {
     }
     @Then("player gets {int} scores")
     public void playerGetsScores(int scores) {
-
         if(!(p.getSkullSize() >=3)){
             System.out.println(p.getCard());
             p.calculateScore(p.getDice());
             System.out.println(p.getDice());
             assertEquals(scores, p.getInfo()[0]);
+        }else{
+            System.out.println("ELSE");
+            p.calculateScore(p.getDice());
+            System.out.println(p.getInfo()[0] + " "+p.getInfo()[1]);
         }
     }
     @And("player puts dice in chest")
