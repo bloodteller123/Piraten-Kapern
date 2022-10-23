@@ -16,6 +16,7 @@ public class Player implements Serializable {
     private List<Die> dice;
     private boolean quit;
     private Set<String> skulls_index;
+    private int skull_card;
     private String card = "";
     private int deductedPoints;
     private Set<String> treasures;
@@ -34,6 +35,7 @@ public class Player implements Serializable {
         this.quit = false;
         this.dice = initializeDice();
         skulls_index = new HashSet<>();
+        this.skull_card = 0;
         this.deductedPoints = 0;
         this.treasures = new HashSet<>();
         this.seabattles=0;
@@ -65,7 +67,7 @@ public class Player implements Serializable {
     }
     public void landIslandOfSkull(){
         System.out.println("Enter Island of skulls");
-        int numskulls = this.skulls_index.size();
+        int numskulls = this.skulls_index.size() + this.skull_card;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while(true){
             int nk = rollSome(br);
@@ -81,9 +83,9 @@ public class Player implements Serializable {
         endGame();
     }
     public void skullCheck(){
-        if(this.skulls_index.size() == 3 || (this.skulls_index.size() >=3 && this.seabattles >0)){
+        if(this.getSkullSize()== 3 || (this.skulls_index.size() >=3 && this.seabattles >0)){
             endGame();
-        } else if (this.skulls_index.size() >3 && this.seabattles==0) {
+        } else if (this.getSkullSize() >3 && this.seabattles==0) {
             isIOS = true;
             landIslandOfSkull();
         }
@@ -102,15 +104,9 @@ public class Player implements Serializable {
                 .collect(Collectors.toList());
         this.skulls_index.addAll(inds);
     }
-    public String[] setSkulls(String[] cs){
-        this.dice.get(0).setFace("skull");
-        String[] ds;
-        if(cs[0].equals("1")) ds = new String[]{"1","2","3","4","5","6","7"};
-        else{
-            dice.get(1).setFace("skull");
-            ds = new String[]{"2","3","4","5","6","7"};
-        }
-        return ds;
+    public void setSkulls(String[] cs){
+        if(cs[0].equals("1")) this.skull_card = 1;
+        else this.skull_card = 2;
     }
     public void removeSkull(String index){
         this.skulls_index.remove(index);
@@ -193,7 +189,9 @@ public class Player implements Serializable {
     public Set<String> getSkulls(){
         return this.skulls_index;
     }
-
+    public int getSkullSize(){
+        return this.getSkulls().size()+ this.skull_card;
+    }
     public List<Die> getDice(){
         return this.dice;
     }
@@ -364,6 +362,7 @@ public class Player implements Serializable {
         this.treasures = null;
         this.values = new ArrayList<>(Arrays.asList("1","2","3"));
         this.sorceress = false;
+        this.skull_card = 0;
     }
     public void printDice() {
         System.out.println(" _Dice0_    _Dice1_    _Dice2_    _Dice3_    _Dice4_    _Dice5_    _Dice6_    _Dice7_");
@@ -444,8 +443,10 @@ public class Player implements Serializable {
             if(this.card.split("-").length > 1){
                 String[] cs = this.card.split("-");
                 if(cs[1].equals("skull")){
-                    rerollSome(setSkulls(cs));
-                    addSkulls(this.dice);
+//                    rerollSome(setSkulls(cs));
+//                    addSkulls(this.dice);
+                    setSkulls(cs);
+                    this.dice.forEach(d -> d.roll());
                 }else if(cs[1].equals("sword")){
                     activateSeaBattles(Integer.parseInt(cs[0]));
                     this.dice.forEach(d -> d.roll());

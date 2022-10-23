@@ -35,7 +35,7 @@ public class AcceptanceTest {
         // check # skulls after first roll
         p.addSkulls(p.getDice());
         p.skullCheck();
-        assertEquals(3, p.getSkulls().size());
+        assertEquals(3, p.getSkullSize());
         assertTrue(p.isEnd());
         assertEquals(0, p.getScore());
         System.out.println("TEST 44 passed");
@@ -66,7 +66,7 @@ public class AcceptanceTest {
         // check # skulls after re roll
         p.addSkulls(p.getDice());
         p.skullCheck();
-        assertEquals(3, p.getSkulls().size());
+        assertEquals(3, p.getSkullSize());
         assertTrue(p.isEnd());
         assertEquals(0, p.getScore());
         System.out.println("TEST 45 passed");
@@ -97,7 +97,7 @@ public class AcceptanceTest {
         // check # skulls after re roll
         p.addSkulls(p.getDice());
         p.skullCheck();
-        assertEquals(3, p.getSkulls().size());
+        assertEquals(3, p.getSkullSize());
         assertTrue(p.isEnd());
         assertEquals(0, p.getScore());
         System.out.println("TEST 46 passed");
@@ -142,7 +142,7 @@ public class AcceptanceTest {
         // check # skulls after re roll
         p.addSkulls(p.getDice());
         p.skullCheck();
-        assertEquals(3, p.getSkulls().size());
+        assertEquals(3, p.getSkullSize());
         assertTrue(p.isEnd());
         assertEquals(0, p.getScore());
         System.out.println("TEST 48 passed");
@@ -618,9 +618,9 @@ public class AcceptanceTest {
                 new Die("monkey "), new Die("monkey ")));
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(2, p.getSkulls().size());
+        assertEquals(2, p.getSkullSize());
         p.removeSkull("1");
-        assertEquals(1, p.getSkulls().size());
+        assertEquals(1, p.getSkullSize());
         p.rerollSome(new String[]{"1"});
         System.out.println("TEST 77 passed");
     }
@@ -638,16 +638,16 @@ public class AcceptanceTest {
                 new Die("monkey "), new Die("monkey ")));
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(0, p.getSkulls().size());
+        assertEquals(0, p.getSkullSize());
         p.rerollSome(new String[]{"3"});
         dice = new ArrayList<>(Arrays.asList(new Die("monkey "), new Die("monkey "),
                 new Die("saber  "), new Die("skull  "), new Die("coin   "), new Die("monkey "),
                 new Die("monkey "), new Die("monkey ")));
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(1, p.getSkulls().size());
+        assertEquals(1, p.getSkullSize());
         p.removeSkull("3");
-        assertEquals(0, p.getSkulls().size());
+        assertEquals(0, p.getSkullSize());
         p.rerollSome(new String[]{"1"});
         dice = new ArrayList<>(Arrays.asList(new Die("monkey "), new Die("monkey "),
                 new Die("saber  "), new Die("skull  "), new Die("coin   "), new Die("monkey "),
@@ -671,16 +671,16 @@ public class AcceptanceTest {
                 new Die("monkey "), new Die("monkey ")));
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(0, p.getSkulls().size());
+        assertEquals(0, p.getSkullSize());
         p.rerollSome(new String[]{"3"});
         dice = new ArrayList<>(Arrays.asList(new Die("monkey "), new Die("monkey "),
                 new Die("saber  "), new Die("skull  "), new Die("coin   "), new Die("monkey "),
                 new Die("monkey "), new Die("monkey ")));
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(1, p.getSkulls().size());
+        assertEquals(1, p.getSkullSize());
         p.removeSkull("3");
-        assertEquals(0, p.getSkulls().size());
+        assertEquals(0, p.getSkullSize());
         p.rerollSome(new String[]{"1"});
         dice = new ArrayList<>(Arrays.asList(new Die("monkey "), new Die("monkey "),
                 new Die("saber  "), new Die("skull  "), new Die("coin   "), new Die("monkey "),
@@ -824,7 +824,7 @@ public class AcceptanceTest {
                 new Die("coin   "), new Die("coin   ")));
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(3, p.getSkulls().size());
+        assertEquals(3, p.getSkullSize());
         p.setEnd();
         assertTrue(p.isEnd());
         List<Die> treasures = p.buildTreasureList();
@@ -926,19 +926,21 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("2-skull");
-        String[] ss = p.setSkulls(new String[]{"2", "skull"});
+//        String[] ss = p.setSkulls(new String[]{"2", "skull"});
+        p.setSkulls(new String[]{"2","skull"});
         p.addSkulls(p.getDice());
-        assertEquals(2, p.getSkulls().size());
-        p.rerollSome(ss);
+        assertEquals(2, p.getSkullSize());
+//        p.rerollSome(ss);
+        p.getDice().forEach(d -> d.roll());
         //3 skull
-        List<Die> dice = new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("skull  "),
+        List<Die> dice = new ArrayList<>(Arrays.asList(new Die("coin   "), new Die("coin   "),
                 new Die("skull  "), new Die("coin   "), new Die("parrot "), new Die("diamond"),
                 new Die("diamond"), new Die("diamond")));
-        p.reset();
+//        p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
         p.skullCheck();
-        assertEquals(3, p.getSkulls().size());
+        assertEquals(3, p.getSkullSize());
         assertTrue(p.isEnd());
         System.out.println("TEST 107 passed");
     }
@@ -948,10 +950,10 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("1-skull");
-        String[] ss = p.setSkulls(new String[]{"1", "skull"});
+        p.setSkulls(new String[]{"1","skull"});
         p.addSkulls(p.getDice());
-        assertEquals(1, p.getSkulls().size());
-        p.rerollSome(ss);
+        assertEquals(1, p.getSkullSize());
+        p.getDice().forEach(d -> d.roll());
         //3 skull
         List<Die> dice = new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("skull  "),
                 new Die("skull  "), new Die("coin   "), new Die("parrot "), new Die("diamond"),
@@ -960,7 +962,7 @@ public class AcceptanceTest {
         p.setDice(dice);
         p.addSkulls(dice);
         p.skullCheck();
-        assertEquals(3, p.getSkulls().size());
+        assertEquals(3, p.getSkullSize());
         assertTrue(p.isEnd());
         System.out.println("TEST 108 passed");
     }
@@ -969,10 +971,10 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("2-skull");
-        String[] ss = p.setSkulls(new String[]{"2", "skull"});
+        p.setSkulls(new String[]{"2","skull"});
         p.addSkulls(p.getDice());
-        assertEquals(2, p.getSkulls().size());
-        p.rerollSome(ss);
+        assertEquals(2, p.getSkullSize());
+        p.getDice().forEach(d -> d.roll());
         // 4 skulls
         List<Die> dice = new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("skull  "),
                 new Die("skull  "), new Die("skull  "), new Die("parrot "), new Die("diamond"),
@@ -980,7 +982,7 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(4, p.getSkulls().size());
+        assertEquals(4, p.getSkullSize());
 
         p.rerollSome(new String[]{"6","7"});
         // 6 skulls
@@ -991,7 +993,7 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(6, p.getSkulls().size());
+        assertEquals(6, p.getSkullSize());
         p.rerollSome(new String[]{"5"});
         // 7 skulls
         dice = new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("skull  "),
@@ -1001,8 +1003,8 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(7, p.getSkulls().size());
-        p.deductPoints(p.getSkulls().size());
+        assertEquals(7, p.getSkullSize());
+        p.deductPoints(p.getSkullSize());
         assertEquals(-700, p.getInfo()[1]);
         System.out.println("TEST 109 passed");
     }
@@ -1011,10 +1013,10 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("2-skull");
-        String[] ss = p.setSkulls(new String[]{"2", "skull"});
+        p.setSkulls(new String[]{"2","skull"});
         p.addSkulls(p.getDice());
-        assertEquals(2, p.getSkulls().size());
-        p.rerollSome(ss);
+        assertEquals(2, p.getSkullSize());
+        p.getDice().forEach(d -> d.roll());
         // 5 skulls
         List<Die> dice = new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("skull  "),
                 new Die("skull  "), new Die("skull  "), new Die("skull  "), new Die("diamond"),
@@ -1022,7 +1024,7 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(5, p.getSkulls().size());
+        assertEquals(5, p.getSkullSize());
 
         p.rerollSome(new String[]{"6","7"});
         // 5 skulls
@@ -1033,10 +1035,10 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(5, p.getSkulls().size());
+        assertEquals(5, p.getSkullSize());
         p.rerollSome(new String[]{"5"});
 
-        p.deductPoints(p.getSkulls().size());
+        p.deductPoints(p.getSkullSize());
         assertEquals(-500, p.getInfo()[1]);
         System.out.println("TEST 110 passed");
     }
@@ -1045,10 +1047,11 @@ public class AcceptanceTest {
         Player p = new Player(0, 0);
         p.initializeDice();
         p.setCard("1-skull");
-        String[] ss = p.setSkulls(new String[]{"1", "skull"});
+        p.setSkulls(new String[]{"1","skull"});
         p.addSkulls(p.getDice());
-        assertEquals(1, p.getSkulls().size());
-        p.rerollSome(ss);
+        assertEquals(1, p.getSkullSize());
+//        p.rerollSome(ss);
+        p.getDice().forEach(d -> d.roll());
         // 4 skulls
         List<Die> dice = new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("skull  "),
                 new Die("skull  "), new Die("skull  "), new Die("parrot "), new Die("diamond"),
@@ -1056,7 +1059,7 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(4, p.getSkulls().size());
+        assertEquals(4, p.getSkullSize());
 
         p.rerollSome(new String[]{"6"});
         // 5 skulls
@@ -1067,7 +1070,7 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(5, p.getSkulls().size());
+        assertEquals(5, p.getSkullSize());
         p.rerollSome(new String[]{"5"});
         // 5 skulls
         dice = new ArrayList<>(Arrays.asList(new Die("skull  "), new Die("skull  "),
@@ -1077,8 +1080,8 @@ public class AcceptanceTest {
         p.reset();
         p.setDice(dice);
         p.addSkulls(dice);
-        assertEquals(5, p.getSkulls().size());
-        p.deductPoints(p.getSkulls().size());
+        assertEquals(5, p.getSkullSize());
+        p.deductPoints(p.getSkullSize());
         assertEquals(-500, p.getInfo()[1]);
         System.out.println("TEST 111 passed");
     }
@@ -1118,14 +1121,14 @@ public class AcceptanceTest {
         p.activateSeaBattles(3);
         p.addSkulls(p.getDice());
         p.skullCheck();
-        assertEquals(2, p.getSkulls().size());
+        assertEquals(2, p.getSkullSize());
         p.rerollSome(new String[]{"2", "5", "6","7"});
         p.setDice(new ArrayList<>(Arrays.asList(new Die("saber  "), new Die("saber  "),
                 new Die("skull  "), new Die("skull  "), new Die("skull  "), new Die("parrot "),
                 new Die("parrot "), new Die("parrot "))));
         p.addSkulls(p.getDice());
         p.skullCheck();
-        assertEquals(3, p.getSkulls().size());
+        assertEquals(3, p.getSkullSize());
         assertTrue(p.isEnd());
         p.calculateScore(p.getDice());
         assertEquals(-500, p.getInfo()[1]);
@@ -1355,7 +1358,8 @@ public class AcceptanceTest {
 
         p3.initializeDice();
         p3.setCard("1-skull");
-        String[] ss = p3.setSkulls(new String[]{"1", "skull"});
+//        String[] ss = p3.setSkulls(new String[]{"1", "skull"});
+        p3.setSkulls(new String[]{"1", "skull"});
         p3.addSkulls(p3.getDice());
         // on first roll
         p3.getDice().forEach(d -> d.roll());
@@ -1364,7 +1368,7 @@ public class AcceptanceTest {
                 new Die("skull  "), new Die("skull  "), new Die("saber  "), new Die("saber  "),
                 new Die("skull  "), new Die("skull  "))));
         p3.addSkulls(p3.getDice());
-        p3.deductPoints(p3.getSkulls().size());
+        p3.deductPoints(p3.getSkullSize());
         p1.calculateScore(p1.getDice());
         p2.calculateScore(p2.getDice());
         p3.calculateScore(p3.getDice());

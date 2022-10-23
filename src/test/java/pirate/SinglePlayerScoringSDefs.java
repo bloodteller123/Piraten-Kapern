@@ -29,6 +29,9 @@ public class SinglePlayerScoringSDefs {
         if(arg0.contains("sword")) {
             System.out.println(arg0);
             p.activateSeaBattles(Integer.parseInt(arg0.split("-")[0]));
+        }else if(arg0.contains("skull")) {
+            System.out.println(arg0);
+            p.setSkulls(arg0.split("-"));
         }
     }
     @When("player rolls")
@@ -69,14 +72,14 @@ public class SinglePlayerScoringSDefs {
     }
     @And("player dies")
     public void playerDies() {
-        assertTrue(p.getSkulls().size() >=3);
+        assertTrue(p.getSkullSize() >=3);
         assertTrue(p.isEnd());
     }
     @Then("player gets {int} scores")
     public void playerGetsScores(int scores) {
         p.addSkulls(p.getDice());
         p.skullCheck();
-        if(!(p.getSkulls().size() >=3)){
+        if(!(p.getSkullSize() >=3)){
             System.out.println(p.getCard());
             p.calculateScore(p.getDice());
             System.out.println(p.getDice());
@@ -88,6 +91,7 @@ public class SinglePlayerScoringSDefs {
         int total = map.values().stream().mapToInt(Integer::parseInt).sum();
         List<Die> l = p.getDice();
         String[] inds = buildIndArray(total, map,l);
+        p.addToTreasures(inds);
     }
     @And("player takes out dice from chest")
     public void playerTakesOutDiceFromChest(Map<String, String> map) {

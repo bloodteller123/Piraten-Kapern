@@ -227,3 +227,16 @@ Feature: Handle cases with different fortune cards
       | coin    | 2      |
       | monkey  | 2      |
     Then player gets 1200 scores
+
+  Scenario: row 98 roll 1 skull 7 swords,  get 0 scores and die
+    When fortunate card is "2-skull"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 1      |
+      | saber   | 7      |
+      | parrot  | 0      |
+      | coin    | 0      |
+      | monkey  | 0      |
+    Then player gets 0 scores
+    And player dies
