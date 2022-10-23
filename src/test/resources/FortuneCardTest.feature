@@ -215,3 +215,15 @@ Feature: Handle cases with different fortune cards
       | saber   | 1      |
       | coin    | 1      |
     Then player gets 1200 scores
+
+  Scenario: row 95 roll 2 monkeys 1 parrot 2 coins 3 diamond,  get 1200 points
+    When fortunate card is "MP"
+    And player rolls
+      | die     | values |
+      | diamond | 3      |
+      | skull   | 0      |
+      | saber   | 0      |
+      | parrot  | 1      |
+      | coin    | 2      |
+      | monkey  | 2      |
+    Then player gets 1200 scores
