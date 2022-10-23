@@ -82,12 +82,12 @@ public class Player implements Serializable {
         System.out.println("Exit Island of Skulls");
         endGame();
     }
-    public void skullCheck(){
+    public void skullCheck(boolean isIOS){
         if(this.getSkullSize()== 3 || (this.skulls_index.size() >=3 && this.seabattles >0)){
             endGame();
         } else if (this.getSkullSize() >3 && this.seabattles==0) {
-            isIOS = true;
-            landIslandOfSkull();
+//            isIOS = true;
+            if (isIOS) landIslandOfSkull();
         }
     }
     public boolean getIsIOS(){
@@ -105,6 +105,7 @@ public class Player implements Serializable {
         this.skulls_index.addAll(inds);
     }
     public void setSkulls(String[] cs){
+        System.out.println(cs[0]);
         if(cs[0].equals("1")) this.skull_card = 1;
         else this.skull_card = 2;
     }
@@ -463,7 +464,7 @@ public class Player implements Serializable {
             }
             printDice();
             addSkulls(this.dice);
-            skullCheck();
+            skullCheck(true);
             while(!quit){
                 System.out.println("Select an action: ");
                 System.out.println("(1) Choose dice number to roll again");
@@ -502,12 +503,12 @@ public class Player implements Serializable {
                     System.out.println("Enter 1");
                     rollSome(br);
                     printDice();
-                    skullCheck();
+                    skullCheck(true);
                 }else if(ans.equals("2")){
                     System.out.println("Enter 2");
                     rerollAll();
                     printDice();
-                    skullCheck();
+                    skullCheck(true);
                 }else if(ans.equals("3")){
                     System.out.println("Enter 3");
                     quit = true;

@@ -13,7 +13,8 @@ Feature: Handle multiple single player scoring scenarios
       | parrot  | 0      |
       | coin    | 0      |
       | monkey  | 0      |
-    Then player gets 0 scores
+    Then player does skull check
+    And player gets 0 scores
     And player dies
 
   Scenario: row 38 roll 1 skull, 4 parrots, 3 swords, reroll 3 swords, get 2 skulls 1 sword die
@@ -30,7 +31,8 @@ Feature: Handle multiple single player scoring scenarios
       | die     | values |
       | saber   | 1      |
       | skull   | 2      |
-    Then player gets 0 scores
+    Then player does skull check
+    And player gets 0 scores
     And player dies
 
   Scenario: row 39 roll 2 skull, 4 parrots, 2 swords, reroll 2 swords, get 1 skulls 1 sword die
@@ -47,7 +49,8 @@ Feature: Handle multiple single player scoring scenarios
       | die     | values |
       | saber   | 1      |
       | skull   | 1      |
-    Then player gets 0 scores
+    Then player does skull check
+    And player gets 0 scores
     And player dies
 
   Scenario: row 40 roll 1 skull, 4 parrots, 3 swords, reroll 3 swords, get 1 skull 2 monkeys, reroll
@@ -69,7 +72,8 @@ Feature: Handle multiple single player scoring scenarios
       | die     | values |
       | monkey  | 1      |
       | skull   | 1      |
-    Then player gets 0 scores
+    Then player does skull check
+    And player gets 0 scores
     And player dies
 
   Scenario: row 42 roll 1 skull, 2 parrots, 3 swords, 2 coins, reroll 2 parrots, get 2 coins, reroll
@@ -89,7 +93,8 @@ Feature: Handle multiple single player scoring scenarios
     And player rerolls "saber" to get
       | die     | values |
       | coin    | 3      |
-    Then player gets 4800 scores
+    Then player does skull check
+    And player gets 4800 scores
 
   Scenario: row 44 roll 2 parrots, 2 diamonds, 2 coins, 2 monkeys and get 800 points
     When fortunate card is "captain"
@@ -101,7 +106,8 @@ Feature: Handle multiple single player scoring scenarios
       | parrot  | 2      |
       | coin    | 2      |
       | monkey  | 2      |
-    Then player gets 800 scores
+    Then player does skull check
+    And player gets 800 scores
 
   Scenario: row 45 roll 2 parrots, 2 skulls, 2 sabers, 2 monkeys, reroll parrots, get 1 saber and
   1 monkey and get 300 points
@@ -118,7 +124,8 @@ Feature: Handle multiple single player scoring scenarios
       | die     | values |
       | saber   | 1      |
       | monkey  | 1      |
-    Then player gets 300 scores
+    Then player does skull check
+    And player gets 300 scores
 
   Scenario: row 46 roll 3 monkeys 3 swords 2 skulls on first roll and player gets a score of 300
     When fortunate card is "coin"
@@ -130,7 +137,8 @@ Feature: Handle multiple single player scoring scenarios
       | parrot  | 0      |
       | coin    | 0      |
       | monkey  | 3      |
-    Then player gets 300 scores
+    Then player does skull check
+    And player gets 300 scores
 
   Scenario: row 47 roll 3 diamonds 1 swords 1 monkey 1 parrot 2 skulls on first roll and player gets a score of 500
     When fortunate card is "coin"
@@ -142,7 +150,8 @@ Feature: Handle multiple single player scoring scenarios
       | parrot  | 1      |
       | coin    | 0      |
       | monkey  | 1      |
-    Then player gets 500 scores
+    Then player does skull check
+    And player gets 500 scores
 
   Scenario: row 48 roll 4 coins 2 swords 2 skulls on first roll and player gets a score of 700
     When fortunate card is "diamond"
@@ -154,7 +163,8 @@ Feature: Handle multiple single player scoring scenarios
       | parrot  | 0      |
       | coin    | 4      |
       | monkey  | 0      |
-    Then player gets 700 scores
+    Then player does skull check
+    And player gets 700 scores
 
   Scenario: row 49 roll 4 parrots 3 swords 1 skulls on first roll and player gets a score of 400
     When fortunate card is "diamond"
@@ -166,7 +176,8 @@ Feature: Handle multiple single player scoring scenarios
       | parrot  | 4      |
       | coin    | 0      |
       | monkey  | 0      |
-    Then player gets 400 scores
+    Then player does skull check
+    And player gets 400 scores
 
   Scenario: row 50 roll 2 parrots, 2 coins 1 skulls, 3 sabers, reroll parrots, get 1 saber and
   1 coin and get 800 points
@@ -183,7 +194,8 @@ Feature: Handle multiple single player scoring scenarios
       | die     | values |
       | saber   | 1      |
       | coin    | 1      |
-    Then player gets 800 scores
+    Then player does skull check
+    And player gets 800 scores
 
   Scenario: row 51 roll 2 parrots, 2 coins 1 skulls, 3 sabers, reroll parrots, get 1 saber and
   1 coin and get 1200 points
@@ -200,7 +212,8 @@ Feature: Handle multiple single player scoring scenarios
       | die     | values |
       | saber   | 1      |
       | coin    | 1      |
-    Then player gets 1200 scores
+    Then player does skull check
+    And player gets 1200 scores
 
   Scenario: row 52 roll 1 skull, 2 parrots, 2 monkeys 3 swords, reroll 2 monkeys, get 1 skull 1 sword, reroll
   2 parrots, get 1 sowrd 1 monkey and get 600 points
@@ -221,7 +234,8 @@ Feature: Handle multiple single player scoring scenarios
       | die     | values |
       | saber   | 1      |
       | monkey  | 1      |
-    Then player gets 600 scores
+    Then player does skull check
+    And player gets 600 scores
 
   Scenario: row 54 roll 6 monkeys 2 skulls on first roll and player gets a score of 1100
     When fortunate card is "coin"
@@ -233,7 +247,8 @@ Feature: Handle multiple single player scoring scenarios
       | parrot  | 0      |
       | coin    | 0      |
       | monkey  | 6      |
-    Then player gets 1100 scores
+    Then player does skull check
+    And player gets 1100 scores
 
   Scenario: row 55 roll 7 parrots 1 skulls on first roll and player gets a score of 2100
     When fortunate card is "coin"
@@ -245,7 +260,8 @@ Feature: Handle multiple single player scoring scenarios
       | parrot  | 7      |
       | coin    | 0      |
       | monkey  | 0      |
-    Then player gets 2100 scores
+    Then player does skull check
+    And player gets 2100 scores
 
   Scenario: row 56 roll 8 coins first roll and player gets a score of 5400
     When fortunate card is "coin"
@@ -257,7 +273,8 @@ Feature: Handle multiple single player scoring scenarios
       | parrot  | 0      |
       | coin    | 8      |
       | monkey  | 0      |
-    Then player gets 5400 scores
+    Then player does skull check
+    And player gets 5400 scores
 
   Scenario: row 57 roll 8 coins first roll and player gets a score of 5400
     When fortunate card is "diamond"
@@ -269,7 +286,8 @@ Feature: Handle multiple single player scoring scenarios
       | parrot  | 0      |
       | coin    | 8      |
       | monkey  | 0      |
-    Then player gets 5400 scores
+    Then player does skull check
+    And player gets 5400 scores
 
   Scenario: row 58 roll 8 swords first roll and player gets a score of 9000
     When fortunate card is "captain"
@@ -281,7 +299,8 @@ Feature: Handle multiple single player scoring scenarios
       | parrot  | 0      |
       | coin    | 0      |
       | monkey  | 0      |
-    Then player gets 9000 scores
+    Then player does skull check
+    And player gets 9000 scores
 
   Scenario: row 59 roll 6 monkeys, 2 sabers, reroll sabers, get 2 monkey and get 4600 points
     When fortunate card is "coin"
@@ -296,7 +315,8 @@ Feature: Handle multiple single player scoring scenarios
     And player rerolls "saber" to get
       | die     | values |
       | monkey  | 2      |
-    Then player gets 4600 scores
+    Then player does skull check
+    And player gets 4600 scores
 
   Scenario: row 60 roll 2 monkeys, 2 sabers 2 skulls 2 parrots, reroll parrots, get 2 diamonds and get 400 points
     When fortunate card is "diamond"
@@ -311,7 +331,8 @@ Feature: Handle multiple single player scoring scenarios
     And player rerolls "parrot" to get
       | die     | values |
       | diamond | 2      |
-    Then player gets 400 scores
+    Then player does skull check
+    And player gets 400 scores
 
   Scenario: row 61 roll 2 monkeys, 2 sabers 2 skulls 1 diamond 1 parrot, reroll monkeys, get 2 diamonds and get 500 points
     When fortunate card is "coin"
@@ -326,7 +347,8 @@ Feature: Handle multiple single player scoring scenarios
     And player rerolls "monkey" to get
       | die     | values |
       | diamond | 2      |
-    Then player gets 500 scores
+    Then player does skull check
+    And player gets 500 scores
 
   Scenario: row 62 roll 2 coins, 1 monkey 1 skulls 3 swords 1 parrot, reroll swords, get 1 coin
   1 monkey 1 parrot and get 600 points
@@ -344,7 +366,8 @@ Feature: Handle multiple single player scoring scenarios
       | coin    | 1      |
       | monkey  | 1      |
       | parrot  | 1      |
-    Then player gets 600 scores
+    Then player does skull check
+    And player gets 600 scores
 
   Scenario: row 63 roll 2 coins, 1 monkey 1 skulls 3 swords 1 parrot, reroll swords, get 1 coin
   1 monkey 1 parrot and get 500 points
@@ -362,7 +385,8 @@ Feature: Handle multiple single player scoring scenarios
       | coin    | 1      |
       | monkey  | 1      |
       | parrot  | 1      |
-    Then player gets 500 scores
+    Then player does skull check
+    And player gets 500 scores
 
   Scenario: row 64 roll 4 monkeys 2 coins 2 skulls first roll and player gets a score of 600
     When fortunate card is "coin"
@@ -374,4 +398,5 @@ Feature: Handle multiple single player scoring scenarios
       | parrot  | 0      |
       | coin    | 2      |
       | monkey  | 4      |
-    Then player gets 600 scores
+    Then player does skull check
+    And player gets 600 scores

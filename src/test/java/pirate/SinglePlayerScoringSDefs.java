@@ -77,8 +77,7 @@ public class SinglePlayerScoringSDefs {
     }
     @Then("player gets {int} scores")
     public void playerGetsScores(int scores) {
-        p.addSkulls(p.getDice());
-        p.skullCheck();
+
         if(!(p.getSkullSize() >=3)){
             System.out.println(p.getCard());
             p.calculateScore(p.getDice());
@@ -113,5 +112,23 @@ public class SinglePlayerScoringSDefs {
             }
         }
         return inds;
+    }
+
+    @And("player enters islandofskulls")
+    public void playerEntersIslandofskulls() {
+        System.out.println(p.getDice());
+        assertTrue(p.getSkullSize() >3);
+    }
+
+    @And("deduction for other player is {int} points")
+    public void deductionForOtherPlayerIsPoints(int arg0) {
+        p.deductPoints(p.getSkullSize());
+        assertEquals((arg0 *= -1), p.getInfo()[1]);
+    }
+
+    @Then("player does skull check")
+    public void playerDoesSkullCheck() {
+        p.addSkulls(p.getDice());
+        p.skullCheck(false);
     }
 }

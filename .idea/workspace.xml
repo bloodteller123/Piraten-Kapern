@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/AcceptanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/AcceptanceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/SinglePlayerScoringSDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/SinglePlayerScoringSDefs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/SinglePlayerScoring.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/SinglePlayerScoring.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,22 +103,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AcceptanceTest.Test101" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="COMP5104A1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pirate.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
-      <option name="METHOD_NAME" value="Test101" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AcceptanceTest.Test107" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
@@ -129,7 +119,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AcceptanceTest.Test131" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AcceptanceTest.Test109" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
         <pattern>
@@ -139,13 +129,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="pirate" />
       <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
-      <option name="METHOD_NAME" value="Test131" />
+      <option name="METHOD_NAME" value="Test109" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AcceptanceTest.Test134" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AcceptanceTest.Test110" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP5104A1" />
       <extension name="coverage">
         <pattern>
@@ -155,7 +145,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="pirate" />
       <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
-      <option name="METHOD_NAME" value="Test134" />
+      <option name="METHOD_NAME" value="Test110" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AcceptanceTest.Test111" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COMP5104A1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pirate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pirate" />
+      <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
+      <option name="METHOD_NAME" value="Test111" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -189,11 +195,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AcceptanceTest.Test111" />
+        <item itemvalue="JUnit.AcceptanceTest.Test110" />
+        <item itemvalue="JUnit.AcceptanceTest.Test109" />
         <item itemvalue="JUnit.AcceptanceTest.Test107" />
         <item itemvalue="Cucumber Java.Feature: FortuneCardTest" />
-        <item itemvalue="JUnit.AcceptanceTest.Test101" />
-        <item itemvalue="JUnit.AcceptanceTest.Test131" />
-        <item itemvalue="JUnit.AcceptanceTest.Test134" />
       </list>
     </recent_temporary>
   </component>

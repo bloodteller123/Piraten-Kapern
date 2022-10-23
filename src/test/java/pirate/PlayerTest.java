@@ -68,7 +68,7 @@ public class PlayerTest {
                 new Die("coin   "), new Die("coin   ")));
         p.setDice(dice);
         p.addSkulls(dice);
-        p.skullCheck();
+        p.skullCheck(false);
         assertTrue(p.getSkulls().size()==3);
         assertTrue(p.isEnd());
     }
