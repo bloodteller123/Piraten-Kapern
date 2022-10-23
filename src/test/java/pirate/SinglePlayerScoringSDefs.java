@@ -132,4 +132,9 @@ public class SinglePlayerScoringSDefs {
         p.addSkulls(p.getDice());
         p.skullCheck(false);
     }
+
+    @And("game ends")
+    public void gameEnds() {
+        assertTrue(p.isEnd());
+    }
 }

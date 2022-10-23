@@ -80,7 +80,6 @@ public class Player implements Serializable {
         };
         deductPoints(numskulls);
         System.out.println("Exit Island of Skulls");
-        endGame();
     }
     public void skullCheck(boolean isIOS){
         if(this.getSkullSize()== 3 || (this.skulls_index.size() >=3 && this.seabattles >0)){
@@ -88,6 +87,7 @@ public class Player implements Serializable {
         } else if (this.getSkullSize() >3 && this.seabattles==0) {
 //            isIOS = true;
             if (isIOS) landIslandOfSkull();
+            endGame();
         }
     }
     public boolean getIsIOS(){
