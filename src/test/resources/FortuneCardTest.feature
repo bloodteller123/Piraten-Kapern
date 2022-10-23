@@ -162,3 +162,28 @@ Feature: Handle cases with different fortune cards
       | coin    | 1      |
     Then player gets 600 scores
     And player dies
+
+  Scenario: row 89 roll 3 monkeys 3 swords 1 diamond 1 parrot,  get 400 points
+    When fortunate card is "coin"
+    And player rolls
+      | die     | values |
+      | diamond | 1      |
+      | skull   | 0      |
+      | saber   | 3      |
+      | parrot  | 1      |
+      | coin    | 0      |
+      | monkey  | 3      |
+    Then player gets 400 scores
+
+  Scenario: row 90 roll 3 monkeys 3 swords 2 coins,  get 1800 points
+    When fortunate card is "captain"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 0      |
+      | saber   | 3      |
+      | parrot  | 0      |
+      | coin    | 2      |
+      | monkey  | 3      |
+    Then player gets 1800 scores
+
