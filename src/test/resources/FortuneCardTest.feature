@@ -335,3 +335,17 @@ Feature: Handle cases with different fortune cards
     And game ends
     And deduction for other player is 500 points
     And player gets 0 scores
+
+  Scenario: row 106 roll 3 skull 4 monkeys 1 sword,  lose 300 points and die
+    When fortunate card is "2-sword"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 3      |
+      | saber   | 1      |
+      | parrot  | 0      |
+      | coin    | 0      |
+      | monkey  | 4      |
+    Then player does skull check
+    And player gets -300 scores
+    And player dies
