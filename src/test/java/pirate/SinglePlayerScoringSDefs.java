@@ -47,7 +47,7 @@ public class SinglePlayerScoringSDefs {
         List<Die> list = p.getDice();
         Set<Integer> set = new HashSet<>();
         for(int i=0;i<maps.size();i++){
-            int occ = Integer.valueOf(maps.get(i).get("values"));
+            int occ = Integer.parseInt(maps.get(i).get("values"));
             String die_val = maps.get(i).get("die");
             while(occ >0){
                 int index = IntStream.range(0, list.size())
@@ -78,5 +78,32 @@ public class SinglePlayerScoringSDefs {
             System.out.println(p.getDice());
             assertEquals(scores, p.getInfo()[0]);
         }
+    }
+    @And("player puts dice in chest")
+    public void playerPutsDiceInChest(Map<String, String> map) {
+        int total = map.values().stream().mapToInt(Integer::parseInt).sum();
+        List<Die> l = p.getDice();
+        String[] inds = buildIndArray(total, map,l);
+    }
+    @And("player takes out dice from chest")
+    public void playerTakesOutDiceFromChest(Map<String, String> map) {
+        int total = map.values().stream().mapToInt(Integer::parseInt).sum();
+        List<Die> l = p.getDice();
+        String[] inds = buildIndArray(total, map,l);
+        p.removeFromTreasures(inds);
+    }
+    public String[] buildIndArray(int total, Map<String, String> map, List<Die> l){
+        String[] inds = new String[total];
+        int ind = 0;
+        System.out.println(map);
+        for(Map.Entry<String,String> m : map.entrySet()){
+            for (int i = 0; i < l.size(); i++) {
+                if (ind<inds.length && m.getKey().equals(l.get(i).toString())) {
+                    inds[ind] = Integer.toString(i);
+                    ind++;
+                }
+            }
+        }
+        return inds;
     }
 }

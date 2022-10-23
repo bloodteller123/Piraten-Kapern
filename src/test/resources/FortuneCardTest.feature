@@ -103,3 +103,62 @@ Feature: Handle cases with different fortune cards
       | monkey  | 3      |
     Then player gets 0 scores
     And player dies
+
+  Scenario: row 79 roll 2 swords 2 diamonds 1 coin 3 parrots, put diamonds and coin in chest,
+    rerolls 2 swords get 2 parrots, put 5 parrots in chest, take out 2 diamonds and 1 coin,
+    rerolls diamonds, coin get 1 skull 1 coin and 1 parrot, get 1100 points
+    When fortunate card is "chest"
+    And player rolls
+      | die     | values |
+      | diamond | 2      |
+      | skull   | 0      |
+      | saber   | 2      |
+      | parrot  | 3      |
+      | coin    | 1      |
+      | monkey  | 0      |
+    And player puts dice in chest
+      | diamond | 2      |
+      | coin    | 1      |
+    And player rerolls "saber" to get
+      | die     | values |
+      | parrot  | 2      |
+    And player puts dice in chest
+      | parrot  | 5      |
+    And player takes out dice from chest
+      | diamond | 2      |
+      | coin    | 1      |
+    And player rerolls "coin" to get
+      | die     | values |
+      | parrot  | 1      |
+    And player rerolls "diamond" to get
+      | die     | values |
+      | coin    | 1      |
+      | skull   | 1      |
+    Then player gets 1100 scores
+
+  Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest
+  then rerolls 3 parrots and get 2 diamonds 1 coin, put coin in chest (now 4)
+  then reroll 2 diamonds and get 1 skull 1 coin, score for chest only = 400 + 200 = 600 AND report death
+    When fortunate card is "chest"
+    And player rolls
+      | die     | values |
+      | diamond | 0      |
+      | skull   | 2      |
+      | saber   | 0      |
+      | parrot  | 3      |
+      | coin    | 3      |
+      | monkey  | 0      |
+    And player puts dice in chest
+      | coin    | 3      |
+    And player rerolls "parrot" to get
+      | die     | values |
+      | diamond | 2      |
+      | coin    | 1      |
+    And player puts dice in chest
+      | coin    | 1      |
+    And player rerolls "diamond" to get
+      | die     | values |
+      | skull   | 1      |
+      | coin    | 1      |
+    Then player gets 600 scores
+    And player dies
