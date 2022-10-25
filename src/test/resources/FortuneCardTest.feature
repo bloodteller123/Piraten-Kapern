@@ -1,12 +1,12 @@
 Feature: Handle cases with different fortune cards
   Background:
-    Given Player is initialized
+    Given players are initialized
     And dice is initialized
 
   Scenario: row 69 roll 2 diamonds, 1 monkey 1 coin, 1 swords 3 parrots, reroll 3 parrots,
   get 1 skulls 2 monkey, reroll skull get monkey get 500 points
     When fortunate card is "sorceress"
-    And player rolls
+    And player 1 rolls
       | die     | values |
       | diamond | 2      |
       | skull   | 0      |
@@ -14,11 +14,11 @@ Feature: Handle cases with different fortune cards
       | parrot  | 3      |
       | coin    | 1      |
       | monkey  | 1      |
-    And player rerolls "parrot" to get
+    And player 1 rerolls "parrot" to get
       | die     | values |
       | monkey  | 2      |
       | skull   | 1      |
-    And player rerolls "skull" to get
+    And player 1 rerolls "skull" to get
       | die     | values |
       | monkey  | 1      |
     Then player does skull check

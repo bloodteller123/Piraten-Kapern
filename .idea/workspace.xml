@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/PlayerStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/PlayerStepDef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/SinglePlayerScoring.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/SinglePlayerScoring.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,26 +81,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Scenario: row 106 roll 3 skull 4 monkeys 1 sword,  lose 300 points and die" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
-      <option name="GLUE" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="COMP5104A1" />
-      <option name="NAME_FILTER" value="^row 106 roll 3 skull 4 monkeys 1 sword\,  lose 300 points and die$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^row 106 roll 3 skull 4 monkeys 1 sword\,  lose 300 points and die$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: row 106 roll 3 skull 4 monkeys 1 sword,  lose 300 points and die" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
@@ -179,6 +161,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AcceptanceTest.Test131" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COMP5104A1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pirate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pirate" />
+      <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
+      <option name="METHOD_NAME" value="Test131" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="COMP5104A1 [clean install]" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -207,11 +205,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AcceptanceTest.Test131" />
         <item itemvalue="Cucumber Java.Scenario: row 116 roll 3 monkeys 1 sword 1 skull 1 diamond 2 parrots reroll 2 parrots," />
         <item itemvalue="Cucumber Java.Scenario: row 114 roll 1 skull 3 monkeys 4 sword,  get 1300 points" />
         <item itemvalue="Cucumber Java.Scenario: row 113 roll 4 monkeys 2 sword 2 skull, reroll 4 monkeys," />
         <item itemvalue="Cucumber Java.Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots," />
-        <item itemvalue="Cucumber Java.Scenario: row 106 roll 3 skull 4 monkeys 1 sword,  lose 300 points and die" />
       </list>
     </recent_temporary>
   </component>
