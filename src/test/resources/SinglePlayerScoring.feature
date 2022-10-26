@@ -8,25 +8,31 @@ Feature: Handle multiple single player scoring scenarios
     Then player 1 does skull check
     And player 1 gets 0 scores
     And player 1 dies
-##
+###
   Scenario: row 38 roll 1 skull, 4 parrots, 3 swords, reroll 3 swords, get 2 skulls 1 sword die
+    Given players are initialized
+    And dice are initialized
     When player 1 has fortunate card "coin"
     And player 1 rolls "skull saber saber saber parrot parrot parrot parrot"
     And player 1 rerolls "saber" to get "saber skull skull"
     Then player 1 does skull check
     And player 1 gets 0 scores
     And player 1 dies
-#
+##
   Scenario: row 39 roll 2 skull, 4 parrots, 2 swords, reroll 2 swords, get 1 skulls 1 sword die
+    Given players are initialized
+    And dice are initialized
     When player 1 has fortunate card "coin"
     And player 1 rolls "skull skull saber saber parrot parrot parrot parrot"
     And player 1 rerolls "saber" to get "saber skull"
     Then player 1 does skull check
     And player 1 gets 0 scores
     And player 1 dies
-#
+##
   Scenario: row 40 roll 1 skull, 4 parrots, 3 swords, reroll 3 swords, get 1 skull 2 monkeys, reroll
   2 monkeys, get 1 skull 1 monkey die
+    Given players are initialized
+    And dice are initialized
     When player 1 has fortunate card "coin"
     And player 1 rolls "skull saber saber saber parrot parrot parrot parrot"
     And player 1 rerolls "saber" to get "monkey monkey skull"
@@ -34,67 +40,67 @@ Feature: Handle multiple single player scoring scenarios
     Then player 1 does skull check
     And player 1 gets 0 scores
     And player 1 dies
-#
+##
   Scenario: row 42 roll 1 skull, 2 parrots, 3 swords, 2 coins, reroll 2 parrots, get 2 coins, reroll
   3 swords, get 3 coins and get 4800 points
+    Given players are initialized
+    And dice are initialized
     When player 1 has fortunate card "coin"
     And player 1 rolls "skull saber saber saber parrot parrot coin coin"
     And player 1 rerolls "parrot" to get "coin coin"
     And player 1 rerolls "saber" to get "coin coin coin"
     Then player 1 does skull check
     And player 1 gets 4800 scores
-#
+##
   Scenario: row 44 roll 2 parrots, 2 diamonds, 2 coins, 2 monkeys and get 800 points
+    Given players are initialized
+    And dice are initialized
     When player 1 has fortunate card "captain"
     And player 1 rolls "diamond diamond parrot parrot coin coin monkey monkey"
     Then player 1 does skull check
     And player 1 gets 800 scores
-#
+##
   Scenario: row 45 roll 2 parrots, 2 skulls, 2 sabers, 2 monkeys, reroll parrots, get 1 saber and
   1 monkey and get 300 points
+    Given players are initialized
+    And dice are initialized
     When player 1 has fortunate card "coin"
     And player 1 rolls "skull skull saber saber parrot parrot monkey monkey"
     And player 1 rerolls "parrot" to get "saber monkey"
     Then player 1 does skull check
     And player 1 gets 300 scores
-#
+##
   Scenario: row 46 roll 3 monkeys 3 swords 2 skulls on first roll and player gets a score of 300
+    Given players are initialized
+    And dice are initialized
     When player 1 has fortunate card "coin"
     And player 1 rolls "skull skull saber saber saber monkey monkey monkey"
     Then player 1 does skull check
     And player 1 gets 300 scores
 #
   Scenario: row 47 roll 3 diamonds 1 swords 1 monkey 1 parrot 2 skulls on first roll and player gets a score of 500
+    Given players are initialized
+    And dice are initialized
     When player 1 has fortunate card "coin"
     And player 1 rolls "diamond diamond diamond skull skull saber parrot monkey"
     Then player 1 does skull check
     And player 1 gets 500 scores
 #
-#  Scenario: row 48 roll 4 coins 2 swords 2 skulls on first roll and player gets a score of 700
-#    When player 1 has fortunate card "diamond"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 2      |
-#      | saber   | 2      |
-#      | parrot  | 0      |
-#      | coin    | 4      |
-#      | monkey  | 0      |
-#    Then player 1 does skull check
-#    And player 1 gets 700 scores
+  Scenario: row 48 roll 4 coins 2 swords 2 skulls on first roll and player gets a score of 700
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "diamond"
+    And player 1 rolls "skull skull saber saber coin coin coin coin"
+    Then player 1 does skull check
+    And player 1 gets 700 scores
 #
-#  Scenario: row 49 roll 4 parrots 3 swords 1 skulls on first roll and player gets a score of 400
-#    When player 1 has fortunate card "diamond"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 1      |
-#      | saber   | 3      |
-#      | parrot  | 4      |
-#      | coin    | 0      |
-#      | monkey  | 0      |
-#    Then player 1 does skull check
-#    And player 1 gets 400 scores
+  Scenario: row 49 roll 4 parrots 3 swords 1 skulls on first roll and player gets a score of 400
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "diamond"
+    And player 1 rolls "skull saber saber saber parrot parrot parrot parrot"
+    Then player 1 does skull check
+    And player 1 gets 400 scores
 #
 #  Scenario: row 50 roll 2 parrots, 2 coins 1 skulls, 3 sabers, reroll parrots, get 1 saber and
 #  1 coin and get 800 points

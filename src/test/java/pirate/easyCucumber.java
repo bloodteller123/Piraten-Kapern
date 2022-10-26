@@ -85,25 +85,27 @@ public class easyCucumber {
         Set<Integer> set = new HashSet<>();
         reroll_logic(list_d, list, set, arg1);
         ps[arg0-1].setDice(list);
-        System.out.println(ps[arg0-1].getDice());
+        System.out.println("playerRerollsToGet "+ps[arg0-1].getDice());
     }
 
     @JThenStep("player {int} does skull check")
     public void playerDoesSkullCheck(int arg0) {
         ps[arg0-1].addSkulls(ps[arg0-1].getDice());
         ps[arg0-1].skullCheck(false);
-        System.out.println(ps[arg0-1].getSkulls().size());
+        System.out.println("playerDoesSkullCheck"+ ps[arg0-1].getSkullSize());
     }
     @JAndStep("player {int} gets {int} scores")
     public void playerGetsScores(int arg0, int scores) {
         System.out.println("player " +arg0);
         if(!(ps[arg0-1].getSkullSize() >=3)){
-            System.out.println(ps[arg0-1].getCard());
-            System.out.println(ps[arg0-1].getDice());
+            System.out.println("playerGetsScores_<3: "+ps[arg0-1].getCard());
+            System.out.println("playerGetsScores_<3: "+ps[arg0-1].getDice());
             ps[arg0-1].calculateScore(ps[arg0-1].getDice());
             assertEquals(scores, ps[arg0-1].getInfo()[0]);
         }else{
-            System.out.println("ELSE");
+            System.out.println("skull size > 3");
+            System.out.println(ps[arg0-1].getSkullSize());
+            System.out.println("playerGetsScores: "+ps[arg0-1].getDice());
 //            ps[arg0-1].calculateScore(ps[arg0-1].getDice());
 //            System.out.println(ps[arg0-1].getInfo()[0] + " "+ps[arg0-1].getInfo()[1]);
             assertEquals(0,ps[arg0-1].getInfo()[0]);
@@ -132,7 +134,7 @@ public class easyCucumber {
 
     @JAndStep("player {int} enters islandofskulls")
     public void playerEntersIslandofskulls(int arg0) {
-        System.out.println(ps[arg0-1].getDice());
+        System.out.println("playerEntersIslandofskulls "+ps[arg0-1].getDice());
         assertTrue(ps[arg0-1].getSkullSize() >3);
     }
 

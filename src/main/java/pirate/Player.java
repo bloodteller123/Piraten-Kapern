@@ -319,7 +319,6 @@ public class Player implements Serializable {
     public void setScore(int val) {
         this.score += val;
         this.score = this.score<0? 0 : this.score;
-        System.out.println("Score: "+this.score);
     }
     public int getScore(){
         return this.score;
