@@ -12,17 +12,7 @@ Feature: Handle multiple single player scoring scenarios
   Scenario: row 38 roll 1 skull, 4 parrots, 3 swords, reroll 3 swords, get 2 skulls 1 sword die
     When player 1 has fortunate card "coin"
     And player 1 rolls "skull saber saber saber parrot parrot parrot parrot"
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 1      |
-#      | saber   | 3      |
-#      | parrot  | 4      |
-#      | coin    | 0      |
-#      | monkey  | 0      |
     And player 1 rerolls "saber" to get "saber skull skull"
-#      | die     | values |
-#      | saber   | 1      |
-#      | skull   | 2      |
     Then player 1 does skull check
     And player 1 gets 0 scores
     And player 1 dies
@@ -35,48 +25,24 @@ Feature: Handle multiple single player scoring scenarios
     And player 1 gets 0 scores
     And player 1 dies
 #
-#  Scenario: row 40 roll 1 skull, 4 parrots, 3 swords, reroll 3 swords, get 1 skull 2 monkeys, reroll
-#  2 monkeys, get 1 skull 1 monkey die
-#    When player 1 has fortunate card "coin"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 1      |
-#      | saber   | 3      |
-#      | parrot  | 4      |
-#      | coin    | 0      |
-#      | monkey  | 0      |
-#    And player 1 rerolls "saber" to get
-#      | die     | values |
-#      | monkey  | 2      |
-#      | skull   | 1      |
-#    And player 1 rerolls "monkey" to get
-#      | die     | values |
-#      | monkey  | 1      |
-#      | skull   | 1      |
-#    Then player 1 does skull check
-#    And player 1 gets 0 scores
-#    And player 1 dies
+  Scenario: row 40 roll 1 skull, 4 parrots, 3 swords, reroll 3 swords, get 1 skull 2 monkeys, reroll
+  2 monkeys, get 1 skull 1 monkey die
+    When player 1 has fortunate card "coin"
+    And player 1 rolls "skull saber saber saber parrot parrot parrot parrot"
+    And player 1 rerolls "saber" to get "monkey monkey skull"
+    And player 1 rerolls "monkey" to get "monkey skull"
+    Then player 1 does skull check
+    And player 1 gets 0 scores
+    And player 1 dies
 #
-#  Scenario: row 42 roll 1 skull, 2 parrots, 3 swords, 2 coins, reroll 2 parrots, get 2 coins, reroll
-#  3 swords, get 3 coins and get 4800 points
-#    When player 1 has fortunate card "coin"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 1      |
-#      | saber   | 3      |
-#      | parrot  | 2      |
-#      | coin    | 2      |
-#      | monkey  | 0      |
-#    And player 1 rerolls "parrot" to get
-#      | die     | values |
-#      | coin    | 2      |
-#    And player 1 rerolls "saber" to get
-#      | die     | values |
-#      | coin    | 3      |
-#    Then player 1 does skull check
-#    And player 1 gets 4800 scores
+  Scenario: row 42 roll 1 skull, 2 parrots, 3 swords, 2 coins, reroll 2 parrots, get 2 coins, reroll
+  3 swords, get 3 coins and get 4800 points
+    When player 1 has fortunate card "coin"
+    And player 1 rolls "skull saber saber saber parrot parrot coin coin"
+    And player 1 rerolls "parrot" to get "coin coin"
+    And player 1 rerolls "saber" to get "coin coin coin"
+    Then player 1 does skull check
+    And player 1 gets 4800 scores
 #
 #  Scenario: row 44 roll 2 parrots, 2 diamonds, 2 coins, 2 monkeys and get 800 points
 #    When player 1 has fortunate card "captain"
