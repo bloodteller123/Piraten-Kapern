@@ -56,7 +56,8 @@ public class Player implements Serializable {
     public void endGame(){
         setScore(0);
         quit=true;
-        if(this.treasures!=null){
+        if(this.treasures!=null && this.treasures.size()>0){
+            System.out.println("here");
             List<Die> tres = buildTreasureList();
             calculateScore(tres);
         }
@@ -216,7 +217,7 @@ public class Player implements Serializable {
         return this.seabattles;
     }
     public void calculateScore(List<Die> ld){
-//        System.out.println("inside calculateScore: "+ld);
+        System.out.println("inside calculateScore: "+ld);
         if(this.seabattles > (int) ld.stream().filter(die -> die.getFace().trim().equalsIgnoreCase("saber")).count()
         || (this.seabattles >0 && this.skulls_index.size() >=3 )){
             this.deductedPoints = seabattles_score.get(this.seabattles) * (-1);
@@ -318,6 +319,7 @@ public class Player implements Serializable {
     public void setScore(int val) {
         this.score += val;
         this.score = this.score<0? 0 : this.score;
+        System.out.println("Score: "+this.score);
     }
     public int getScore(){
         return this.score;

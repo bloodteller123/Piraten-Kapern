@@ -15,26 +15,23 @@ public class easyCucumber {
     Player[] ps;
     @JGivenStep("players are initialized")
     public void playersAreInitialized() {
-        System.out.println("xxx");
         ps = new Player[3];
         for(int i=0;i<ps.length;i++){
             ps[i] = new Player(i+1,0);
         }
     }
-    public void reroll_logic(List<Map<String, String>> maps, List<Die> list, Set<Integer> set, String s){
-        for(int i=0;i<maps.size();i++){
-            int occ = Integer.parseInt(maps.get(i).get("values"));
-            String die_val = maps.get(i).get("die");
-            while(occ >0){
-                int index = IntStream.range(0, list.size())
-                        .filter(j -> list.get(j).getFace().trim().equals(s) && !set.contains(j))
-                        .findFirst()
-                        .orElse(-1);
-                if(index!=-1) {
-                    set.add(index);
-                    list.set(index, new Die(die_val));
-                }
-                occ--;
+    public void reroll_logic(String[] list_d, List<Die> list, Set<Integer> set, String s){
+        for(int i=0;i<list_d.length;i++){
+//            int occ = Integer.parseInt(maps.get(i).get("values"));
+//            String die_val = maps.get(i).get("die");
+            String die_val = list_d[i];
+            int index = IntStream.range(0, list.size())
+                    .filter(j -> list.get(j).getFace().trim().equals(s) && !set.contains(j))
+                    .findFirst()
+                    .orElse(-1);
+            if(index!=-1) {
+                set.add(index);
+                list.set(index, new Die(die_val));
             }
         }
     }
@@ -62,7 +59,6 @@ public class easyCucumber {
 
     @JWhenStep("player {int} has fortunate card {string}")
     public void playerHasFortunateCard(int arg0, String arg1) {
-        System.out.println("xxxxx");
         ps[arg0-1].setCard(arg1);
         if(arg1.contains("sword")) {
             ps[arg0-1].activateSeaBattles(Integer.parseInt(arg1.split("-")[0]));
@@ -81,21 +77,22 @@ public class easyCucumber {
         ps[arg0-1].setDice(dies);
     }
 
-//    @JAndStep("player {int} rerolls {string} to get")
-//    public void playerRerollsToGet(int arg0, String arg1, DataTable dataTable) {
-//        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-//        String[] ind = new String[maps.size()];
-//        List<Die> list = ps[arg0-1].getDice();
-//        Set<Integer> set = new HashSet<>();
-//        reroll_logic(maps, list, set, arg1);
-//        ps[arg0-1].setDice(list);
-//        System.out.println(ps[arg0-1].getDice());
-//    }
+    @JAndStep("player {int} rerolls {string} to get {string}")
+    public void playerRerollsToGet(int arg0, String arg1, String dice) {
+        String[] list_d = dice.split(" ");
+        String[] ind = new String[list_d.length];
+        List<Die> list = ps[arg0-1].getDice();
+        Set<Integer> set = new HashSet<>();
+        reroll_logic(list_d, list, set, arg1);
+        ps[arg0-1].setDice(list);
+        System.out.println(ps[arg0-1].getDice());
+    }
 
     @JThenStep("player {int} does skull check")
     public void playerDoesSkullCheck(int arg0) {
         ps[arg0-1].addSkulls(ps[arg0-1].getDice());
         ps[arg0-1].skullCheck(false);
+        System.out.println(ps[arg0-1].getSkulls().size());
     }
     @JAndStep("player {int} gets {int} scores")
     public void playerGetsScores(int arg0, int scores) {
@@ -107,8 +104,9 @@ public class easyCucumber {
             assertEquals(scores, ps[arg0-1].getInfo()[0]);
         }else{
             System.out.println("ELSE");
-            ps[arg0-1].calculateScore(ps[arg0-1].getDice());
-            System.out.println(ps[arg0-1].getInfo()[0] + " "+ps[arg0-1].getInfo()[1]);
+//            ps[arg0-1].calculateScore(ps[arg0-1].getDice());
+//            System.out.println(ps[arg0-1].getInfo()[0] + " "+ps[arg0-1].getInfo()[1]);
+            assertEquals(0,ps[arg0-1].getInfo()[0]);
         }
     }
 
