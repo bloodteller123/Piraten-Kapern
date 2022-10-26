@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/PartThree.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PartThree.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/PlayerStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/easyCucumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/SinglePlayerScoring.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/SinglePlayerScoring.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,10 +58,10 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "/Users/god/Desktop/COMP5104A1/src/test/resources",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -82,20 +84,13 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
-      <option name="GLUE" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+  <component name="RunManager" selected="Application.runner">
+    <configuration name="runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pirate.runner" />
       <module name="COMP5104A1" />
-      <option name="NAME_FILTER" value="^row 107 roll 2 skulls 2 swords 4 parrots\, reroll 4 parrots\,$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^row 107 roll 2 skulls 2 swords 4 parrots\, reroll 4 parrots\,$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots," />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="PATTERN" value="pirate.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -207,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.runner" />
         <item itemvalue="JUnit.AcceptanceTest.Test131" />
         <item itemvalue="Cucumber Java.Scenario: row 116 roll 3 monkeys 1 sword 1 skull 1 diamond 2 parrots reroll 2 parrots," />
         <item itemvalue="Cucumber Java.Scenario: row 114 roll 1 skull 3 monkeys 4 sword,  get 1300 points" />
         <item itemvalue="Cucumber Java.Scenario: row 113 roll 4 monkeys 2 sword 2 skull, reroll 4 monkeys," />
-        <item itemvalue="Cucumber Java.Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots," />
       </list>
     </recent_temporary>
   </component>
@@ -236,5 +231,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

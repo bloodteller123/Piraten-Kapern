@@ -1,10 +1,9 @@
 package pirate;
 
-import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import scs.comp5903.cucumber.model.annotation.JGivenStep;
+import scs.comp5903.cucumber.model.annotation.JThenStep;
+import scs.comp5903.cucumber.model.annotation.JWhenStep;
+import scs.comp5903.cucumber.model.annotation.JAndStep;
 
 import java.util.*;
 import java.util.stream.IntStream;
@@ -12,10 +11,11 @@ import java.util.stream.IntStream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class PlayerStepDef {
+public class easyCucumber {
     Player[] ps;
-    @Given("players are initialized")
+    @JGivenStep("players are initialized")
     public void playersAreInitialized() {
+        System.out.println("xxx");
         ps = new Player[3];
         for(int i=0;i<ps.length;i++){
             ps[i] = new Player(i+1,0);
@@ -52,7 +52,7 @@ public class PlayerStepDef {
         }
         return inds;
     }
-    @Given("Three players are initialized")
+    @JGivenStep("Three players are initialized")
     public void threePlayersAreInitialized() {
         ps = new Player[3];
         for(int i=0;i<ps.length;i++){
@@ -60,8 +60,9 @@ public class PlayerStepDef {
         }
     }
 
-    @When("player {int} has fortunate card {string}")
+    @JWhenStep("player {int} has fortunate card {string}")
     public void playerHasFortunateCard(int arg0, String arg1) {
+        System.out.println("xxxxx");
         ps[arg0-1].setCard(arg1);
         if(arg1.contains("sword")) {
             ps[arg0-1].activateSeaBattles(Integer.parseInt(arg1.split("-")[0]));
@@ -70,37 +71,33 @@ public class PlayerStepDef {
         }
     }
 
-    @And("player {int} rolls")
-    public void playerRolls(int arg0, DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+    @JAndStep("player {int} rolls {string}}")
+    public void playerRolls(int arg0, String dice) {
+        String[] list_d = dice.split(" ");
         List<Die> dies = new ArrayList<>();
-        for(Map<String, String> m : maps){
-            int occ = Integer.parseInt(m.get("values"));
-            while(occ >0){
-                dies.add(new Die(m.get("die")));
-                occ--;
-            }
+        for(String s : list_d){
+            dies.add(new Die(s));
         }
         ps[arg0-1].setDice(dies);
     }
 
-    @And("player {int} rerolls {string} to get")
-    public void playerRerollsToGet(int arg0, String arg1, DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        String[] ind = new String[maps.size()];
-        List<Die> list = ps[arg0-1].getDice();
-        Set<Integer> set = new HashSet<>();
-        reroll_logic(maps, list, set, arg1);
-        ps[arg0-1].setDice(list);
-        System.out.println(ps[arg0-1].getDice());
-    }
+//    @JAndStep("player {int} rerolls {string} to get")
+//    public void playerRerollsToGet(int arg0, String arg1, DataTable dataTable) {
+//        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+//        String[] ind = new String[maps.size()];
+//        List<Die> list = ps[arg0-1].getDice();
+//        Set<Integer> set = new HashSet<>();
+//        reroll_logic(maps, list, set, arg1);
+//        ps[arg0-1].setDice(list);
+//        System.out.println(ps[arg0-1].getDice());
+//    }
 
-    @Then("player {int} does skull check")
+    @JThenStep("player {int} does skull check")
     public void playerDoesSkullCheck(int arg0) {
         ps[arg0-1].addSkulls(ps[arg0-1].getDice());
         ps[arg0-1].skullCheck(false);
     }
-    @And("player {int} gets {int} scores")
+    @JAndStep("player {int} gets {int} scores")
     public void playerGetsScores(int arg0, int scores) {
         System.out.println("player " +arg0);
         if(!(ps[arg0-1].getSkullSize() >=3)){
@@ -115,13 +112,13 @@ public class PlayerStepDef {
         }
     }
 
-    @And("player {int} dies")
+    @JAndStep("player {int} dies")
     public void playerDies(int arg0) {
         assertTrue(ps[arg0-1].getSkullSize() >=3);
         assertTrue(ps[arg0-1].isEnd());
     }
 
-    @And("dice are initialized")
+    @JAndStep("dice are initialized")
     public void diceAreInitialized() {
         for(Player p: ps){
             p.initializeDice();
@@ -129,19 +126,19 @@ public class PlayerStepDef {
         }
     }
 
-    @And("player {int} deducts {int} points")
+    @JAndStep("player {int} deducts {int} points")
     public void playerDeductsPoints(int arg0, int deduction) {
         ps[arg0-1].calculateScore(ps[arg0-1].getDice());
         assertEquals(deduction, ps[arg0-1].getInfo()[1]);
     }
 
-    @And("player {int} enters islandofskulls")
+    @JAndStep("player {int} enters islandofskulls")
     public void playerEntersIslandofskulls(int arg0) {
         System.out.println(ps[arg0-1].getDice());
         assertTrue(ps[arg0-1].getSkullSize() >3);
     }
 
-    @And("player {int} puts dice in chest")
+    @JAndStep("player {int} puts dice in chest")
     public void playerPutsDiceInChest(int arg0,Map<String, String> map) {
         int total = map.values().stream().mapToInt(Integer::parseInt).sum();
         List<Die> l = ps[arg0-1].getDice();
@@ -149,7 +146,7 @@ public class PlayerStepDef {
         ps[arg0-1].addToTreasures(inds);
     }
 
-    @And("player {int} takes out dice from chest")
+    @JAndStep("player {int} takes out dice from chest")
     public void playerTakesOutDiceFromChest(int arg0, Map<String, String> map) {
         int total = map.values().stream().mapToInt(Integer::parseInt).sum();
         List<Die> l = ps[arg0-1].getDice();
@@ -157,18 +154,18 @@ public class PlayerStepDef {
         ps[arg0-1].removeFromTreasures(inds);
     }
 
-    @And("player {int} makes {int} deduction for other player")
+    @JAndStep("player {int} makes {int} deduction for other player")
     public void playerMakesDeductionForOtherPlayer(int arg0, int arg1) {
         ps[arg0-1].deductPoints(ps[arg0-1].getSkullSize());
         assertEquals((arg1 *= -1), ps[arg0-1].getInfo()[1]);
     }
 
-    @And("player {int} round ends")
+    @JAndStep("player {int} round ends")
     public void playerRoundEnds(int arg0) {
         assertTrue(ps[arg0-1].isEnd());
     }
 
-    @Then("player {int} wins")
+    @JThenStep("player {int} wins")
     public void playerWins(int arg0) {
         List<Integer> l = Arrays.asList(ps[0].getInfo()[0],ps[1].getInfo()[0],ps[2].getInfo()[0]);
         assertEquals(arg0-1, l.indexOf(Collections.max(l)));
