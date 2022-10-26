@@ -41,7 +41,6 @@ Feature: Handle cases with different players
     And player 3 dies
     Then player 1 wins
 
-
   Scenario: row 134 player 1 scores 0 with (3 skulls, 5 monkeys, FC Captain)
   player2 rolls 7 swords + 1 skull with FC captain (gets 4000 points - could win)
   then player3 scores 0 with FC 2 skulls and a roll of 1 skull & 7 swords
