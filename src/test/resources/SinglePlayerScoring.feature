@@ -58,31 +58,17 @@ Feature: Handle multiple single player scoring scenarios
     Then player 1 does skull check
     And player 1 gets 300 scores
 #
-#  Scenario: row 46 roll 3 monkeys 3 swords 2 skulls on first roll and player gets a score of 300
-#    When player 1 has fortunate card "coin"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 2      |
-#      | saber   | 3      |
-#      | parrot  | 0      |
-#      | coin    | 0      |
-#      | monkey  | 3      |
-#    Then player 1 does skull check
-#    And player 1 gets 300 scores
+  Scenario: row 46 roll 3 monkeys 3 swords 2 skulls on first roll and player gets a score of 300
+    When player 1 has fortunate card "coin"
+    And player 1 rolls "skull skull saber saber saber monkey monkey monkey"
+    Then player 1 does skull check
+    And player 1 gets 300 scores
 #
-#  Scenario: row 47 roll 3 diamonds 1 swords 1 monkey 1 parrot 2 skulls on first roll and player gets a score of 500
-#    When player 1 has fortunate card "coin"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 3      |
-#      | skull   | 2      |
-#      | saber   | 1      |
-#      | parrot  | 1      |
-#      | coin    | 0      |
-#      | monkey  | 1      |
-#    Then player 1 does skull check
-#    And player 1 gets 500 scores
+  Scenario: row 47 roll 3 diamonds 1 swords 1 monkey 1 parrot 2 skulls on first roll and player gets a score of 500
+    When player 1 has fortunate card "coin"
+    And player 1 rolls "diamond diamond diamond skull skull saber parrot monkey"
+    Then player 1 does skull check
+    And player 1 gets 500 scores
 #
 #  Scenario: row 48 roll 4 coins 2 swords 2 skulls on first roll and player gets a score of 700
 #    When player 1 has fortunate card "diamond"
