@@ -247,61 +247,32 @@ Feature: Handle cases with different fortune cards
     Then player 1 does skull check
     And player 1 gets 800 scores
 #
-#  Scenario: row 113 roll 4 monkeys 2 sword 2 skull, reroll 4 monkeys,
-#  get 2 skull 2 sword, lose 500 points and die
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "3-sword"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 2      |
-#      | saber   | 2      |
-#      | parrot  | 0      |
-#      | coin    | 0      |
-#      | monkey  | 4      |
-#    And player 1 rerolls "monkey" to get
-#      | die     | values |
-#      | skull   | 2      |
-#      | saber   | 2      |
-#    Then player 1 does skull check
-#    And player 1 deducts -500 points
-#    And player 1 dies
-#
-#  Scenario: row 115 roll 1 skull 3 monkeys 4 sword,  get 1300 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "4-sword"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 1      |
-#      | saber   | 4      |
-#      | parrot  | 0      |
-#      | coin    | 0      |
-#      | monkey  | 3      |
-#    Then player 1 does skull check
-#    And player 1 gets 1300 scores
-#
-#  Scenario: row 116 roll 3 monkeys 1 sword 1 skull 1 diamond 2 parrots reroll 2 parrots,
-#  get 2 swords, reroll 3 monkeys get 1 sword and 2 parrots, get 1300 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "4-sword"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 1      |
-#      | skull   | 1      |
-#      | saber   | 1      |
-#      | parrot  | 2      |
-#      | coin    | 0      |
-#      | monkey  | 3      |
-#    And player 1 rerolls "parrot" to get
-#      | die     | values |
-#      | saber   | 2      |
-#    And player 1 rerolls "monkey" to get
-#      | die     | values |
-#      | saber   | 1      |
-#      | parrot  | 2      |
-#    Then player 1 does skull check
-#    And player 1 gets 1300 scores
+  Scenario: row 113 roll 4 monkeys 2 sword 2 skull, reroll 4 monkeys,
+  get 2 skull 2 sword, lose 500 points and die
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "3-sword"
+    And player 1 rolls "skull skull saber saber monkey monkey monkey monkey"
+    And player 1 rerolls "monkey" to get "skull skull saber saber"
+    Then player 1 does skull check
+    And player 1 deducts -500 points
+    And player 1 dies
+
+  Scenario: row 115 roll 1 skull 3 monkeys 4 sword,  get 1300 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "4-sword"
+    And player 1 rolls "skull saber saber saber saber monkey monkey monkey"
+    Then player 1 does skull check
+    And player 1 gets 1300 scores
+
+  Scenario: row 116 roll 3 monkeys 1 sword 1 skull 1 diamond 2 parrots reroll 2 parrots,
+  get 2 swords, reroll 3 monkeys get 1 sword and 2 parrots, get 1300 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "4-sword"
+    And player 1 rolls "diamond skull saber parrot parrot monkey monkey monkey"
+    And player 1 rerolls "parrot" to get "saber saber"
+    And player 1 rerolls "monkey" to get "saber parrot parrot"
+    Then player 1 does skull check
+    And player 1 gets 1300 scores
