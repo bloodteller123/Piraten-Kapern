@@ -125,36 +125,22 @@ Feature: Handle cases with different fortune cards
     Then player 1 does skull check
     And player 1 gets 1200 scores
 #
-#  Scenario: row 95 roll 2 monkeys 1 parrot 2 coins 3 diamond,  get 1200 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "MP"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 3      |
-#      | skull   | 0      |
-#      | saber   | 0      |
-#      | parrot  | 1      |
-#      | coin    | 2      |
-#      | monkey  | 2      |
-#    Then player 1 does skull check
-#    And player 1 gets 1200 scores
+  Scenario: row 95 roll 2 monkeys 1 parrot 2 coins 3 diamond,  get 1200 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "MP"
+    And player 1 rolls "diamond diamond diamond parrot coin coin monkey monkey"
+    Then player 1 does skull check
+    And player 1 gets 1200 scores
 #
-#  Scenario: row 98 roll 1 skull 7 swords,  get 0 scores and die
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "2-skull"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 1      |
-#      | saber   | 7      |
-#      | parrot  | 0      |
-#      | coin    | 0      |
-#      | monkey  | 0      |
-#    Then player 1 does skull check
-#    And player 1 gets 0 scores
-#    And player 1 dies
+  Scenario: row 98 roll 1 skull 7 swords,  get 0 scores and die
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "2-skull"
+    And player 1 rolls "skull saber saber saber saber saber saber saber"
+    Then player 1 does skull check
+    And player 1 gets 0 scores
+    And player 1 dies
 #
 #  Scenario: row 99 roll 2 skull 6 swords,  get 0 scores and die
 #    Given players are initialized
