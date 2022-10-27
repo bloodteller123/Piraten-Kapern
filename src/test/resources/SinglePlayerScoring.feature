@@ -173,37 +173,23 @@ Feature: Handle multiple single player scoring scenarios
     Then player 1 does skull check
     And player 1 gets 9000 scores
 #
-#  Scenario: row 59 roll 6 monkeys, 2 sabers, reroll sabers, get 2 monkey and get 4600 points
-#    When player 1 has fortunate card "coin"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 0      |
-#      | saber   | 2      |
-#      | parrot  | 0      |
-#      | coin    | 0      |
-#      | monkey  | 6      |
-#    And player 1 rerolls "saber" to get
-#      | die     | values |
-#      | monkey  | 2      |
-#    Then player 1 does skull check
-#    And player 1 gets 4600 scores
+  Scenario: row 59 roll 6 monkeys, 2 sabers, reroll sabers, get 2 monkey and get 4600 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "coin"
+    And player 1 rolls "saber saber monkey monkey monkey monkey monkey monkey"
+    And player 1 rerolls "saber" to get "monkey monkey"
+    Then player 1 does skull check
+    And player 1 gets 4600 scores
 #
-#  Scenario: row 60 roll 2 monkeys, 2 sabers 2 skulls 2 parrots, reroll parrots, get 2 diamonds and get 400 points
-#    When player 1 has fortunate card "diamond"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 2      |
-#      | saber   | 2      |
-#      | parrot  | 2      |
-#      | coin    | 0      |
-#      | monkey  | 2      |
-#    And player 1 rerolls "parrot" to get
-#      | die     | values |
-#      | diamond | 2      |
-#    Then player 1 does skull check
-#    And player 1 gets 400 scores
+  Scenario: row 60 roll 2 monkeys, 2 sabers 2 skulls 2 parrots, reroll parrots, get 2 diamonds and get 400 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "diamond"
+    And player 1 rolls "skull skull saber saber parrot parrot monkey monkey"
+    And player 1 rerolls "parrot" to get "diamond diamond"
+    Then player 1 does skull check
+    And player 1 gets 400 scores
 #
 #  Scenario: row 61 roll 2 monkeys, 2 sabers 2 skulls 1 diamond 1 parrot, reroll monkeys, get 2 diamonds and get 500 points
 #    When player 1 has fortunate card "coin"
