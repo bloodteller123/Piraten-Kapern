@@ -44,24 +44,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/Users/god/Desktop/COMP5104A1/src/test/resources",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/god/Desktop/COMP5104A1/src/test/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="pirate" />
@@ -82,16 +82,16 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest">
+    <configuration name="Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
       <option name="GLUE" value="pirate" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="COMP5104A1" />
-      <option name="NAME_FILTER" value="^row 107 roll 2 skulls 2 swords 4 parrots\, reroll 4 parrots\,$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^row 107 roll 2 skulls 2 swords 4 parrots\, reroll 4 parrots\,$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots," />
+      <option name="NAME_FILTER" value="^Row 84 roll 2 skulls\, 3 parrots\, 3 coins\,put 3 coins in chest$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Row 84 roll 2 skulls\, 3 parrots\, 3 coins\,put 3 coins in chest$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -207,11 +207,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest" />
         <item itemvalue="JUnit.AcceptanceTest.Test131" />
         <item itemvalue="Cucumber Java.Scenario: row 116 roll 3 monkeys 1 sword 1 skull 1 diamond 2 parrots reroll 2 parrots," />
         <item itemvalue="Cucumber Java.Scenario: row 114 roll 1 skull 3 monkeys 4 sword,  get 1300 points" />
         <item itemvalue="Cucumber Java.Scenario: row 113 roll 4 monkeys 2 sword 2 skull, reroll 4 monkeys," />
-        <item itemvalue="Cucumber Java.Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots," />
       </list>
     </recent_temporary>
   </component>
