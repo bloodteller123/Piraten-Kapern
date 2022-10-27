@@ -22,43 +22,24 @@ Feature: Handle cases with different fortune cards
     Then player 1 does skull check
     And player 1 gets 1000 scores
 #
-#  Scenario: row 71 roll 1 skulls 3 monkeys 4 parrots, reroll 3 monkeys,
-#  get 1 skull 2 parrot, reroll skull get parrots get 2000 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "sorceress"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 1      |
-#      | saber   | 0      |
-#      | parrot  | 4      |
-#      | coin    | 0      |
-#      | monkey  | 3      |
-#    And player 1 rerolls "monkey" to get
-#      | die     | values |
-#      | parrot  | 2      |
-#      | skull   | 1      |
-#    And player 1 rerolls "skull" to get
-#      | die     | values |
-#      | parrot  | 1      |
-#    Then player 1 does skull check
-#    And player 1 gets 2000 scores
+  Scenario: row 71 roll 1 skulls 3 monkeys 4 parrots, reroll 3 monkeys,
+  get 1 skull 2 parrot, reroll skull get parrots get 2000 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "sorceress"
+    And player 1 rolls "skull parrot parrot parrot parrot monkey monkey monkey"
+    And player 1 rerolls "monkey" to get "parrot parrot skull skull"
+    And player 1 rerolls "skull" to get "parrot"
+    Then player 1 does skull check
+    And player 1 gets 2000 scores
 #
-#  Scenario: row 74 roll 3 monkeys 3 parrots 1 skull 1 coin,  get 1100 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "MP"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 1      |
-#      | saber   | 0      |
-#      | parrot  | 3      |
-#      | coin    | 1      |
-#      | monkey  | 3      |
-#    Then player 1 does skull check
-#    And player 1 gets 1100 scores
+  Scenario: row 74 roll 3 monkeys 3 parrots 1 skull 1 coin,  get 1100 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "MP"
+    And player 1 rolls "skull parrot parrot parrot coin monkey monkey monkey"
+    Then player 1 does skull check
+    And player 1 gets 1100 scores
 #
 #  Scenario: row 75 roll 2 coins 2 swords 2 monkeys 2 parrots, reroll 2 swords,
 #  get 1 monkey 1 parrot get 1700 points
