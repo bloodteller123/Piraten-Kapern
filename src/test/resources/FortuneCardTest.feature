@@ -142,51 +142,30 @@ Feature: Handle cases with different fortune cards
     And player 1 gets 0 scores
     And player 1 dies
 #
-#  Scenario: row 99 roll 2 skull 6 swords,  get 0 scores and die
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "1-skull"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 2      |
-#      | saber   | 6      |
-#      | parrot  | 0      |
-#      | coin    | 0      |
-#      | monkey  | 0      |
-#    Then player 1 does skull check
-#    And player 1 gets 0 scores
-#    And player 1 dies
+  Scenario: row 99 roll 2 skull 6 swords,  get 0 scores and die
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "1-skull"
+    And player 1 rolls "skull skull saber saber saber saber saber saber"
+    Then player 1 does skull check
+    And player 1 gets 0 scores
+    And player 1 dies
 #
-#  Scenario: row 100 roll 2 skulls 3 monkeys 3 parrots, reroll 3 parrots,
-#  get 2 skulls 1 sword, reroll swords, monkeys get 3 skulls, 1 swords, get 0 points, deduction for
-#    other player 1s is 900 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "2-skull"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 2      |
-#      | saber   | 0      |
-#      | parrot  | 3      |
-#      | coin    | 0      |
-#      | monkey  | 3      |
-#    And player 1 does skull check
-#    And player 1 enters islandofskulls
-#    And player 1 rerolls "parrot" to get
-#      | die     | values |
-#      | skull   | 2      |
-#      | saber   | 1      |
-#    And player 1 rerolls "saber" to get
-#      | die     | values |
-#      | saber   | 1      |
-#    And player 1 rerolls "monkey" to get
-#      | die     | values |
-#      | skull   | 3      |
-#    Then player 1 does skull check
-#    And player 1 makes 900 deduction for other player
-#    And player 1 gets 0 scores
+  Scenario: row 100 roll 2 skulls 3 monkeys 3 parrots, reroll 3 parrots,
+    get 2 skulls 1 sword, reroll swords, monkeys get 3 skulls, 1 swords, get 0 points, deduction for
+    other player 1s is 900 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "2-skull"
+    And player 1 rolls "skull skull parrot parrot parrot monkey monkey monkey"
+    And player 1 does skull check
+    And player 1 enters islandofskulls
+    And player 1 rerolls "parrot" to get "skull skull saber"
+    And player 1 rerolls "saber" to get "saber"
+    And player 1 rerolls "monkey" to get "skull skull skull"
+    Then player 1 does skull check
+    And player 1 makes 900 deduction for other player
+    And player 1 gets 0 scores
 #
 #
 #  Scenario: row 102 roll 5 skulls 3 monkeys, reroll 3 monkeys,
