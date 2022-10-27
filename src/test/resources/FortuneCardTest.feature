@@ -41,41 +41,24 @@ Feature: Handle cases with different fortune cards
     Then player 1 does skull check
     And player 1 gets 1100 scores
 #
-#  Scenario: row 75 roll 2 coins 2 swords 2 monkeys 2 parrots, reroll 2 swords,
-#  get 1 monkey 1 parrot get 1700 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "MP"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 0      |
-#      | saber   | 2      |
-#      | parrot  | 2      |
-#      | coin    | 2      |
-#      | monkey  | 2      |
-#    And player 1 rerolls "saber" to get
-#      | die     | values |
-#      | parrot  | 1      |
-#      | monkey  | 1      |
-#    Then player 1 does skull check
-#    And player 1 gets 1700 scores
+  Scenario: row 75 roll 2 coins 2 swords 2 monkeys 2 parrots, reroll 2 swords,
+  get 1 monkey 1 parrot get 1700 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "MP"
+    And player 1 rolls "saber saber parrot parrot coin coin monkey monkey"
+    And player 1 rerolls "saber" to get "parrot monkey"
+    Then player 1 does skull check
+    And player 1 gets 1700 scores
 #
-#  Scenario: row 76 roll 3 monkeys 2 parrots 3 skull,  player 1 dies and gets 0 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "MP"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 3      |
-#      | saber   | 0      |
-#      | parrot  | 2      |
-#      | coin    | 0      |
-#      | monkey  | 3      |
-#    Then player 1 does skull check
-#    And player 1 gets 0 scores
-#    And player 1 dies
+  Scenario: row 76 roll 3 monkeys 2 parrots 3 skull,  player 1 dies and gets 0 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "MP"
+    And player 1 rolls "skull skull skull parrot parrot monkey monkey monkey"
+    Then player 1 does skull check
+    And player 1 gets 0 scores
+    And player 1 dies
 #
 #  Scenario: row 79 roll 2 swords 2 diamonds 1 coin 3 parrots, put diamonds and coin in chest,
 #    rerolls 2 swords get 2 parrots, put 5 parrots in chest, take out 2 diamonds and 1 coin,
