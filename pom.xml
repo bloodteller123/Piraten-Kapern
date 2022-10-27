@@ -41,7 +41,7 @@
     <dependency>
       <groupId>com.github.CXwudi</groupId>
       <artifactId>comp5903-easy-cucumber</artifactId>
-      <version>0.3.1</version>
+      <version>0.3.3</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>

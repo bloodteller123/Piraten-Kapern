@@ -97,6 +97,13 @@ public class easyCucumber {
         ps[arg0-1].skullCheck(false);
         System.out.println("playerDoesSkullCheck"+ ps[arg0-1].getSkullSize());
     }
+
+    @JAndStep("player {int} does skull check")
+    public void playerDoesSkullCheck1(int arg0) {
+        ps[arg0-1].addSkulls(ps[arg0-1].getDice());
+        ps[arg0-1].skullCheck(false);
+        System.out.println("playerDoesSkullCheck"+ ps[arg0-1].getSkullSize());
+    }
     @JAndStep("player {int} gets {int} scores")
     public void playerGetsScores(int arg0, int scores) {
         System.out.println("player " +arg0);
