@@ -191,42 +191,26 @@ Feature: Handle cases with different fortune cards
     And player 1 makes 500 deduction for other player
     And player 1 gets 0 scores
 #
-#  Scenario: row 106 roll 3 skull 4 monkeys 1 sword,  lose 300 points and die
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "2-sword"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 3      |
-#      | saber   | 1      |
-#      | parrot  | 0      |
-#      | coin    | 0      |
-#      | monkey  | 4      |
-#    Then player 1 does skull check
-#    And player 1 deducts -300 points
-#    And player 1 dies
+  Scenario: row 106 roll 3 skull 4 monkeys 1 sword,  lose 300 points and die
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "2-sword"
+    And player 1 rolls "skull skull skull saber monkey monkey monkey monkey"
+    Then player 1 does skull check
+    And player 1 deducts -300 points
+    And player 1 dies
 #
-#  Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots,
-#  get 4 skulls, lose 500 points and die
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "3-sword"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 2      |
-#      | saber   | 2      |
-#      | parrot  | 4      |
-#      | coin    | 0      |
-#      | monkey  | 0      |
-#    And player 1 rerolls "parrot" to get
-#      | die     | values |
-#      | skull   | 4      |
-#    Then player 1 does skull check
-#    And player 1 round ends
-#    And player 1 deducts -500 points
-#    And player 1 dies
+  Scenario: row 107 roll 2 skulls 2 swords 4 parrots, reroll 4 parrots,
+  get 4 skulls, lose 500 points and die
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "3-sword"
+    And player 1 rolls "skull skull saber saber parrot parrot parrot parrot"
+    And player 1 rerolls "parrot" to get "skull skull skull skull"
+    Then player 1 does skull check
+    And player 1 round ends
+    And player 1 deducts -500 points
+    And player 1 dies
 #
 #  Scenario: row 108 roll 3 skull 2 monkeys 3 sword,  lose 1000 points and die
 #    Given players are initialized
