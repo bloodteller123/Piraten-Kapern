@@ -35,19 +35,22 @@ public class easyCucumber {
             }
         }
     }
-    public String[] buildIndArray(int total, Map<String, String> map, List<Die> l){
+    public String[] buildIndArray(int total, String[] ss, List<Die> l){
+        Map<String,Integer> map = new HashMap<>();
         String[] inds = new String[total];
         int ind = 0;
-        System.out.println(map);
-        for(Map.Entry<String,String> m : map.entrySet()){
+        for(String s : ss){
             for (int i = 0; i < l.size(); i++) {
-                if (ind<inds.length && m.getKey().equals(l.get(i).toString())) {
-                    inds[ind] = Integer.toString(i);
-                    ind++;
+                if (ind<inds.length && s.equals(l.get(i).toString())) {
+                    if(!map.containsKey(s) || map.get(s)!=i){
+                        inds[ind] = Integer.toString(i);
+                        map.put(s,ind);
+                        System.out.println(ind);
+                        ind++;
+                    }
                 }
             }
-        }
-        return inds;
+        }return inds;
     }
     @JGivenStep("Three players are initialized")
     public void threePlayersAreInitialized() {
@@ -108,7 +111,10 @@ public class easyCucumber {
             System.out.println("playerGetsScores: "+ps[arg0-1].getDice());
 //            ps[arg0-1].calculateScore(ps[arg0-1].getDice());
 //            System.out.println(ps[arg0-1].getInfo()[0] + " "+ps[arg0-1].getInfo()[1]);
-            assertEquals(0,ps[arg0-1].getInfo()[0]);
+            if(ps[arg0-1].getTreasures().size()>0)
+                assertEquals(scores,ps[arg0-1].getInfo()[0]);
+            else
+                assertEquals(0,ps[arg0-1].getInfo()[0]);
         }
     }
 
@@ -138,19 +144,21 @@ public class easyCucumber {
         assertTrue(ps[arg0-1].getSkullSize() >3);
     }
 
-    @JAndStep("player {int} puts dice in chest")
-    public void playerPutsDiceInChest(int arg0,Map<String, String> map) {
-        int total = map.values().stream().mapToInt(Integer::parseInt).sum();
+    @JAndStep("player {int} puts dice in chest {string}")
+    public void playerPutsDiceInChest(int arg0,String s) {
+        String[] ss = s.split(" ");
+        int total = ss.length;
         List<Die> l = ps[arg0-1].getDice();
-        String[] inds = buildIndArray(total, map,l);
+        String[] inds = buildIndArray(total, ss,l);
         ps[arg0-1].addToTreasures(inds);
     }
 
-    @JAndStep("player {int} takes out dice from chest")
-    public void playerTakesOutDiceFromChest(int arg0, Map<String, String> map) {
-        int total = map.values().stream().mapToInt(Integer::parseInt).sum();
+    @JAndStep("player {int} takes out dice from chest {string}")
+    public void playerTakesOutDiceFromChest(int arg0, String s) {
+        String[] ss = s.split(" ");
+        int total = ss.length;
         List<Die> l = ps[arg0-1].getDice();
-        String[] inds = buildIndArray(total, map,l);
+        String[] inds = buildIndArray(total, ss,l);
         ps[arg0-1].removeFromTreasures(inds);
     }
 

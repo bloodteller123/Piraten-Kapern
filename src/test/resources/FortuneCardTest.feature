@@ -60,70 +60,36 @@ Feature: Handle cases with different fortune cards
     And player 1 gets 0 scores
     And player 1 dies
 #
-#  Scenario: row 79 roll 2 swords 2 diamonds 1 coin 3 parrots, put diamonds and coin in chest,
-#    rerolls 2 swords get 2 parrots, put 5 parrots in chest, take out 2 diamonds and 1 coin,
-#    rerolls diamonds, coin get 1 skull 1 coin and 1 parrot, get 1100 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "chest"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 2      |
-#      | skull   | 0      |
-#      | saber   | 2      |
-#      | parrot  | 3      |
-#      | coin    | 1      |
-#      | monkey  | 0      |
-#    And player 1 puts dice in chest
-#      | diamond | 2      |
-#      | coin    | 1      |
-#    And player 1 rerolls "saber" to get
-#      | die     | values |
-#      | parrot  | 2      |
-#    And player 1 puts dice in chest
-#      | parrot  | 5      |
-#    And player 1 takes out dice from chest
-#      | diamond | 2      |
-#      | coin    | 1      |
-#    And player 1 rerolls "coin" to get
-#      | die     | values |
-#      | parrot  | 1      |
-#    And player 1 rerolls "diamond" to get
-#      | die     | values |
-#      | coin    | 1      |
-#      | skull   | 1      |
-#    Then player 1 does skull check
-#    And player 1 gets 1100 scores
+  Scenario: row 79 roll 2 swords 2 diamonds 1 coin 3 parrots, put diamonds and coin in chest,
+    rerolls 2 swords get 2 parrots, put 5 parrots in chest, take out 2 diamonds and 1 coin,
+    rerolls diamonds, coin get 1 skull 1 coin and 1 parrot, get 1100 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "chest"
+    And player 1 rolls "diamond diamond saber saber parrot parrot parrot coin"
+    And player 1 puts dice in chest "diamond diamond coin"
+    And player 1 rerolls "saber" to get "parrot parrot"
+    And player 1 puts dice in chest "parrot parrot parrot parrot parrot"
+    And player 1 takes out dice from chest "diamond diamond coin"
+    And player 1 rerolls "coin" to get "parrot"
+    And player 1 rerolls "diamond" to get "coin skull"
+    Then player 1 does skull check
+    And player 1 gets 1100 scores
 #
-#  Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest
-#  then rerolls 3 parrots and get 2 diamonds 1 coin, put coin in chest (now 4)
-#  then reroll 2 diamonds and get 1 skull 1 coin, score for chest only = 400 + 200 = 600 AND report death
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "chest"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 2      |
-#      | saber   | 0      |
-#      | parrot  | 3      |
-#      | coin    | 3      |
-#      | monkey  | 0      |
-#    And player 1 puts dice in chest
-#      | coin    | 3      |
-#    And player 1 rerolls "parrot" to get
-#      | die     | values |
-#      | diamond | 2      |
-#      | coin    | 1      |
-#    And player 1 puts dice in chest
-#      | coin    | 1      |
-#    And player 1 rerolls "diamond" to get
-#      | die     | values |
-#      | skull   | 1      |
-#      | coin    | 1      |
-#    Then player 1 does skull check
-#    And player 1 gets 600 scores
-#    And player 1 dies
+  Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest
+     rerolls 3 parrots and get 2 diamonds 1 coin, put coin in chest (now 4)
+     reroll 2 diamonds and get 1 skull 1 coin, score for chest only = 400 + 200 = 600 AND report death
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "chest"
+    And player 1 rolls "skull skull parrot parrot parrot coin coin coin"
+    And player 1 puts dice in chest "coin coin coin"
+    And player 1 rerolls "parrot" to get "diamond diamond coin"
+    And player 1 puts dice in chest "coin"
+    And player 1 rerolls "diamond" to get "skull coin"
+    Then player 1 does skull check
+    And player 1 gets 600 scores
+    And player 1 dies
 #
 #  Scenario: row 89 roll 3 monkeys 3 swords 1 diamond 1 parrot,  get 400 points
 #    Given players are initialized
