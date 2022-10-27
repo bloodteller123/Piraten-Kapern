@@ -102,41 +102,25 @@ Feature: Handle multiple single player scoring scenarios
     Then player 1 does skull check
     And player 1 gets 400 scores
 #
-#  Scenario: row 50 roll 2 parrots, 2 coins 1 skulls, 3 sabers, reroll parrots, get 1 saber and
-#  1 coin and get 800 points
-#    When player 1 has fortunate card "coin"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 1      |
-#      | saber   | 3      |
-#      | parrot  | 2      |
-#      | coin    | 2      |
-#      | monkey  | 0      |
-#    And player 1 rerolls "parrot" to get
-#      | die     | values |
-#      | saber   | 1      |
-#      | coin    | 1      |
-#    Then player 1 does skull check
-#    And player 1 gets 800 scores
+  Scenario: row 50 roll 2 parrots, 2 coins 1 skulls, 3 sabers, reroll parrots, get 1 saber and
+  1 coin and get 800 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "coin"
+    And player 1 rolls "skull saber saber saber parrot parrot coin coin"
+    And player 1 rerolls "parrot" to get "saber coin"
+    Then player 1 does skull check
+    And player 1 gets 800 scores
 #
-#  Scenario: row 51 roll 2 parrots, 2 coins 1 skulls, 3 sabers, reroll parrots, get 1 saber and
-#  1 coin and get 1200 points
-#    When player 1 has fortunate card "captain"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 1      |
-#      | saber   | 3      |
-#      | parrot  | 2      |
-#      | coin    | 2      |
-#      | monkey  | 0      |
-#    And player 1 rerolls "parrot" to get
-#      | die     | values |
-#      | saber   | 1      |
-#      | coin    | 1      |
-#    Then player 1 does skull check
-#    And player 1 gets 1200 scores
+  Scenario: row 51 roll 2 parrots, 2 coins 1 skulls, 3 sabers, reroll parrots, get 1 saber and
+  1 coin and get 1200 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "captain"
+    And player 1 rolls "skull saber saber saber parrot parrot coin coin"
+    And player 1 rerolls "parrot" to get "saber coin"
+    Then player 1 does skull check
+    And player 1 gets 1200 scores
 #
 #  Scenario: row 52 roll 1 skull, 2 parrots, 2 monkeys 3 swords, reroll 2 monkeys, get 1 skull 1 sword, reroll
 #  2 parrots, get 1 sowrd 1 monkey and get 600 points
