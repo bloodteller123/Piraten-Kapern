@@ -107,40 +107,23 @@ Feature: Handle cases with different fortune cards
     Then player 1 does skull check
     And player 1 gets 1800 scores
 #
-#  Scenario: row 91 roll 3 monkeys 4 swords 1 diamond,  get 1000 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "coin"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 1      |
-#      | skull   | 0      |
-#      | saber   | 4      |
-#      | parrot  | 0      |
-#      | coin    | 0      |
-#      | monkey  | 3      |
-#    Then player 1 does skull check
-#    And player 1 gets 1000 scores
+  Scenario: row 91 roll 3 monkeys 4 swords 1 diamond,  get 1000 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "coin"
+    And player 1 rolls "diamond saber saber saber saber monkey monkey monkey"
+    Then player 1 does skull check
+    And player 1 gets 1000 scores
 #
-#  Scenario: row 92 roll 1 coins 1 swords 4 monkeys 2 parrots, reroll 2 parrots,
-#  get 1 coin 1 sword get 1200 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "2-sword"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 0      |
-#      | saber   | 1      |
-#      | parrot  | 2      |
-#      | coin    | 1      |
-#      | monkey  | 4      |
-#    And player 1 rerolls "parrot" to get
-#      | die     | values |
-#      | saber   | 1      |
-#      | coin    | 1      |
-#    Then player 1 does skull check
-#    And player 1 gets 1200 scores
+  Scenario: row 92 roll 1 coins 1 swords 4 monkeys 2 parrots, reroll 2 parrots,
+  get 1 coin 1 sword get 1200 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "2-sword"
+    And player 1 rolls "saber parrot parrot coin monkey monkey monkey monkey"
+    And player 1 rerolls "parrot" to get "saber coin"
+    Then player 1 does skull check
+    And player 1 gets 1200 scores
 #
 #  Scenario: row 95 roll 2 monkeys 1 parrot 2 coins 3 diamond,  get 1200 points
 #    Given players are initialized
