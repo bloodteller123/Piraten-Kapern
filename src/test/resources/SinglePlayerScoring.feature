@@ -141,31 +141,21 @@ Feature: Handle multiple single player scoring scenarios
     Then player 1 does skull check
     And player 1 gets 1100 scores
 #
-#  Scenario: row 55 roll 7 parrots 1 skulls on first roll and player gets a score of 2100
-#    When player 1 has fortunate card "coin"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 1      |
-#      | saber   | 0      |
-#      | parrot  | 7      |
-#      | coin    | 0      |
-#      | monkey  | 0      |
-#    Then player 1 does skull check
-#    And player 1 gets 2100 scores
+  Scenario: row 55 roll 7 parrots 1 skulls on first roll and player gets a score of 2100
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "coin"
+    And player 1 rolls "skull parrot parrot parrot parrot parrot parrot parrot"
+    Then player 1 does skull check
+    And player 1 gets 2100 scores
 #
-#  Scenario: row 56 roll 8 coins first roll and player gets a score of 5400
-#    When player 1 has fortunate card "coin"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 0      |
-#      | saber   | 0      |
-#      | parrot  | 0      |
-#      | coin    | 8      |
-#      | monkey  | 0      |
-#    Then player 1 does skull check
-#    And player 1 gets 5400 scores
+  Scenario: row 56 roll 8 coins first roll and player gets a score of 5400
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "coin"
+    And player 1 rolls "coin coin coin coin coin coin coin coin"
+    Then player 1 does skull check
+    And player 1 gets 5400 scores
 #
 #  Scenario: row 57 roll 8 coins first roll and player gets a score of 5400
 #    When player 1 has fortunate card "diamond"
