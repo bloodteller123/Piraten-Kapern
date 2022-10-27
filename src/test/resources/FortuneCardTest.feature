@@ -91,35 +91,21 @@ Feature: Handle cases with different fortune cards
     And player 1 gets 600 scores
     And player 1 dies
 #
-#  Scenario: row 89 roll 3 monkeys 3 swords 1 diamond 1 parrot,  get 400 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "coin"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 1      |
-#      | skull   | 0      |
-#      | saber   | 3      |
-#      | parrot  | 1      |
-#      | coin    | 0      |
-#      | monkey  | 3      |
-#    Then player 1 does skull check
-#    And player 1 gets 400 scores
+  Scenario: row 89 roll 3 monkeys 3 swords 1 diamond 1 parrot,  get 400 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "coin"
+    And player 1 rolls "diamond saber saber saber parrot monkey monkey monkey"
+    Then player 1 does skull check
+    And player 1 gets 400 scores
 #
-#  Scenario: row 90 roll 3 monkeys 3 swords 2 coins,  get 1800 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "captain"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 0      |
-#      | saber   | 3      |
-#      | parrot  | 0      |
-#      | coin    | 2      |
-#      | monkey  | 3      |
-#    Then player 1 does skull check
-#    And player 1 gets 1800 scores
+  Scenario: row 90 roll 3 monkeys 3 swords 2 coins,  get 1800 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "captain"
+    And player 1 rolls "saber saber saber coin coin monkey monkey monkey"
+    Then player 1 does skull check
+    And player 1 gets 1800 scores
 #
 #  Scenario: row 91 roll 3 monkeys 4 swords 1 diamond,  get 1000 points
 #    Given players are initialized
