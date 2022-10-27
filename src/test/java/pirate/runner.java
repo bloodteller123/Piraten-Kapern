@@ -12,12 +12,13 @@ public class runner {
         Path single_feature= Paths.get("src/test/resources/SinglePlayerScoring.feature");
         JFeature jFeature_single_feature= EasyCucumber.build(single_feature,new easyCucumber());
 
-//        Path fc_feature= Paths.get("src/test/resources/FortuneCardTest.feature");
-//        JFeature jFeature_fc= EasyCucumber.build(fc_feature,easyCucumber.class);
+        Path fc_feature= Paths.get("src/test/resources/FortuneCardTest.feature");
+        JFeature jFeature_fc= EasyCucumber.build(fc_feature,easyCucumber.class);
 //
 //        Path multi_feature= Paths.get("src/test/resources/PartThree.feature");
 //        JFeature jFeature_multi= EasyCucumber.build(multi_feature,easyCucumber.class);
-        jFeature_single_feature.executeAll();
+//        jFeature_single_feature.executeAll();
+        jFeature_fc.executeAll();
 
     }
 }
