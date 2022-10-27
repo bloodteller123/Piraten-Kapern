@@ -168,47 +168,28 @@ Feature: Handle cases with different fortune cards
     And player 1 gets 0 scores
 #
 #
-#  Scenario: row 102 roll 5 skulls 3 monkeys, reroll 3 monkeys,
-#  get 1 coin 2 skulls get 0 points, deduction for other player 1s is 1400 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "captain"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 5      |
-#      | saber   | 0      |
-#      | parrot  | 0      |
-#      | coin    | 0      |
-#      | monkey  | 3      |
-#    And player 1 rerolls "monkey" to get
-#      | die     | values |
-#      | skull   | 2      |
-#      | coin    | 1      |
-#    Then player 1 does skull check
-#    And player 1 makes 1400 deduction for other player
-#    And player 1 gets 0 scores
+  Scenario: row 102 roll 5 skulls 3 monkeys, reroll 3 monkeys,
+  get 1 coin 2 skulls get 0 points, deduction for other player 1s is 1400 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "captain"
+    And player 1 rolls "skull skull skull skull skull monkey monkey monkey"
+    And player 1 rerolls "monkey" to get "skull skull coin"
+    Then player 1 does skull check
+    And player 1 makes 1400 deduction for other player
+    And player 1 gets 0 scores
 #
-#  Scenario: row 103 roll 3 skulls 5 swords, reroll 5 swords,
-#  get 5 coin get 0 points, deduction for other player 1s is 500 points
-#    Given players are initialized
-#    And dice are initialized
-#    When player 1 has fortunate card "2-skull"
-#    And player 1 rolls
-#      | die     | values |
-#      | diamond | 0      |
-#      | skull   | 3      |
-#      | saber   | 5      |
-#      | parrot  | 0      |
-#      | coin    | 0      |
-#      | monkey  | 0      |
-#    And player 1 rerolls "saber" to get
-#      | die     | values |
-#      | coin    | 5      |
-#    Then player 1 does skull check
-#    And player 1 round ends
-#    And player 1 makes 500 deduction for other player
-#    And player 1 gets 0 scores
+  Scenario: row 103 roll 3 skulls 5 swords, reroll 5 swords,
+  get 5 coin get 0 points, deduction for other player 1s is 500 points
+    Given players are initialized
+    And dice are initialized
+    When player 1 has fortunate card "2-skull"
+    And player 1 rolls "skull skull skull saber saber saber saber saber"
+    And player 1 rerolls "saber" to get "coin coin coin coin coin"
+    Then player 1 does skull check
+    And player 1 round ends
+    And player 1 makes 500 deduction for other player
+    And player 1 gets 0 scores
 #
 #  Scenario: row 106 roll 3 skull 4 monkeys 1 sword,  lose 300 points and die
 #    Given players are initialized
