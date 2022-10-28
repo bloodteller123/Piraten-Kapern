@@ -70,6 +70,16 @@ public class easyCucumber {
         }
     }
 
+    @JAndStep("player {int} has fortunate card {string}")
+    public void playerHasFortunateCard_and(int arg0, String arg1) {
+        ps[arg0-1].setCard(arg1);
+        if(arg1.contains("sword")) {
+            ps[arg0-1].activateSeaBattles(Integer.parseInt(arg1.split("-")[0]));
+        }else if(arg1.contains("skull")) {
+            ps[arg0-1].setSkulls(arg1.split("-"));
+        }
+    }
+
     @JAndStep("player {int} rolls {string}}")
     public void playerRolls(int arg0, String dice) {
         String[] list_d = dice.split(" ");
@@ -183,6 +193,12 @@ public class easyCucumber {
     @JThenStep("player {int} wins")
     public void playerWins(int arg0) {
         List<Integer> l = Arrays.asList(ps[0].getInfo()[0],ps[1].getInfo()[0],ps[2].getInfo()[0]);
+        System.out.println(l);
         assertEquals(arg0-1, l.indexOf(Collections.max(l)));
+    }
+
+    @JAndStep("player {int} has restarted the round")
+    public void playerrestarts(int arg0){
+        ps[arg0-1].reset();
     }
 }

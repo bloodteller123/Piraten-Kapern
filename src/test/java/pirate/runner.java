@@ -15,10 +15,10 @@ public class runner {
         Path fc_feature= Paths.get("src/test/resources/FortuneCardTest.feature");
         JFeature jFeature_fc= EasyCucumber.build(fc_feature,easyCucumber.class);
 //
-//        Path multi_feature= Paths.get("src/test/resources/PartThree.feature");
-//        JFeature jFeature_multi= EasyCucumber.build(multi_feature,easyCucumber.class);
+        Path multi_feature= Paths.get("src/test/resources/PartThree.feature");
+        JFeature jFeature_multi= EasyCucumber.build(multi_feature,easyCucumber.class);
 //        jFeature_single_feature.executeAll();
-        jFeature_fc.executeAll();
-
+//        jFeature_fc.executeAll();
+        jFeature_multi.executeAll();
     }
 }
