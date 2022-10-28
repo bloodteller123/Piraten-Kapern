@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/easyCucumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/easyCucumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/PartThree.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PartThree.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/easyCucumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/EasyCucumberSD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/Runner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +84,7 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.runner">
+  <component name="RunManager" selected="Maven.easy_cucumber_run">
     <configuration name="runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pirate.runner" />
       <module name="COMP5104A1" />
@@ -199,6 +200,41 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="easy_cucumber_run" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="install" />
+                <option value="exec:java" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.runner" />
+      <item itemvalue="Cucumber Java.Scenario: row 113 roll 4 monkeys 2 sword 2 skull, reroll 4 monkeys," />
+      <item itemvalue="Cucumber Java.Scenario: row 114 roll 1 skull 3 monkeys 4 sword,  get 1300 points" />
+      <item itemvalue="Cucumber Java.Scenario: row 116 roll 3 monkeys 1 sword 1 skull 1 diamond 2 parrots reroll 2 parrots," />
+      <item itemvalue="JUnit.AcceptanceTest.Test131" />
+      <item itemvalue="Maven.COMP5104A1 [clean install]" />
+      <item itemvalue="Maven.easy_cucumber_run" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.runner" />
