@@ -80,6 +80,7 @@ Feature: Handle cases with different players
     And player 3 does skull check
     And player 3 gets 0 scores
     And player 3 dies
+    And player 1 has restarted the round
     And player 1 has fortunate card "captain"
     And player 1 rolls
       | die     | values |
@@ -128,6 +129,6 @@ Feature: Handle cases with different players
     And player 2 rerolls "parrot" to get
       | die     | values |
       | skull   | 1      |
-    And player 2 does skull check
-    Then player 2 makes 800 deduction for other player
+    Then player 2 does skull check
+    And player 2 makes 800 deduction for other player
     And player 2 gets 0 scores

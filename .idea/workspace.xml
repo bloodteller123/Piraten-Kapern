@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/PlayerStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/PlayerStepDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/PartThree.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PartThree.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,10 +57,10 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "/Users/god/Desktop/COMP5104A1/src/test/resources",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -82,7 +83,64 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Cucumber Java.Feature: FortuneCardTest">
+    <configuration name="Feature: FortuneCardTest" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
+      <option name="GLUE" value="pirate" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="COMP5104A1" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: FortuneCardTest" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Feature: PartThree" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/PartThree.feature" />
+      <option name="GLUE" value="pirate" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="COMP5104A1" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: PartThree" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Feature: SinglePlayerScoring" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/SinglePlayerScoring.feature" />
+      <option name="GLUE" value="pirate" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="COMP5104A1" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: SinglePlayerScoring" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
@@ -92,66 +150,6 @@
       <option name="NAME_FILTER" value="^Row 84 roll 2 skulls\, 3 parrots\, 3 coins\,put 3 coins in chest$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Row 84 roll 2 skulls\, 3 parrots\, 3 coins\,put 3 coins in chest$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: row 113 roll 4 monkeys 2 sword 2 skull, reroll 4 monkeys," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
-      <option name="GLUE" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="COMP5104A1" />
-      <option name="NAME_FILTER" value="^row 113 roll 4 monkeys 2 sword 2 skull\, reroll 4 monkeys\,$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^row 113 roll 4 monkeys 2 sword 2 skull\, reroll 4 monkeys\,$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: row 113 roll 4 monkeys 2 sword 2 skull, reroll 4 monkeys," />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: row 114 roll 1 skull 3 monkeys 4 sword,  get 1300 points" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
-      <option name="GLUE" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="COMP5104A1" />
-      <option name="NAME_FILTER" value="^row 114 roll 1 skull 3 monkeys 4 sword\,  get 1300 points$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^row 114 roll 1 skull 3 monkeys 4 sword\,  get 1300 points$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: row 114 roll 1 skull 3 monkeys 4 sword,  get 1300 points" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: row 116 roll 3 monkeys 1 sword 1 skull 1 diamond 2 parrots reroll 2 parrots," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
-      <option name="GLUE" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="COMP5104A1" />
-      <option name="NAME_FILTER" value="^row 116 roll 3 monkeys 1 sword 1 skull 1 diamond 2 parrots reroll 2 parrots\,$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^row 116 roll 3 monkeys 1 sword 1 skull 1 diamond 2 parrots reroll 2 parrots\,$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: row 116 roll 3 monkeys 1 sword 1 skull 1 diamond 2 parrots reroll 2 parrots," />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -207,11 +205,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Feature: FortuneCardTest" />
+        <item itemvalue="Cucumber Java.Feature: PartThree" />
+        <item itemvalue="Cucumber Java.Feature: SinglePlayerScoring" />
         <item itemvalue="Cucumber Java.Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest" />
         <item itemvalue="JUnit.AcceptanceTest.Test131" />
-        <item itemvalue="Cucumber Java.Scenario: row 116 roll 3 monkeys 1 sword 1 skull 1 diamond 2 parrots reroll 2 parrots," />
-        <item itemvalue="Cucumber Java.Scenario: row 114 roll 1 skull 3 monkeys 4 sword,  get 1300 points" />
-        <item itemvalue="Cucumber Java.Scenario: row 113 roll 4 monkeys 2 sword 2 skull, reroll 4 monkeys," />
       </list>
     </recent_temporary>
   </component>

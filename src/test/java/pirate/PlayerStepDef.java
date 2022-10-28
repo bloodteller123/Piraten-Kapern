@@ -173,4 +173,9 @@ public class PlayerStepDef {
         List<Integer> l = Arrays.asList(ps[0].getInfo()[0],ps[1].getInfo()[0],ps[2].getInfo()[0]);
         assertEquals(arg0-1, l.indexOf(Collections.max(l)));
     }
+
+    @And("player {int} has restarted the round")
+    public void playerHasRestartedTheRound(int arg0) {
+        ps[arg0-1].reset();
+    }
 }
