@@ -102,16 +102,20 @@ public class PlayerStepDef {
     }
     @And("player {int} gets {int} scores")
     public void playerGetsScores(int arg0, int scores) {
-        System.out.println("player " +arg0);
+//        System.out.println("player " +arg0);
         if(!(ps[arg0-1].getSkullSize() >=3)){
-            System.out.println(ps[arg0-1].getCard());
-            System.out.println(ps[arg0-1].getDice());
+//            System.out.println(ps[arg0-1].getCard());
+//            System.out.println(ps[arg0-1].getDice());
             ps[arg0-1].calculateScore(ps[arg0-1].getDice());
             assertEquals(scores, ps[arg0-1].getInfo()[0]);
         }else{
-            System.out.println("ELSE");
-            ps[arg0-1].calculateScore(ps[arg0-1].getDice());
-            System.out.println(ps[arg0-1].getInfo()[0] + " "+ps[arg0-1].getInfo()[1]);
+//            System.out.println("skull size >= 3");
+//            System.out.println(ps[arg0-1].getSkullSize());
+//            System.out.println("playerGetsScores: "+ps[arg0-1].getDice());
+            if(ps[arg0-1].getTreasures().size()>0)
+                assertEquals(scores,ps[arg0-1].getInfo()[0]);
+            else
+                assertEquals(0,ps[arg0-1].getInfo()[0]);
         }
     }
 

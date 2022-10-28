@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pirate/Runner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/AcceptanceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/FortuneCardTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pirate/PlayerStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/PlayerStepDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/PartThree.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PartThree.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/PlayerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/pirate/FortuneCardTest.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/PartThree.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/pirate/PartThree.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/SinglePlayerScoring.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/pirate/SinglePlayerScoring.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +63,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/Users/god/Desktop/COMP5104A1/src/test/resources",
+    "last_opened_file_path": "/Users/god/Desktop/COMP5104A1",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -71,6 +78,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources/pirate" />
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -83,11 +91,10 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Feature: FortuneCardTest">
-    <configuration name="Feature: FortuneCardTest" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="Feature: FortuneCardTest (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
-      <option name="GLUE" value="pirate" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/pirate/FortuneCardTest.feature" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="COMP5104A1" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
@@ -103,14 +110,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Feature: PartThree" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Feature: FortuneCardTest" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/PartThree.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
       <option name="GLUE" value="pirate" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="COMP5104A1" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <option name="SUGGESTED_NAME" value="Feature: PartThree" />
+      <option name="SUGGESTED_NAME" value="Feature: FortuneCardTest" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -141,15 +148,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: row 122 player1 rolls 7 swords + 1 skull with FC captain (gets 4000 points - could win)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/FortuneCardTest.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/pirate/PartThree.feature" />
       <option name="GLUE" value="pirate" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="COMP5104A1" />
-      <option name="NAME_FILTER" value="^Row 84 roll 2 skulls\, 3 parrots\, 3 coins\,put 3 coins in chest$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Row 84 roll 2 skulls\, 3 parrots\, 3 coins\,put 3 coins in chest$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest" />
+      <option name="NAME_FILTER" value="^row 122 player1 rolls 7 swords \+ 1 skull with FC captain \(gets 4000 points \- could win\)$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^row 122 player1 rolls 7 swords \+ 1 skull with FC captain \(gets 4000 points \- could win\)$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: row 122 player1 rolls 7 swords + 1 skull with FC captain (gets 4000 points - could win)" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -161,18 +168,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AcceptanceTest.Test131" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: row 37 die with 3 skulls 5 swords on first roll and player gets a score of 0" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/pirate/SinglePlayerScoring.feature" />
+      <option name="GLUE" value="pirate" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="COMP5104A1" />
+      <option name="NAME_FILTER" value="^row 37 die with 3 skulls 5 swords on first roll and player gets a score of 0$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^row 37 die with 3 skulls 5 swords on first roll and player gets a score of 0$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: row 37 die with 3 skulls 5 swords on first roll and player gets a score of 0" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="pirate.*" />
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="pirate" />
-      <option name="MAIN_CLASS_NAME" value="pirate.AcceptanceTest" />
-      <option name="METHOD_NAME" value="Test131" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -205,11 +216,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Feature: FortuneCardTest" />
-        <item itemvalue="Cucumber Java.Feature: PartThree" />
+        <item itemvalue="Cucumber Java.Scenario: row 122 player1 rolls 7 swords + 1 skull with FC captain (gets 4000 points - could win)" />
+        <item itemvalue="Cucumber Java.Scenario: row 37 die with 3 skulls 5 swords on first roll and player gets a score of 0" />
+        <item itemvalue="Cucumber Java.Feature: FortuneCardTest (1)" />
         <item itemvalue="Cucumber Java.Feature: SinglePlayerScoring" />
-        <item itemvalue="Cucumber Java.Scenario: Row 84 roll 2 skulls, 3 parrots, 3 coins,put 3 coins in chest" />
-        <item itemvalue="JUnit.AcceptanceTest.Test131" />
+        <item itemvalue="Cucumber Java.Feature: FortuneCardTest" />
       </list>
     </recent_temporary>
   </component>
