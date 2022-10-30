@@ -7,9 +7,7 @@
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/easyCucumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/EasyCucumberSD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/CucumberTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

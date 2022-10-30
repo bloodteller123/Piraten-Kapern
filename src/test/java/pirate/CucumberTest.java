@@ -1,5 +1,6 @@
 package pirate;
 
+import org.junit.jupiter.api.Test;
 import scs.comp5903.cucumber.EasyCucumber;
 import scs.comp5903.cucumber.execution.JFeature;
 
@@ -7,8 +8,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Runner {
-    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
+public class CucumberTest {
+//    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
+    @Test
+    public void cucumberTest() throws InvocationTargetException, IllegalAccessException {
         Path single_feature= Paths.get("src/test/resources/SinglePlayerScoring.feature");
         JFeature jFeature_single_feature= EasyCucumber.build(single_feature,new EasyCucumberSD());
 
