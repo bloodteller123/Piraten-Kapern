@@ -28,6 +28,7 @@ public class Client {
                     new InputStreamReader(System.in));
             System.out.println("Client Constructor");
         } catch (IOException ex) {
+            System.out.println(ex);
             System.out.println("Client failed to open");
         }
     }
@@ -71,9 +72,9 @@ public class Client {
 //                System.out.println("received");
 //                System.out.println(s);
                 if(s.equals("turn")){
-                    System.out.println("before play()");
+                    System.out.println("before turn starts");
                     player.play((String)dIn.readObject());
-                    System.out.println("after play()");
+                    System.out.println("after turn ends");
                     System.out.println("You obtained "+player.getInfo()[0] + " scores in this turn");
                     System.out.println("Now wait for other players");
                     dOut.writeObject(player.getInfo());
