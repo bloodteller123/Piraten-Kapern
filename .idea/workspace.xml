@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9cb4c991-1580-4e62-9345-5edc519b832d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pirate/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pirate/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pirate/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pirate/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +82,7 @@
       <recent name="pirate" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Cucumber Java.Feature: FortuneCardTest">
     <configuration name="Feature: FortuneCardTest (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/pirate/FortuneCardTest.feature" />

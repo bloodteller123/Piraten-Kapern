@@ -369,15 +369,19 @@ public class Player implements Serializable {
     public void printDice() {
         System.out.println(" _Dice0_    _Dice1_    _Dice2_    _Dice3_    _Dice4_    _Dice5_    _Dice6_    _Dice7_");
         System.out.println("_________  _________  _________  _________  _________  _________  _________  _________  ");
-        System.out.println("|" + this.dice.get(0).toString()
-                + "|  |" + this.dice.get(1).toString()
-                + "|  |" +this.dice.get(2).toString()
-                + "|  |" + this.dice.get(3).toString()
-                + "|  |" + this.dice.get(4).toString()
-                + "|  |" + this.dice.get(5).toString()
-                + "|  |" + this.dice.get(6).toString()
-                + "|  |" + this.dice.get(7).toString() + "|");
+        System.out.println("|" + prettyString(this.dice.get(0).toString())
+                + "|  |" + prettyString(this.dice.get(1).toString())
+                + "|  |" +prettyString(this.dice.get(2).toString())
+                + "|  |" + prettyString(this.dice.get(3).toString())
+                + "|  |" + prettyString(this.dice.get(4).toString())
+                + "|  |" + prettyString(this.dice.get(5).toString())
+                + "|  |" + prettyString(this.dice.get(6).toString())
+                + "|  |" + prettyString(this.dice.get(7).toString()) + "|");
         System.out.println("_________  _________  _________  _________  _________  _________  _________  _________  ");
+    }
+    public String prettyString(String s){
+        while(s.length()<7) s+=" ";
+        return s;
     }
     public void printFortuneDice(Set<String> set) {
         StringBuilder sb = new StringBuilder();
