@@ -56,7 +56,7 @@ public class Player implements Serializable {
     public void endGame(){
         setScore(0);
         quit=true;
-        if(this.treasures!=null){
+        if(this.treasures!=null && this.treasures.size()>0){
             List<Die> tres = buildTreasureList();
             calculateScore(tres);
         }
