@@ -57,7 +57,6 @@ public class Player implements Serializable {
         setScore(0);
         quit=true;
         if(this.treasures!=null && this.treasures.size()>0){
-//            System.out.println("here");
             List<Die> tres = buildTreasureList();
             calculateScore(tres);
         }
@@ -219,7 +218,7 @@ public class Player implements Serializable {
     public void calculateScore(List<Die> ld){
 //        System.out.println("inside calculateScore: "+ld);
         if(this.seabattles > (int) ld.stream().filter(die -> die.getFace().trim().equalsIgnoreCase("saber")).count()
-        || (this.seabattles >0 && this.skulls_index.size() >=3 )){
+                || (this.seabattles >0 && this.skulls_index.size() >=3 )){
             this.deductedPoints = seabattles_score.get(this.seabattles) * (-1);
         }else {
             int monkey=0;
@@ -257,7 +256,7 @@ public class Player implements Serializable {
                     case 9:
                         XofAKind = 4000;
                         break;
-                        default: XofAKind=0;
+                    default: XofAKind=0;
                 }
                 switch(i.toString().trim()){
                     case "skull":
@@ -370,15 +369,19 @@ public class Player implements Serializable {
     public void printDice() {
         System.out.println(" _Dice0_    _Dice1_    _Dice2_    _Dice3_    _Dice4_    _Dice5_    _Dice6_    _Dice7_");
         System.out.println("_________  _________  _________  _________  _________  _________  _________  _________  ");
-        System.out.println("|" + this.dice.get(0).toString()
-                + "|  |" + this.dice.get(1).toString()
-                + "|  |" +this.dice.get(2).toString()
-                + "|  |" + this.dice.get(3).toString()
-                + "|  |" + this.dice.get(4).toString()
-                + "|  |" + this.dice.get(5).toString()
-                + "|  |" + this.dice.get(6).toString()
-                + "|  |" + this.dice.get(7).toString() + "|");
+        System.out.println("|" + prettyString(this.dice.get(0).toString())
+                + "|  |" + prettyString(this.dice.get(1).toString())
+                + "|  |" +prettyString(this.dice.get(2).toString())
+                + "|  |" + prettyString(this.dice.get(3).toString())
+                + "|  |" + prettyString(this.dice.get(4).toString())
+                + "|  |" + prettyString(this.dice.get(5).toString())
+                + "|  |" + prettyString(this.dice.get(6).toString())
+                + "|  |" + prettyString(this.dice.get(7).toString() + "|"));
         System.out.println("_________  _________  _________  _________  _________  _________  _________  _________  ");
+    }
+    public String prettyString(String s){
+        while(s.length()<7) s+=" ";
+        return s;
     }
     public void printFortuneDice(Set<String> set) {
         StringBuilder sb = new StringBuilder();
@@ -393,7 +396,7 @@ public class Player implements Serializable {
         sb.append("\n");
 
         for(String i: set){
-            sb.append("|" + this.dice.get(Integer.parseInt(i)).toString()+ "|  ");
+            sb.append("|" + prettyString(this.dice.get(Integer.parseInt(i)).toString())+ "|  ");
         }
         sb.append("\n");
         for(String i: set){
